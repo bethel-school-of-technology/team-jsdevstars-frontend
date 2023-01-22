@@ -1,0 +1,11 @@
+.btn-login{
+  margin:10px;
+}
+
+.login{
+  background-color: white;
+  max-width: 600px;
+  padding:10px 10px;
+  background-color: rgb(62, 62, 74);
+  justify-content: center;
+}
