@@ -5,7 +5,7 @@ import '../styles/Home.css';
 function Home() {
   return (
     <div>
-      <h3>Welcome to our site</h3>
+      <h2>Welcome to our site</h2>
       <div className="carousel">
         <Carousel>
           <Carousel.Item interval={3000}>
