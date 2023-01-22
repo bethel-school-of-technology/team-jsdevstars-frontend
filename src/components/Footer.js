@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 function Footer() {
   return (
     <div className='footer'>
-      <p>© 2023 | JSDevStars | </p>
+      <p>© 2023 | JSDevStars </p>
     </div>
   );
 }
