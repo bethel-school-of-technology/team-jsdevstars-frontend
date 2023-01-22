@@ -1,10 +1,11 @@
 import React from 'react';
+import '../styles/Footer.css';
 
 function Footer() {
   return (
-    <footer>
+    <div className='footer'>
       <p>© 2023 | JSDevStars | </p>
-    </footer>
+    </div>
   );
 }
 
