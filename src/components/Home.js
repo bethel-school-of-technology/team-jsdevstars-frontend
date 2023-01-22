@@ -5,6 +5,7 @@ import '../styles/Home.css';
 function Home() {
   return (
     <div>
+      <h3>Welcome to our site</h3>
       <div className="carousel">
         <Carousel>
           <Carousel.Item interval={3000}>
@@ -21,7 +22,7 @@ function Home() {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
-              src="https://media.istockphoto.com/id/1297798323/photo/emotional-development.jpg?b=1&s=170667a&w=0&k=20&c=1kMAf8nR3C6xy9Gt79Ps47HPUZveQzWIJQaeGj_rj0E="
+              src="https://images.unsplash.com/photo-1612173562294-8a977ef9d895?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGJsYWNrJTIwZmF0aGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
               alt="Second slide"
             />
             <Carousel.Caption>
