@@ -3,9 +3,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../styles/Home.css';
 
 function Home() {
+  let date = new Date();
   return (
     <div>
-      <h3>Welcome to our site</h3>
       <div className="carousel">
         <Carousel>
           <Carousel.Item interval={3000}>

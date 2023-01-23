@@ -1,10 +1,12 @@
 import React from 'react';
+import '../styles/Forum.css';
 
 function Forum() {
   return (
-    <div>
-      <h1>Forum page</h1>
-    </div>
+    <>
+      <h1>Forum</h1>
+
+    </>
   )
 }
 

@@ -1,9 +1,15 @@
 .header{
     background-color: rgb(38, 45, 56);
     color: #fff;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     }
   
 .nav-link{
     color: white;
+}
+
+.header--title{
+      text-align: center;
 }
