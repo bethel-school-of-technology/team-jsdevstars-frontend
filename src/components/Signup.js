@@ -1,9 +1,13 @@
 import React from 'react';
+import '../styles/Signup.css'
 
 function Signup() {
   return (
-    <h1>Sign up page</h1>
-  )
+    <div>
+
+    </div>
+  );
 }
+
 
 export default Signup;
