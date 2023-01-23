@@ -2,15 +2,27 @@ import React from "react";
 import '../styles/Header.css';
 import { Link, Routes, Route } from "react-router-dom";
 import { Nav } from 'react-bootstrap';
-import Signup from "./Signup";
 import Login from "./Login";
+import Signup from "./Signup";
+import FormFloatingBasicExample from "./Signup";
 
 function Header() {
   return (
     <>
-      <div className="header">
+      <div className="navbar">
         <h1>For dads</h1>
-        </div>
+        <Nav>
+          <Link className="header nav-link text-white" to="/signup">Signup</Link>
+          <Link className="header nav-link text-white" to="/login">Login</Link>
+        </Nav>
+      </div>
+
+      <div>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
+      </div>
     </>
   );
 }
