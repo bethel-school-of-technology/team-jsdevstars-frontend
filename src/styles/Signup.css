@@ -1,3 +1,6 @@
-.signup{
-  background-color: white;
+.mb-3 {
+    padding: 10px 15px;
+    max-width: 600px;
+    float: none;
+    margin: 0 auto;
 }
