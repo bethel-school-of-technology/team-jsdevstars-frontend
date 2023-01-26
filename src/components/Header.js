@@ -6,9 +6,6 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 function Header() {
-const Header =()=>{
-  return <div style={{ position: 'absolute', top: '0', left: '0' }}></div>;
-}
   return (
     <>
       <div className="header">

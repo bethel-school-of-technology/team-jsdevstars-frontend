@@ -2,7 +2,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styles/Login.css';
-import Header from './Header';
 
 function Login() {
   const submitText = "Let's go!";

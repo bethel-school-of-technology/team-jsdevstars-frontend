@@ -6,8 +6,6 @@ import Forum from "./Forum";
 import Articles from './Articles';
 import Home from "./Home";
 import '../styles/Navbar.css'
-import Signup from "./Signup";
-import Login from "./Login";
 
 function Navbar() {
   return (
