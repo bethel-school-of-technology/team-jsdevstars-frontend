@@ -49,16 +49,23 @@ const Resources = () => {
           </Table>
         </div>
 
-        <div className="col-md-4">
+        <div className="first-video col-md-6">
           <h3>Mental Health</h3>
           <ReactPlayer url='https://www.youtube.com/watch?v=F3twI-qNeiY'></ReactPlayer>
-          <div className="video-container"> <br />
+          <div className="video-container">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam recusandae nobis animi sit inventore! Doloremque harum dignissimos maiores temporibus.</p>
           </div>
         </div>
 
-        <div className="col-md-4">
-          <h3>Dads </h3>
+        <div className="col-md-7">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quas vitae harum modi! Maxime expedita molestiae vel veritatis et corrupti ipsam blanditiis beatae explicabo eum nulla iusto maiores suscipit sequi, possimus sit illo provident. Distinctio doloremque ea adipisci laborum autem quo sequi neque dolorem nisi, aperiam nulla exercitationem cupiditate sint?
+          </p>
+
+
+        </div>
+
+        <div className="col-md-9">
+          <h3>Dads & daughters</h3>
           <ReactPlayer url='https://www.youtube.com/watch?v=WCjsch0F4Vk'></ReactPlayer>
           <div className="video-container"> <br />
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nam recusandae nobis animi sit inventore! Doloremque harum dignissimos maiores temporibus.</p>
