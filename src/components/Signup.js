@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 function Signup() {
-  const signupBtn = "Click me!";
+  const signupBtn = "Sign up!";
   return (
     <div className="mb-3">
       <Form>
@@ -16,16 +16,16 @@ function Signup() {
           <Form.Control type="lastName" required placeholder="Enter Last Name" />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Email Username</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control type="username" required placeholder="Enter Username" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" required placeholder="Enter Email" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" required placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" required placeholder="Enter Email" />
         </Form.Group>
         <Button className="btn-login" variant="primary" type="submit">
           {signupBtn}
