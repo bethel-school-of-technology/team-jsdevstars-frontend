@@ -2,7 +2,8 @@ import React from "react";
 import '../styles/Header.css';
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
+
   return (
     <>
       <div className="header">

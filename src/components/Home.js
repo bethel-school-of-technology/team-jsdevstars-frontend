@@ -6,7 +6,6 @@ function Home() {
 
   return (
     <div>
-      <h1> add dark mode</h1>
       <div className="carousel">
         <Carousel>
           <Carousel.Item interval={3000}>
