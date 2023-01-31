@@ -3,6 +3,7 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Forum.css';
 
+
 function Forum() {
 
   const [postTitle, setPostTitle] = useState('');
@@ -21,7 +22,7 @@ function Forum() {
 
   const clickToPost = (e) => {
     e.preventDefault();
-    prompt()
+
   }
 
   const handleClick = (index) => {
@@ -32,12 +33,20 @@ function Forum() {
     alert('Reply to this topic');
   }
 
-  function handleEdit() {
-    alert('Edit this topic');
-  }
+  const handleEdit = (post) => {
+    const newPost = {
+      selectedTitle: prompt('Enter the new title'),
+      selectedPost: prompt('Enter the new content')
+    };
+    const updatedPosts = [...posts];
+    updatedPosts[posts.indexOf(post)] = newPost;
+    setPosts(updatedPosts);
+  };
 
-  function handleDelete() {
-    alert('Delete this topic');
+  const handleDelete = () => {
+    setSelectedPost([]);
+    setPostTitle([]);
+    setPosts([]);
   }
 
   return (
@@ -50,7 +59,7 @@ function Forum() {
             placeholder='What is your topic?'
             required
             type='text'
-            v-model="text" pattern="[a-zA-Z\s&\d]"
+            v-model="text" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
             value={postTitle}
             onChange={(e) => setPostTitle(e.target.value)}
           />
@@ -62,8 +71,9 @@ function Forum() {
             required
             placeholder='Let your imagination run wild!'
             as='textarea' rows={5}
-            v-model="text" pattern="[a-zA-Z\s&\d]"
+            v-model="textArea" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
             value={postContent}
+            // {/* textare is not validating */}
             onChange={(e) => setPostContent(e.target.value)}
           />
           <br />
@@ -117,7 +127,6 @@ function Forum() {
     </>
   )
 }
-
 export default Forum;
 
 //npm install profanity-filter --save

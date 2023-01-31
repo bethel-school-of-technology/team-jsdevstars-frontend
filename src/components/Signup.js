@@ -4,16 +4,32 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+//import UserContext from '../contexts/UserContext';
 
 function Signup() {
+  // const [username, setUsername] = useState(""); //
+  // const [password, setPassword] = useState(""); //
   const signupBtn = "Sign up!";
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
+  // let { createUser } = useContext(UserContext);
 
   const handleClose = () => {
     setShow(false)
     navigate('/')
   }
+
+  // eslint-disable-next-line
+  {/* 
+function handleSubmit(e) {
+  e.preventDefault();
+  // createUser(username, password);
+  // setUsername("");
+  // setPassword("");
+  navigate('/login');
+}
+*/}
 
   const handleShow = () => setShow(true);
 
@@ -30,6 +46,7 @@ function Signup() {
         <Modal.Body>
           <div className="mb-3">
             <Form>
+              {/* <Form={handleSubmit}>/ */}
               <Form.Group className="mb-3" controlId="formGroupEmail"><br />
                 <Form.Label>First name</Form.Label>
                 <Form.Control type="firstName" required placeholder="Enter First Name" />
