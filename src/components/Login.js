@@ -1,31 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styles/Login.css';
-import Header from './Header';
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
   const submitText = "Let's go!";
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    setShow(false);
+    navigate('/')
+  }
+
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleShow()
+  }, []);
+
   return (
-    <div className="mb-3">
-      <Form>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
-          <h1>Log in to start posting!</h1>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button className="btn-login" variant="primary" type="submit">
-          {submitText}
-        </Button>
-      </Form>
-    </div>
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title><h1>Login to start posting!</h1></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="mb-3">
+            <Form>
+              <Form.Group className="mb-3" controlId="formGroupEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Button className="btn-login" variant="primary" type="submit">
+                {submitText}
+              </Button>
+            </Form>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }
 
 export default Login;
-
-
