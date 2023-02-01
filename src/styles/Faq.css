@@ -1,0 +1,24 @@
+/* / Import Bootstrap */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* FAQ styles */
+.faq {
+  padding: 2rem;
+}
+
+.faq h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faq h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.faq p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+  
