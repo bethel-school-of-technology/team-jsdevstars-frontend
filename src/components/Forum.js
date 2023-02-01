@@ -3,15 +3,14 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Forum.css';
 
-
 function Forum() {
-
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
+  const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
+  const [updatedContentPost, setUpdatedContentPost] = useState([]);
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [like, setLike] = useState(false);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,34 +19,24 @@ function Forum() {
     setPostContent('');
   };
 
-  const clickToPost = (e) => {
-    e.preventDefault();
-
-  }
-
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
-  }
+  };
 
-  function handleReply() {
+  const handleEdit = () => {
+    const newTitle = prompt('Edit your title');
+    setPostTitle(newTitle);
+  };
+
+  const handleReply = () => {
     alert('Reply to this topic');
-  }
-
-  const handleEdit = (post) => {
-    const newPost = {
-      selectedTitle: prompt('Enter the new title'),
-      selectedPost: prompt('Enter the new content')
-    };
-    const updatedPosts = [...posts];
-    updatedPosts[posts.indexOf(post)] = newPost;
-    setPosts(updatedPosts);
   };
 
   const handleDelete = () => {
-    setSelectedPost([]);
     setPostTitle([]);
     setPosts([]);
-  }
+    setSelectedPost([]);
+  };
 
   return (
     <>
@@ -70,10 +59,10 @@ function Forum() {
           <Form.Control
             required
             placeholder='Let your imagination run wild!'
-            as='textarea' rows={5}
-            v-model="textArea" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
+            as='textarea'
+            rows={5}
             value={postContent}
-            // {/* textare is not validating */}
+            v-model="text" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
             onChange={(e) => setPostContent(e.target.value)}
           />
           <br />
@@ -95,10 +84,6 @@ function Forum() {
             <hr />
           </div>
         ))}
-
-        <div className='click-to-post'>
-          <p onClick={clickToPost}>Click to post <span role='img' aria-labelledby='write'>📝 </span> </p>
-        </div>
       </div>
 
       <div className='forum-content'>
@@ -125,8 +110,10 @@ function Forum() {
         )}
       </div>
     </>
-  )
-}
+  );
+};
+
+
 export default Forum;
 
 //npm install profanity-filter --save
