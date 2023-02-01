@@ -25,7 +25,11 @@ function Forum() {
 
   const handleEdit = () => {
     const newTitle = prompt('Edit your title');
-    setPostTitle(newTitle);
+    setUpdatedTitlePost([newTitle]);
+    const newContent = prompt('Edit your comment');
+    setUpdatedContentPost([...updatedContentPost, newContent]);
+    setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
+    setSelectedPost([]);
   };
 
   const handleReply = () => {
@@ -48,7 +52,7 @@ function Forum() {
             placeholder='What is your topic?'
             required
             type='text'
-            v-model="text" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
+            v-model="text" pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" title="Letters and numbers only"
             value={postTitle}
             onChange={(e) => setPostTitle(e.target.value)}
           />
@@ -62,7 +66,7 @@ function Forum() {
             as='textarea'
             rows={5}
             value={postContent}
-            v-model="text" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
+            v-model="text" pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" title="Letters and numbers only"
             onChange={(e) => setPostContent(e.target.value)}
           />
           <br />
