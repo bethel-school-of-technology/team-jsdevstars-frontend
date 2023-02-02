@@ -29,7 +29,7 @@ function Home() {
   }
   return (
     <div className='randomAdvice'>
-      <h4 id="advTitle">Advice for the Day</h4>
+      <h4 id="advTitle">Advice of the Day</h4>
       <p id="advice"></p>
 
       <div className="carousel">

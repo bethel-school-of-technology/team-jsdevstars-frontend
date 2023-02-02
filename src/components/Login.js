@@ -31,8 +31,8 @@ function Login() {
           <div className="mb-3">
             <Form>
               <Form.Group className="mb-3" controlId="formGroupEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="userName" placeholder="Enter username" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>

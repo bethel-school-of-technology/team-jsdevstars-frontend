@@ -22,8 +22,7 @@ function Forum() {
   // const handleSubmit = (e) => {
   //   console.log('handleSubmit')
   //   e.preventDefault();
-  //   Forum.createElement({
-  //     // userId: user.id,
+  //   Context provider // 
   //     topicHeading: postTitle,
   //     topicBody: postContent
   //   }).then(post => {
@@ -46,13 +45,6 @@ function Forum() {
     setSelectedPost([]);
   };
 
-  // function handleChange(event) {
-  //   setPosts((prevValue) => {
-  //     return { ...prevValue, [event.target.name]: event.target.value }
-  //   });
-  // }
-
-
   const handleReply = () => {
     alert('Reply to this topic');
   };
@@ -70,7 +62,7 @@ function Forum() {
         <Form.Group className='forum-window'>
           <Form.Label>Title:</Form.Label>
           <Form.Control
-            placeholder='What is your topic?'
+            placeholder='What is the title?'
             required
             type='text'
             v-model="text" pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" title="Letters and numbers only"
