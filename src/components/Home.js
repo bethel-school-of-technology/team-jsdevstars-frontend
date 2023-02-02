@@ -3,8 +3,35 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../styles/Home.css';
 
 function Home() {
+  let myRequest = new XMLHttpRequest();
+  myRequest.open('GET', 'https://api.adviceslip.com/advice', true);
+  myRequest.send();
+
+  myRequest.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+
+        let myResponse = JSON.parse(this.responseText);
+
+        let myDiv = document.createElement('div')
+
+        let adviceTag = document.getElementById('advice');
+        adviceTag.innerHTML = myResponse.slip.advice;
+
+        document.body.appendChild(myDiv);
+
+      } else {
+
+        console.log('error processing request')
+      }
+
+    }
+  }
   return (
-    <div>
+    <div className='randomAdvice'>
+      <h4 id="advTitle">Advice for the Day</h4>
+      <p id="advice"></p>
+
       <div className="carousel">
         <Carousel>
           <Carousel.Item interval={3000}>

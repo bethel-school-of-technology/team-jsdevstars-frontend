@@ -17,7 +17,21 @@ function Forum() {
     setPosts([...posts, { title: postTitle, content: postContent }]);
     setPostTitle('');
     setPostContent('');
-  };
+  }
+
+  // const handleSubmit = (e) => {
+  //   console.log('handleSubmit')
+  //   e.preventDefault();
+  //   Forum.createElement({
+  //     // userId: user.id,
+  //     topicHeading: postTitle,
+  //     topicBody: postContent
+  //   }).then(post => {
+  //     setPosts([...posts, { title: postTitle, content: postContent }]);
+  //     setPostTitle('');
+  //     setPostContent('');
+  //   });
+  // };
 
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
@@ -31,6 +45,13 @@ function Forum() {
     setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
     setSelectedPost([]);
   };
+
+  // function handleChange(event) {
+  //   setPosts((prevValue) => {
+  //     return { ...prevValue, [event.target.name]: event.target.value }
+  //   });
+  // }
+
 
   const handleReply = () => {
     alert('Reply to this topic');
