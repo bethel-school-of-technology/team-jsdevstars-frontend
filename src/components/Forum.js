@@ -125,11 +125,11 @@ function Forum() {
         )}
       </div>
 
-      <Modal show={showEditPost} onHide={handleClose}>
-        <Modal.Header>
+      <Modal className='forum-edit' show={showEditPost} onHide={handleClose}>
+        <Modal.Header className='forum-edit'>
           <Modal.Title>Edit Post</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='forum-edit'>
           <Form>
             <Form.Group>
               <Form.Label>Title:</Form.Label>
@@ -140,17 +140,17 @@ function Forum() {
               />
             </Form.Group>
 
-            <Form.Group className='forum-footer'>
+            <Form.Group>
               <Form.Label>Content:</Form.Label>
               <Form.Control
-                as = "textarea"
-                placeholder="Edit your post"
+                as="textarea"
+                placeholder="Edit post"
                 id="edit-content"
               />
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer className='forum-footer'>
+        <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
           <Button variant="primary" onClick={handleSave}>Save</Button>
         </Modal.Footer>

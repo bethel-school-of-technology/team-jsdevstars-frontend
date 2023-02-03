@@ -3,15 +3,17 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './styles/App.css'
 import Header from './components/Header';
+import { UserProvider } from './contexts/UserProvider';
 
 function App() {
-
   return (
     <>
       <div className='App'>
-        <Header />
-        <Navbar />
-        <Footer />
+        <UserProvider>
+          <Header />
+          <Navbar />
+          <Footer />
+        </UserProvider>
       </div>
     </>
   );

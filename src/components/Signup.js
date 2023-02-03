@@ -11,15 +11,16 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
   const [show, setShow] = useState(false);
   const signupBtn = "Sign up!";
-  let createUser = useContext(UserContext);
+  let { createUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    createUser(userName, password, firstName, lastName)
+    createUser(firstName, lastName, userName, email, password)
       .then(() => {
         navigate('/login');
       }).catch(error => {
@@ -66,15 +67,18 @@ const SignUp = () => {
                   value={userName}
                   onChange={e => setUserName(e.target.value)} />
               </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" required placeholder="Enter Email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" required placeholder="Password"
                   value={password}
                   onChange={e => setPassword(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" required placeholder="Enter Email" />
               </Form.Group>
               <Button className="btn-login" variant="primary" type="submit">
                 {signupBtn}

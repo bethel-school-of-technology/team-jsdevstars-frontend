@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 export const UserProvider = (props) => {
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const baseUrl = 'http://localhost:3000/api/users';
 
   useEffect(() => {
@@ -13,8 +13,8 @@ export const UserProvider = (props) => {
     }
   })
 
-  function createUser(userName, password, firstName, lastName) {
-    let user = { userName, password, firstName, lastName };
+  function createUser(firstName, lastName, userName, email, password) {
+    let user = { firstName, lastName, userName, email, password };
     return axios.post(baseUrl, user)
       .then(response => {
         return new Promise(resolve => resolve
@@ -35,8 +35,8 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider value={{
-      createUser,
-      signInUser
+      createUser
+      // signInUser
     }}>
       {props.children}
     </UserContext.Provider>
