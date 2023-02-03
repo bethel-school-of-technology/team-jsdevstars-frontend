@@ -1,57 +1,81 @@
-import { React, useState } from 'react';
-import '../styles/Signup.css'
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+//import UserContext from '../contexts/UserContext';
 
-function SignUp() {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [username, setUsername] = useState('');
+function Signup() {
+  // const [username, setUsername] = useState(""); //
+  // const [password, setPassword] = useState(""); //
+  const signupBtn = "Sign up!";
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   alert(`Welcome ${firstName} ${lastName}! 
-  //       Your registered email is: ${email}`);
-  //   // setFirstName('');
-  //   // setLastName('');
-  //   // setEmail('');
-  //   // setPassword('');
-  //   // setUsername('');
-  //   e.preventDefault();
+  // let { createUser } = useContext(UserContext);
+
+  const handleClose = () => {
+    setShow(false)
+    navigate('/')
+  }
+
+  // eslint-disable-next-line
+  {/* 
+function handleSubmit(e) {
+  e.preventDefault();
+  // createUser(username, password);
+  // setUsername("");
+  // setPassword("");
+  navigate('/login');
+}
+*/}
+
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleShow()
+  }, []);
 
   return (
-    <div className='mb-3'>
-      <h3>Dad, fill it out with your information</h3>
-      <Form>
-        <Form.Group className="mb-3" controlId="formGroupFirstName">
-          <Form.Label>First name</Form.Label>
-          <Form.Control type="text" placeholder="Enter first name" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupLastName">
-          <Form.Label>Last name</Form.Label>
-          <Form.Control type="text" placeholder="Enter last name" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Enter username" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button className="btn-login" variant="primary" type="submit">
-          Sign up!
-        </Button>
-      </Form>
-    </div>
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title><h1>Sign up, awesome Dad!</h1></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="mb-3">
+            <Form>
+              {/* <Form={handleSubmit}>/ */}
+              <Form.Group className="mb-3" controlId="formGroupEmail"><br />
+                <Form.Label>First name</Form.Label>
+                <Form.Control type="firstName" required placeholder="Enter First Name" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Last name</Form.Label>
+                <Form.Control type="lastName" required placeholder="Enter Last Name" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="username" required placeholder="Enter Username" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" required placeholder="Password" />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" required placeholder="Enter Email" />
+              </Form.Group>
+              <Button className="btn-login" variant="primary" type="submit">
+                {signupBtn}
+              </Button>
+            </Form>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }
 
-export default SignUp;
-
-
+export default Signup;

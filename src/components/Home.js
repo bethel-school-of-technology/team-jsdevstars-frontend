@@ -3,7 +3,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../styles/Home.css';
 
 function Home() {
-  let date = new Date();
   return (
     <div>
       <div className="carousel">
@@ -87,5 +86,6 @@ function Home() {
     </div>
   );
 };
+
 
 export default Home;

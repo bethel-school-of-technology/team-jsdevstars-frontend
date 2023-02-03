@@ -5,10 +5,14 @@
 
 .articles-cards {
   float: left;
-  padding: 20px 20px 10px 10px;
+  padding: 20px 20px 340px 10px;
+  width:34%
 }
 
-.main-container {
-  max-width: 1250px;
+.main--container {
   padding: 19px;
+    display: flex;
+    justify-content: left;
+      flex-wrap: wrap;
+      width: 100;
 }
