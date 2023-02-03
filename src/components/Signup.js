@@ -19,8 +19,8 @@ const SignUp = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    createUser(userName, password, firstName, lastName).
-      then(() => {
+    createUser(userName, password, firstName, lastName)
+      .then(() => {
         navigate('/login');
       }).catch(error => {
         console.log(error);
