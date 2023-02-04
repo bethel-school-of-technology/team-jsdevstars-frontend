@@ -1,14 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom'
+import UserContext from '../contexts/UserContext';
 
-function Login() {
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  let { loginUser } = useContext(UserContext);
+  let navigate = useNavigate();
+
   const submitText = "Let's go!";
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    loginUser(email, password).then(() => {
+      navigate('/');
+    }).catch(error => {
+      console.log(error);
+      window.alert('Failed login, please try again')
+    })
+  }
 
   const handleClose = () => {
     setShow(false);
@@ -29,14 +45,20 @@ function Login() {
         </Modal.Header>
         <Modal.Body>
           <div className="mb-3">
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formGroupEmail">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="userName" placeholder="Enter username" />
+                <Form.Control type="email"
+                  value={email}
+                  placeholder="Enter email"
+                  onChange={e => setEmail(e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  placeholder="Password" />
               </Form.Group>
               <Button className="btn-login" variant="primary" type="submit">
                 {submitText}

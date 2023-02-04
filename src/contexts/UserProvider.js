@@ -23,20 +23,23 @@ export const UserProvider = (props) => {
   };
 
 
-  function signInUser(userName, password) {
-    let user = { userName, password };
+  function loginUser(email, password) {
+    let user = { email, password };
+
     return axios.post(`${baseUrl}/login`, user)
       .then(response => {
-        localStorage.setItem('myPostsToken', response.data.token)
-        return new Promise(resolve => resolve(response.data));
-      }
-      );
+        localStorage.setItem
+          ('myPostsToken', response.data.
+            token)
+        return new Promise(resolve =>
+          resolve(response.data))
+      })
   }
 
   return (
     <UserContext.Provider value={{
-      createUser
-      // signInUser
+      createUser,
+      loginUser
     }}>
       {props.children}
     </UserContext.Provider>
