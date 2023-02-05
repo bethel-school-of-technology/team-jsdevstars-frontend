@@ -2,64 +2,87 @@ import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Forum.css';
-
+import Modal from 'react-bootstrap/Modal';
 
 function Forum() {
-
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
+  const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
+  const [updatedContentPost, setUpdatedContentPost] = useState([]);
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [like, setLike] = useState(false);
-
+  const [showEditPost, setShowEditPost] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPosts([...posts, { title: postTitle, content: postContent }]);
-    setPostTitle('');
-    setPostContent('');
-  };
 
-  const clickToPost = (e) => {
-    e.preventDefault();
+    let myRequest = new XMLHttpRequest();
+    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+    myRequest.send();
 
+    myRequest.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        if (this.status === 200) {
+
+          let myResponse = JSON.parse(this.responseText);
+
+          let postTitle = myResponse.result;
+          let postContent = myResponse.result;
+
+          setPosts([...posts, { title: postTitle, content: postContent }]);
+          setPostTitle('');
+          setPostContent('');
+        }
+      }
+    }
   }
 
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
-  }
+  };
 
-  function handleReply() {
+  const handleEdit = () => {
+    setShowEditPost(true);
+  };
+
+  const handleClose = () => {
+    setShowEditPost(false);
+  };
+
+  const handleReply = () => {
     alert('Reply to this topic');
-  }
-
-  const handleEdit = (post) => {
-    const newPost = {
-      selectedTitle: prompt('Enter the new title'),
-      selectedPost: prompt('Enter the new content')
-    };
-    const updatedPosts = [...posts];
-    updatedPosts[posts.indexOf(post)] = newPost;
-    setPosts(updatedPosts);
   };
 
   const handleDelete = () => {
-    setSelectedPost([]);
     setPostTitle([]);
     setPosts([]);
+    setSelectedPost([]);
+  };
+
+  const handleSave = () => {
+    const newTitle = document.getElementById('edit-title').value;
+    setUpdatedTitlePost([newTitle]);
+    const newContent = document.getElementById('edit-content').value;
+    setUpdatedContentPost([...updatedContentPost, newContent]);
+    setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
+    setSelectedPost([]);
+    setShowEditPost(false);
   }
 
   return (
     <>
       <h1 className='mb-3'>Welcome to the forum! </h1>
-      <Form className='mb-3' onSubmit={handleSubmit}>
+      <Form className='mb-3 forum-window' onSubmit={handleSubmit}>
         <Form.Group className='forum-window'>
-          <Form.Label>Title:</Form.Label>
+          <Form.Label className='forum-window'>Title:</Form.Label>
           <Form.Control
-            placeholder='What is your topic?'
+            className='forum-window'
+            placeholder='What is the title?'
             required
             type='text'
-            v-model="text" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
+            v-model="text" pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" title="Letters and numbers only"
             value={postTitle}
             onChange={(e) => setPostTitle(e.target.value)}
           />
@@ -70,10 +93,10 @@ function Forum() {
           <Form.Control
             required
             placeholder='Let your imagination run wild!'
-            as='textarea' rows={5}
-            v-model="textArea" pattern="^[a-zA-Z0-9\s]*$" title="Letters and numbers only"
+            as='textarea'
+            rows={5}
             value={postContent}
-            // {/* textare is not validating */}
+            v-model="text" pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" title="Letters and numbers only"
             onChange={(e) => setPostContent(e.target.value)}
           />
           <br />
@@ -95,10 +118,6 @@ function Forum() {
             <hr />
           </div>
         ))}
-
-        <div className='click-to-post'>
-          <p onClick={clickToPost}>Click to post <span role='img' aria-labelledby='write'>📝 </span> </p>
-        </div>
       </div>
 
       <div className='forum-content'>
@@ -124,9 +143,40 @@ function Forum() {
           </Card>
         )}
       </div>
-    </>
-  )
-}
-export default Forum;
 
-//npm install profanity-filter --save
+      <Modal className='forum-edit' show={showEditPost} onHide={handleClose}>
+        <Modal.Header className='forum-edit'>
+          <Modal.Title>Edit Post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='forum-edit'>
+          <Form>
+            <Form.Group>
+              <Form.Label>Title:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Edit title"
+                id="edit-title"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Content:</Form.Label>
+              <Form.Control
+                as="textarea"
+                placeholder="Edit post"
+                id="edit-content"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleSave}>Save</Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
+
+
+export default Forum;

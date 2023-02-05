@@ -1,20 +1,24 @@
-.header {
-    min-height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .header h1 {
     margin-left: 5px;
 }
 
 .nav-link {
     margin-right: 30px;
+    justify-content: space-between;
 }
 
-.header-links{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  .date {
+      display: flex;
+      margin: 10px;
+      justify-content: space-between;
+  }
+
+  .header {
+      text-align: center;
+  }
+
+  .header-links {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  }
