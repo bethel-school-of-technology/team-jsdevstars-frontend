@@ -3,11 +3,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../styles/Home.css';
 
 function Home() {
-  let myRequest = new XMLHttpRequest();
-  // myRequest.open('GET', 'https://api.adviceslip.com/advice', true);
 
-  let textForChecking = 'this is some test ';
-  myRequest.open('GET', 'https://www.purgomalum.com/service/containsprofanity?text=' + textForChecking, true);
+  let myRequest = new XMLHttpRequest();
+  myRequest.open('GET', 'https://api.adviceslip.com/advice', true);
   myRequest.send();
 
   myRequest.onreadystatechange = function () {
@@ -19,8 +17,7 @@ function Home() {
         let myDiv = document.createElement('div')
 
         let adviceTag = document.getElementById('advice');
-        // adviceTag.innerHTML = myResponse.slip.advice;
-        adviceTag.innerHTML = myResponse.result;
+        adviceTag.innerHTML = myResponse.slip.advice;
 
         document.body.appendChild(myDiv);
 
@@ -28,9 +25,9 @@ function Home() {
 
         console.log('error processing request')
       }
-
     }
   }
+
   return (
     <div className='randomAdvice'>
       <h4 id="advTitle">Advice of the Day</h4>
