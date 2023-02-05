@@ -4,55 +4,52 @@ import ForumContext from "./ForumContext"
 
 export const ForumProvider = (props) => {
 
-    const [ tweet, setTweet ] = useState([]);
-    const baseUrl = "http://localhost:3000/api/tweets/";
+    const [ forumTopic, setforumTopic ] = useState([]);
+    const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
         async function fetchData() {
-            await getAllTweets();
+            await getAllTopics();
         }
         fetchData();
     }, []);
 
-    // working
-    function getAllTweets() {
-        return axios.get(baseUrl).then(response => setTweet(response.data));
+
+    function getAllTopics() {
+        return axios.get(baseUrl).then(response => setforumTopic(response.data));
     }
 
-    // not used
-    function getTweet(id) {
+
+    function getForumTopic(id) {
         return axios.get(baseUrl + id).then(response => {
             console.log(response.data)
             return new Promise(resolve => resolve(response.data))
         })
     } 
 
-    // still to test
-    function addTweet(tweet) {        
+
+    function addForumTopic(forumTopic) {        
         let myHeaders = {
-            Authorization: `Bearer ${localStorage.getItem('myTweetToken')}`
+            Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
         };
 
-        return axios.post(baseUrl, tweet, { headers: myHeaders })
+        return axios.post(baseUrl, forumTopic, { headers: myHeaders })
             .then(response => {
-                getAllTweets();
+                getAllTopics();
                 return new Promise(resolve => resolve(response.data));
             }
         );
     }
 
-    function userProfile(tweet, user) {
-
-    }
-//still to test
-    function editTweet(tweet) {
-        let token = localStorage.getItem('myTweetToken');  
+   
+    function editforumTopic(forumTopic) {
+        let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
        
 
-            return axios.put(baseUrl + tweet.tweetId, tweet, { headers: myHeaders })
+            return axios.put(baseUrl + tweet.forumId, forumTopic, { headers: myHeaders })
             .then(response => {
-                getAllTweets();
+                getAllTopics();
                 return new Promise(resolve => resolve(response.data));
             }
         );
@@ -60,26 +57,26 @@ export const ForumProvider = (props) => {
        
     }
 
-    //works
-    function deleteTweet(tweetId) {
-        let token = localStorage.getItem('myTweetToken');  
+ 
+    function deleteForumTopic(forumId) {
+        let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
 
 
-        return axios.delete(baseUrl + tweetId, { headers: myHeaders }).then(response => {
-            getAllTweets();
+        return axios.delete(baseUrl + forumId, { headers: myHeaders }).then(response => {
+            getAllTopics();
             return new Promise(resolve => resolve(response.data))
         })
     }
 
     return (
         <ForumContext.Provider value={{
-            tweet,
-            getTweet,
-            addTweet,
-            editTweet,
-            deleteTweet, 
-            userProfile,
+            forumTopic,
+            getAllTopics,
+            getForumTopic,
+            addForumTopic,
+            editforumTopic, 
+            deleteForumTopic,
 
         }}>
             { props.children }

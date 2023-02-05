@@ -10,6 +10,10 @@ import { ArticleProvider } from './contexts/ArticleProvider';
 import Forum from './components/Forum';
 import Resources from './components/Resources';
 import Articles from './components/Articles';
+import Home from './components/Home';
+import Login from './components/Login';
+import SignUp from './components/Signup';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -30,14 +34,17 @@ function App() {
                 <Navbar />
                 <Footer /> */}
                 <Route exact path="/" element={<Header />}>
+                
+                <Route exact path="/" element={<Navbar />} />
                 <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<Footer />} />
                
                <Route path="/login" element={<Login />} />
                <Route path="/signup" element={<SignUp />} />
 
                <Route path="/Forum" element={<Forum />} />
-               <Route path="/Forum/post" element={<PostTweet />} />
-               <Route path="/Forum/:ForumId" element={<UpdateTweet />} />
+               {/* <Route path="/Forum/post" element={<Post />} /> */}
+               {/* <Route path="/Forum/:ForumId" element={<UpdateComment />} /> */}
 
                <Route path="/Articles" element={<Articles />} />
 
@@ -45,7 +52,7 @@ function App() {
 
                <Route path="/users/:userId" element={<UserProfile />} />
                 </Route>
-                
+                <Route path="*" element={<h1>Adam, where are you?</h1>} />
               </Routes>
 
 
