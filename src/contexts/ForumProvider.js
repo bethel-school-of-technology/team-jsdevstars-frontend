@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ForumContext from "./ForumContext"
@@ -16,7 +17,10 @@ export const ForumProvider = (props) => {
 
 
     function getAllTopics() {
-        return axios.get(baseUrl).then(response => setforumTopic(response.data));
+        return axios.get(baseUrl)
+        .then(response => {
+            setforumTopic(response.data)
+        });
     }
 
 
@@ -47,14 +51,13 @@ export const ForumProvider = (props) => {
         let myHeaders = { Authorization: 'Bearer ' + token };
        
 
-            return axios.put(baseUrl + tweet.forumId, forumTopic, { headers: myHeaders })
+            return axios.put(baseUrl + forumTopic.forumId, forumTopic, { headers: myHeaders })
             .then(response => {
                 getAllTopics();
                 return new Promise(resolve => resolve(response.data));
             }
         );
         
-       
     }
 
  
@@ -70,14 +73,14 @@ export const ForumProvider = (props) => {
     }
 
     return (
-        <ForumContext.Provider value={{
+        <ForumContext.Provider 
+        value={{
             forumTopic,
             getAllTopics,
             getForumTopic,
             addForumTopic,
             editforumTopic, 
             deleteForumTopic,
-
         }}>
             { props.children }
         </ForumContext.Provider>

@@ -24,6 +24,7 @@ function App() {
 
           <div className='App'>
             <BrowserRouter>
+
               <nav>
                 <Link to="/signup">Sign Up</Link>
                 <span> | </span>
@@ -57,7 +58,6 @@ function App() {
 
 
             </BrowserRouter>
-
           </div>
 
         </ArticleProvider>
