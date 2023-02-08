@@ -20,39 +20,39 @@ function Forum() {
   const handleSubmit = (e) => {
    
 
-    let postTitleRequest = new XMLHttpRequest();
-    postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    postTitleRequest.send();
+    // let postTitleRequest = new XMLHttpRequest();
+    // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+    // postTitleRequest.send();
 
-    let postContentRequest = new XMLHttpRequest();
-    postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    postContentRequest.send();
+    // let postContentRequest = new XMLHttpRequest();
+    // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+    // postContentRequest.send();
 
-    postTitleRequest.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
+    // postTitleRequest.onreadystatechange = function () {
+    //   if (this.readyState === 4) {
+    //     if (this.status === 200) {
 
-          let postTitleResponse = JSON.parse(this.responseText);
+    //       let postTitleResponse = JSON.parse(this.responseText);
 
-          let postTitle = postTitleResponse.result;
+    //       let postTitle = postTitleResponse.result;
 
-          postContentRequest.onreadystatechange = function () {
-            if (this.readyState === 4) {
-              if (this.status === 200) {
+    //       postContentRequest.onreadystatechange = function () {
+    //         if (this.readyState === 4) {
+    //           if (this.status === 200) {
 
-                let postContentResponse = JSON.parse(this.responseText);
+    //             let postContentResponse = JSON.parse(this.responseText);
 
-                let postContent = postContentResponse.result;
+    //             let postContent = postContentResponse.result;
 
-                setPosts([...posts, { title: postTitle, content: postContent }]);
-                setPostTitle('');
-                setPostContent('');
-              }
-            }
-          }
-        }
-      }
-    }
+    //             setPosts([...posts, { title: postTitle, content: postContent }]);
+    //             setPostTitle('');
+    //             setPostContent('');
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
     e.preventDefault();
   }
 
@@ -83,38 +83,38 @@ function Forum() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    let updatedTitleRequest = new XMLHttpRequest();
-    updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-    updatedTitleRequest.send();
+    // let updatedTitleRequest = new XMLHttpRequest();
+    // updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
+    // updatedTitleRequest.send();
 
-    let updatedContentRequest = new XMLHttpRequest();
-    updatedContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    updatedContentRequest.send();
+    // let updatedContentRequest = new XMLHttpRequest();
+    // updatedContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
+    // updatedContentRequest.send();
 
-    updatedTitleRequest.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
+    // updatedTitleRequest.onreadystatechange = function () {
+    //   if (this.readyState === 4) {
+    //     if (this.status === 200) {
 
-          let updatedTitleResponse = JSON.parse(this.responseText);
-          let updatedTitlePost = updatedTitleResponse.result;
+    //       let updatedTitleResponse = JSON.parse(this.responseText);
+    //       let updatedTitlePost = updatedTitleResponse.result;
 
-          updatedContentRequest.onreadystatechange = function () {
-            if (this.readyState === 4) {
-              if (this.status === 200) {
+    //       updatedContentRequest.onreadystatechange = function () {
+    //         if (this.readyState === 4) {
+    //           if (this.status === 200) {
 
-                let updatedContentResponse = JSON.parse(this.responseText);
-                let updatedContentPost = updatedContentResponse.result;
+    //             let updatedContentResponse = JSON.parse(this.responseText);
+    //             let updatedContentPost = updatedContentResponse.result;
 
-                setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
-                setUpdatedTitlePost('');
-                setUpdatedContentPost('');
-                setShowEditPost(false);
-              };
-            };
-          };
-        };
-      };
-    }
+    //             setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
+    //             setUpdatedTitlePost('');
+    //             setUpdatedContentPost('');
+    //             setShowEditPost(false);
+    //           };
+    //         };
+    //       };
+    //     };
+    //   };
+    // }
   }
 
   const handleSaveReply = (e) => {
@@ -126,39 +126,39 @@ function Forum() {
     handleClose();
   }
 
-  let postTitleRequest = new XMLHttpRequest();
-  postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  postTitleRequest.send();
+  // let postTitleRequest = new XMLHttpRequest();
+  // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+  // postTitleRequest.send();
 
-  let postContentRequest = new XMLHttpRequest();
-  postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  postContentRequest.send();
+  // let postContentRequest = new XMLHttpRequest();
+  // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+  // postContentRequest.send();
 
-  postTitleRequest.onreadystatechange = function () {
-    if (this.readyState === 4) {
-      if (this.status === 200) {
+  // postTitleRequest.onreadystatechange = function () {
+  //   if (this.readyState === 4) {
+  //     if (this.status === 200) {
 
-        let postTitleResponse = JSON.parse(this.responseText);
+  //       let postTitleResponse = JSON.parse(this.responseText);
 
-        let postTitle = postTitleResponse.result;
+  //       let postTitle = postTitleResponse.result;
 
-        postContentRequest.onreadystatechange = function () {
-          if (this.readyState === 4) {
-            if (this.status === 200) {
+  //       postContentRequest.onreadystatechange = function () {
+  //         if (this.readyState === 4) {
+  //           if (this.status === 200) {
 
-              let postContentResponse = JSON.parse(this.responseText);
+  //             let postContentResponse = JSON.parse(this.responseText);
 
-              let postContent = postContentResponse.result;
+  //             let postContent = postContentResponse.result;
 
-              setPosts([...posts, { title: postTitle, content: postContent }]);
-              setPostTitle('');
-              setPostContent('');
-            }
-          }
-        }
-      }
-    }
-  }
+  //             setPosts([...posts, { title: postTitle, content: postContent }]);
+  //             setPostTitle('');
+  //             setPostContent('');
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
 
 
