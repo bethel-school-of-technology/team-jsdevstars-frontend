@@ -117,42 +117,47 @@ function Forum() {
 
   const handleSaveReply = (e) => {
     e.preventDefault();
-    alert('This is to save the reply!')
-
-    // let postTitleRequest = new XMLHttpRequest();
-    // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    // postTitleRequest.send();
-
-    // let postContentRequest = new XMLHttpRequest();
-    // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    // postContentRequest.send();
-
-    // postTitleRequest.onreadystatechange = function () {
-    //   if (this.readyState === 4) {
-    //     if (this.status === 200) {
-
-    //       let postTitleResponse = JSON.parse(this.responseText);
-
-    //       let postTitle = postTitleResponse.result;
-
-    //       postContentRequest.onreadystatechange = function () {
-    //         if (this.readyState === 4) {
-    //           if (this.status === 200) {
-
-    //             let postContentResponse = JSON.parse(this.responseText);
-
-    //             let postContent = postContentResponse.result;
-
-    //             setPosts([...posts, { title: postTitle, content: postContent }]);
-    //             setPostTitle('');
-    //             setPostContent('');
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    setSelectedPost({
+      ...selectedPost,
+      reply: reply
+    });
+    handleClose();
   }
+
+  // let postTitleRequest = new XMLHttpRequest();
+  // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+  // postTitleRequest.send();
+
+  // let postContentRequest = new XMLHttpRequest();
+  // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+  // postContentRequest.send();
+
+  // postTitleRequest.onreadystatechange = function () {
+  //   if (this.readyState === 4) {
+  //     if (this.status === 200) {
+
+  //       let postTitleResponse = JSON.parse(this.responseText);
+
+  //       let postTitle = postTitleResponse.result;
+
+  //       postContentRequest.onreadystatechange = function () {
+  //         if (this.readyState === 4) {
+  //           if (this.status === 200) {
+
+  //             let postContentResponse = JSON.parse(this.responseText);
+
+  //             let postContent = postContentResponse.result;
+
+  //             setPosts([...posts, { title: postTitle, content: postContent }]);
+  //             setPostTitle('');
+  //             setPostContent('');
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
 
 
   return (
@@ -213,6 +218,9 @@ function Forum() {
                 <h6>Title: {selectedPost.title}</h6>
                 <p>Comment: {selectedPost.content}</p>
               </Card.Text>
+              {selectedPost.reply &&
+                <p>Reply by "user": {selectedPost.reply}</p>
+              }
             </Card.Body>
             <div>
               <button onClick={() => setLike((prevLike) => !prevLike)}>
@@ -225,8 +233,7 @@ function Forum() {
               <button onClick={() => handleDelete()}><span role='img' aria-labelledby='delete'>🗑</span></button>
             </div>
           </Card>
-        )}
-      </div>
+        )}      </div>
 
       <Modal className='forum-reply' show={showReplyPost}
         onHide={handleClose}>
