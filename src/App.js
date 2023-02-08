@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter, Routes, Link } from 'react-router-dom'
-import Navbar from './components/Navbar';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import './styles/App.css'
 import Header from './components/Header';
@@ -25,19 +25,16 @@ function App() {
           <Link to="/login">Log In</Link>
         </nav>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/" element={<Header />}>
-
-            <Route exact path="/" element={<Navbar />} />
-
-            <Route exact path="/" element={<Footer />} />
+          <Route exact path="/" element={<Navigation />} >
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Header />} />
 
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
 
-            <Route path="/Forum" element={<Forum />} />
-            {/* <Route path="/Forum/post" element={<Post />} /> */}
-            {/* <Route path="/Forum/:ForumId" element={<UpdateComment />} /> */}
+            {/* <Route path="/Forum" element={<Forum />} />
+            <Route path="/Forum/post" element={<Post />} />
+            <Route path="/Forum/:ForumId" element={<UpdateComment />} /> */}
 
             <Route path="/Articles" element={<Articles />} />
 
@@ -57,4 +54,3 @@ function App() {
 }
 
 export default App;
-

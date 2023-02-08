@@ -17,26 +17,26 @@ function Forum() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let myRequest = new XMLHttpRequest();
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    myRequest.send();
+  //   let myRequest = new XMLHttpRequest();
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+  //   myRequest.send();
 
-    myRequest.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
+  //   myRequest.onreadystatechange = function () {
+  //     if (this.readyState === 4) {
+  //       if (this.status === 200) {
 
-          let myResponse = JSON.parse(this.responseText);
+  //         let myResponse = JSON.parse(this.responseText);
 
-          let postTitle = myResponse.result;
-          let postContent = myResponse.result;
+  //         let postTitle = myResponse.result;
+  //         let postContent = myResponse.result;
 
-          setPosts([...posts, { title: postTitle, content: postContent }]);
-          setPostTitle('');
-          setPostContent('');
-        }
-      }
-    }
+  //         setPosts([...posts, { title: postTitle, content: postContent }]);
+  //         setPostTitle('');
+  //         setPostContent('');
+  //       }
+  //     }
+  //   }
   }
 
   const handleClick = (index) => {
@@ -64,29 +64,29 @@ function Forum() {
   const handleSave = (e) => {
     e.preventDefault();
 
-    let myRequest = new XMLHttpRequest();
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    myRequest.send();
+  //   let myRequest = new XMLHttpRequest();
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
+  //   myRequest.send();
 
-    myRequest.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
+  //   myRequest.onreadystatechange = function () {
+  //     if (this.readyState === 4) {
+  //       if (this.status === 200) {
 
-          let myResponse = JSON.parse(this.responseText);
+  //         let myResponse = JSON.parse(this.responseText);
 
-          let newTitle = document.getElementById('edit-title').value;
-          setUpdatedTitlePost([newTitle]);
+  //         let newTitle = document.getElementById('edit-title').value;
+  //         setUpdatedTitlePost([newTitle]);
 
-          let newContent = document.getElementById('edit-content').value;
-          setUpdatedContentPost([newContent]);
+  //         let newContent = document.getElementById('edit-content').value;
+  //         setUpdatedContentPost([newContent]);
           
-          setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
-          setSelectedPost([]);
-          setShowEditPost(false);
-        }
-      }
-    }
+  //         setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
+  //         setSelectedPost([]);
+  //         setShowEditPost(false);
+  //       }
+  //     }
+  //   }
   }
 
 

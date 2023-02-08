@@ -14,7 +14,7 @@ function Header(props) {
       <div className='date'>
         {/* <DateDisplay /> */}
         <div className="header">
-          <h1>For Dads.</h1>
+          <h1> For Dads.</h1>
         </div>
         <div className="header-links">
           <Link className="nav-link text-white" to="/login">Login</Link>

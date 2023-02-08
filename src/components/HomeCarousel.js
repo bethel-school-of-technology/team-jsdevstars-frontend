@@ -1,9 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel';
+import React from 'react';
+import '../styles/Carousel.css';
 
 function CarouselFade() {
     return (
-        <div className="carousel">
-        <Carousel>
+        <Carousel fade>
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
@@ -11,7 +12,7 @@ function CarouselFade() {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
+              <h3>Working out</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -65,22 +66,8 @@ function CarouselFade() {
               </p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={3000}>
-            <img
-              className="d-block w-100"
-              src="https://images.unsplash.com/photo-1595182084742-abd9ecc0f0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGRhZCUyMHBsYXlpbmd8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-              alt="Sixth slide"
-            />
-            <Carousel.Caption>
-              <h3>Sixth slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
+          
         </Carousel>
-      </div>
-    </div>
     )
 }
 

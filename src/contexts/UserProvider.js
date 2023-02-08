@@ -9,7 +9,7 @@ export const UserProvider = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      fetchData();
+      // fetchData();
     }
   })
 

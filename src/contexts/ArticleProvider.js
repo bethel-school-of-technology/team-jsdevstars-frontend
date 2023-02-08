@@ -1,88 +1,92 @@
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ArticleContext from "./ArticleContext"
 
 export const ArticleProvider = (props) => {
 
-//     const [ tweet, setTweet ] = useState([]);
-//     const baseUrl = "http://localhost:3000/api/tweets/";
+    const [article, setArticles] = useState([]);
+    const [comment, setComment] = useState([]);
+    const baseUrl = "http://localhost:3000/api/articles/";
 
-//     useEffect(() => {
-//         async function fetchData() {
-//             await getAllTweets();
-//         }
-//         fetchData();
-//     }, []);
+    useEffect(() => {
+        async function fetchData() {
+            await refreshArticles();
+        }
+        fetchData();
+    }, []);
 
-//     // working
-//     function getAllTweets() {
-//         return axios.get(baseUrl).then(response => setTweet(response.data));
-//     }
+    function refreshArticles() {
+        return axios.get(baseUrl)
+            .then(response => {
+                setArticles(response.data)
+            })
+    }
 
-//     // not used
-//     function getTweet(id) {
-//         return axios.get(baseUrl + id).then(response => {
-//             console.log(response.data)
-//             return new Promise(resolve => resolve(response.data))
-//         })
-//     } 
+    function getArticle(id) {
+        return axios.get(baseUrl + id).then(response => {
+            console.log(response.data)
+            return new Promise(resolve => resolve(response.data))
+        })
+    }
 
-//     // still to test
-//     function addTweet(tweet) {        
-//         let myHeaders = {
-//             Authorization: `Bearer ${localStorage.getItem('myTweetToken')}`
-//         };
+    function addArticle(article) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myDadToken')}`
+        };
 
-//         return axios.post(baseUrl, tweet, { headers: myHeaders })
-//             .then(response => {
-//                 getAllTweets();
-//                 return new Promise(resolve => resolve(response.data));
-//             }
-//         );
-//     }
+        return axios.post(baseUrl, article, { headers: myHeaders })
+            .then(response => {
+                refreshArticles();
+                return new Promise(resolve => resolve(response.data));
+            }
+            );
+    }
 
-//     function userProfile(tweet, user) {
+    function userProfile(userId) {
 
-//     }
-// //still to test
-//     function editTweet(tweet) {
-//         let token = localStorage.getItem('myTweetToken');  
-//         let myHeaders = { Authorization: 'Bearer ' + token };
-       
+    }
 
-//             return axios.put(baseUrl + tweet.tweetId, tweet, { headers: myHeaders })
-//             .then(response => {
-//                 getAllTweets();
-//                 return new Promise(resolve => resolve(response.data));
-//             }
-//         );
-        
-       
-//     }
-
-//     //works
-//     function deleteTweet(tweetId) {
-//         let token = localStorage.getItem('myTweetToken');  
-//         let myHeaders = { Authorization: 'Bearer ' + token };
+    
+    function editArticle(article) {
+        let token = localStorage.getItem('myDadToken');
+        let myHeaders = { Authorization: 'Bearer ' + token };
 
 
-//         return axios.delete(baseUrl + tweetId, { headers: myHeaders }).then(response => {
-//             getAllTweets();
-//             return new Promise(resolve => resolve(response.data))
-//         })
-//     }
+        return axios.put(baseUrl + article.articleId, article, { headers: myHeaders })
+            .then(response => {
+                refreshArticles();
+                return new Promise(resolve => resolve(response.data));
+            }
+            );
 
-//     return (
-//         <ArticleContext.Provider value={{
-//             tweet,
-//             getTweet,
-//             addTweet,
-//             editTweet,
-//             deleteTweet, 
-//             userProfile,
 
-//         }}>
-//             { props.children }
-//         </ArticleContext.Provider>
-//     )
+    }
+
+
+    function deleteArticle(articleId) {
+        let token = localStorage.getItem('myDadToken');
+        let myHeaders = { Authorization: 'Bearer ' + token };
+
+
+        return axios.delete(baseUrl + articleId, { headers: myHeaders }).then(response => {
+            refreshArticles();
+            return new Promise(resolve => resolve(response.data))
+        })
+    }
+
+    return (
+        <ArticleContext.Provider value={{
+            article,
+            refreshArticles,
+            getArticle,
+            addArticle,
+            editArticle,
+            deleteArticle,
+            userProfile,
+
+        }}>
+            {props.children}
+        </ArticleContext.Provider>
+    )
 };
