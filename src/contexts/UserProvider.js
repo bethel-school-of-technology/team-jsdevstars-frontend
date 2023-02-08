@@ -1,10 +1,10 @@
 import axios from 'axios';
 import UserContext from '../contexts/UserContext';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 export const UserProvider = (props) => {
 
-  // const [users, setUsers] = useState([]);
+
   const baseUrl = 'http://localhost:3000/api/users';
 
   useEffect(() => {

@@ -25,7 +25,7 @@ function Navbar() {
       </div>
 
 
-      <div className='routes--items'>
+      {/* <div className='routes--items'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/forum' element={<Forum />} />
@@ -34,7 +34,7 @@ function Navbar() {
           <Route path="/login" element={<Login />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>
-      </div>
+      </div> */}
     </>
   );
 }
