@@ -11,3 +11,11 @@
   background: #fff;
   color: #000;
 }
+
+.posts_list {
+  width: 700px;
+  padding: 1px 15px 5px;
+  margin: 25px 5px 5px 5px;
+  border: 3px solid rgba(0, 0, 255, 0.336);
+  text-align: right;
+}

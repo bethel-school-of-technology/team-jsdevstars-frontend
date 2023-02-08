@@ -8,8 +8,11 @@ function Forum() {
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
+  const [updatedPosts, setUpdatedPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [like, setLike] = useState(false);
+  const [reply, setReply] = useState([]);
+  const [showReplyPost, setShowReplyPost] = useState(false);
   const [showEditPost, setShowEditPost] = useState(false);
   const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
   const [updatedContentPost, setUpdatedContentPost] = useState([]);
@@ -17,27 +20,41 @@ function Forum() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let myRequest = new XMLHttpRequest();
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    myRequest.send();
+    let postTitleRequest = new XMLHttpRequest();
+    postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+    postTitleRequest.send();
 
-    myRequest.onreadystatechange = function () {
+    let postContentRequest = new XMLHttpRequest();
+    postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+    postContentRequest.send();
+
+    postTitleRequest.onreadystatechange = function () {
       if (this.readyState === 4) {
         if (this.status === 200) {
 
-          let myResponse = JSON.parse(this.responseText);
+          let postTitleResponse = JSON.parse(this.responseText);
 
-          let postTitle = myResponse.result;
-          let postContent = myResponse.result;
+          let postTitle = postTitleResponse.result;
 
-          setPosts([...posts, { title: postTitle, content: postContent }]);
-          setPostTitle('');
-          setPostContent('');
+          postContentRequest.onreadystatechange = function () {
+            if (this.readyState === 4) {
+              if (this.status === 200) {
+
+                let postContentResponse = JSON.parse(this.responseText);
+
+                let postContent = postContentResponse.result;
+
+                setPosts([...posts, { title: postTitle, content: postContent }]);
+                setPostTitle('');
+                setPostContent('');
+              }
+            }
+          }
         }
       }
     }
   }
+
 
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
@@ -49,10 +66,11 @@ function Forum() {
 
   const handleClose = () => {
     setShowEditPost(false);
+    setShowReplyPost(false);
   };
 
   const handleReply = () => {
-    alert('Reply to this topic');
+    setShowReplyPost(true)
   };
 
   const handleDelete = () => {
@@ -63,32 +81,78 @@ function Forum() {
 
   const handleSave = (e) => {
     e.preventDefault();
+    let updatedTitleRequest = new XMLHttpRequest();
+    updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
+    updatedTitleRequest.send();
 
-    let myRequest = new XMLHttpRequest();
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-    myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    myRequest.send();
+    let updatedContentRequest = new XMLHttpRequest();
+    updatedContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
+    updatedContentRequest.send();
 
-    myRequest.onreadystatechange = function () {
+    updatedTitleRequest.onreadystatechange = function () {
       if (this.readyState === 4) {
         if (this.status === 200) {
 
-          let myResponse = JSON.parse(this.responseText);
+          let updatedTitleResponse = JSON.parse(this.responseText);
+          let updatedTitlePost = updatedTitleResponse.result;
 
-          let newTitle = document.getElementById('edit-title').value;
-          setUpdatedTitlePost([newTitle]);
+          updatedContentRequest.onreadystatechange = function () {
+            if (this.readyState === 4) {
+              if (this.status === 200) {
 
-          let newContent = document.getElementById('edit-content').value;
-          setUpdatedContentPost([newContent]);
-          
-          setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
-          setSelectedPost([]);
-          setShowEditPost(false);
-        }
-      }
+                let updatedContentResponse = JSON.parse(this.responseText);
+                let updatedContentPost = updatedContentResponse.result;
+
+                setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
+                setUpdatedTitlePost('');
+                setUpdatedContentPost('');
+                setShowEditPost(false);
+              };
+            };
+          };
+        };
+      };
     }
   }
 
+  const handleSaveReply = (e) => {
+    e.preventDefault();
+    alert('This is to save the reply!')
+
+    // let postTitleRequest = new XMLHttpRequest();
+    // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
+    // postTitleRequest.send();
+
+    // let postContentRequest = new XMLHttpRequest();
+    // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
+    // postContentRequest.send();
+
+    // postTitleRequest.onreadystatechange = function () {
+    //   if (this.readyState === 4) {
+    //     if (this.status === 200) {
+
+    //       let postTitleResponse = JSON.parse(this.responseText);
+
+    //       let postTitle = postTitleResponse.result;
+
+    //       postContentRequest.onreadystatechange = function () {
+    //         if (this.readyState === 4) {
+    //           if (this.status === 200) {
+
+    //             let postContentResponse = JSON.parse(this.responseText);
+
+    //             let postContent = postContentResponse.result;
+
+    //             setPosts([...posts, { title: postTitle, content: postContent }]);
+    //             setPostTitle('');
+    //             setPostContent('');
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
 
 
   return (
@@ -164,17 +228,46 @@ function Forum() {
         )}
       </div>
 
+      <Modal className='forum-reply' show={showReplyPost}
+        onHide={handleClose}>
+        <Modal.Header className='forum-reply'>
+          <Modal.Title>Post your reply</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='forum-reply'>
+          <Form onSubmit={handleReply}>
+            <Form.Group>
+              <Form.Label>Express yourself!:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Reply to post"
+                required
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+                id="reply"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleSaveReply}>Save</Button>
+        </Modal.Footer>
+      </Modal>
+
       <Modal className='forum-edit' show={showEditPost} onHide={handleClose}>
         <Modal.Header className='forum-edit'>
           <Modal.Title>Edit Post</Modal.Title>
         </Modal.Header>
         <Modal.Body className='forum-edit'>
-          <Form>
+          <Form onSubmit={handleSave}>
             <Form.Group>
               <Form.Label>Title:</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Edit title"
+                required
+                value={updatedTitlePost}
+                onChange={(e) => setUpdatedTitlePost(e.target.value)}
                 id="edit-title"
               />
             </Form.Group>
@@ -184,6 +277,9 @@ function Forum() {
               <Form.Control
                 as="textarea"
                 placeholder="Edit post"
+                required
+                value={updatedContentPost}
+                onChange={(e) => setUpdatedContentPost(e.target.value)}
                 id="edit-content"
               />
             </Form.Group>
