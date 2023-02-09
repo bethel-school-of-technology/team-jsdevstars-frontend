@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Forum.css';
 import Modal from 'react-bootstrap/Modal';
+import { ForumContext } from '../contexts/ForumContext';
 
 function Forum() {
   const [postTitle, setPostTitle] = useState('');
@@ -16,6 +17,8 @@ function Forum() {
   const [showEditPost, setShowEditPost] = useState(false);
   const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
   const [updatedContentPost, setUpdatedContentPost] = useState([]);
+
+  let { forums } = useContext(ForumContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -158,11 +161,9 @@ function Forum() {
   //   }
   // }
 
-
-
   return (
     <>
-      <h1 className='mb-3'>Welcome to the forum! </h1>
+      <h1 className='mb-3'>Welcome to the forum!</h1>
       <Form className='mb-3 forum-window' onSubmit={handleSubmit}>
         <Form.Group className='forum-window'>
           <Form.Label className='forum-window'>Title:</Form.Label>
@@ -195,12 +196,12 @@ function Forum() {
 
       <div className='forum-links'>
         <p>Links to the topics</p>
-        {posts.map((post, index) => (
+        {forums.map((forum, index) => (
           <div key={index}>
             <Link style={{ textDecoration: 'none' }} onClick={() => handleClick(index)}>
               <th>
                 <td>
-                  {post.title}
+                  {forum.topicHeading}
                 </td>
               </th>
             </Link>
