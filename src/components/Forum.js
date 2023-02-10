@@ -60,7 +60,7 @@ function Forum() {
 
 
   const handleClick = (index) => {
-    setSelectedPost(posts[index]);
+    setSelectedPost(forums[index]);
   };
 
   const handleEdit = () => {
@@ -195,7 +195,7 @@ function Forum() {
       </Form>
 
       <div className='forum-links'>
-        <p>Links to the topics</p>
+        <p>Forum Topics</p>
         {forums.map((forum, index) => (
           <div key={index}>
             <Link style={{ textDecoration: 'none' }} onClick={() => handleClick(index)}>
@@ -216,12 +216,9 @@ function Forum() {
             <Card.Body>
               <Card.Title></Card.Title>
               <Card.Text>
-                <h6>Title: {selectedPost.title}</h6>
-                <p>Comment: {selectedPost.content}</p>
+                <h6>Title: {selectedPost.topicHeading}</h6>
+                <p>Comment: {selectedPost.topicBody}</p>
               </Card.Text>
-              {selectedPost.reply &&
-                <p>Reply by "user": {selectedPost.reply}</p>
-              }
             </Card.Body>
             <div>
               <button onClick={() => setLike((prevLike) => !prevLike)}>

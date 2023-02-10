@@ -21,7 +21,7 @@ export const ForumProvider = (props) => {
   }
 
   function getForum(id) {
-    return forums.find(forum => forum.id === parseInt(id))
+    return forums.find(forum => forum.forumId === parseInt(id))
   }
 
   function deleteForum(id) {
