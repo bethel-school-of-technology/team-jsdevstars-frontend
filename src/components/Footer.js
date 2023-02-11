@@ -1,11 +1,12 @@
 import React from 'react';
-import '../styles/Footer.css';
+import '../styles/App.css';
 
 function Footer() {
   return (
-    <div className='footer'>
-      <p>© 2023 | JSDevStars </p>
-    </div>
+  
+     <div className='footer'>
+        <p>© 2023 | JSDevStars</p>
+      </div>
   );
 }
 
