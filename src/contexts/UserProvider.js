@@ -1,17 +1,29 @@
 import axios from 'axios';
 import UserContext from '../contexts/UserContext';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { createContext } from 'react';
+
+export const UserContext = createContext();
 
 export const UserProvider = (props) => {
 
-
+  const [user, setUser] = useState([]);
   const baseUrl = 'http://localhost:3000/api/users';
 
   useEffect(() => {
     async function fetchData() {
-      // fetchData();
+      await refreshUsers();
     }
-  })
+    fetchData();
+  }, []);
+
+  function refreshUsers() {
+    return axios.get(baseUrl)
+      .then(response => {
+        setUser(response.data)
+      });
+  }
+
 
   function createUser(firstName, lastName, userName, email, password) {
     let user = { firstName, lastName, userName, email, password };
@@ -37,6 +49,7 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider value={{
+      refreshUsers,
       createUser,
       loginUser
     }}>
@@ -44,5 +57,4 @@ export const UserProvider = (props) => {
     </UserContext.Provider>
   )
 
-
-}
+};

@@ -1,0 +1,29 @@
+
+.forumWhole {
+    width: auto;
+}
+
+h1, section {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.forumLayout {
+    display: flex;
+    flex-direction: row;
+}
+
+.forumTopics1 {
+    width: 35%;
+}
+
+
+.forumReadingWindow2 {
+width: 100%;
+display: flex;
+flex-direction: column;
+}
+
+.forumPosting3 {
+    width: 35%;
+}

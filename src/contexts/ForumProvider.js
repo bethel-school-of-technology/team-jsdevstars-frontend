@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ForumContext from "./ForumContext"
+import { createContext } from "react";
+
+// export const ForumContext = createContext();
 
 export const ForumProvider = (props) => {
 
@@ -39,7 +42,7 @@ export const ForumProvider = (props) => {
 
         return axios.post(baseUrl, forumTopic, { headers: myHeaders })
             .then(response => {
-                getAllTopics();
+                refreshForums();
                 return new Promise(resolve => resolve(response.data));
             }
         );
@@ -53,7 +56,7 @@ export const ForumProvider = (props) => {
 
             return axios.put(baseUrl + forumTopic.forumId, forumTopic, { headers: myHeaders })
             .then(response => {
-                getAllTopics();
+                refreshForums();
                 return new Promise(resolve => resolve(response.data));
             }
         );
@@ -67,7 +70,7 @@ export const ForumProvider = (props) => {
 
 
         return axios.delete(baseUrl + forumId, { headers: myHeaders }).then(response => {
-            getAllTopics();
+            refreshForums();
             return new Promise(resolve => resolve(response.data))
         })
     }

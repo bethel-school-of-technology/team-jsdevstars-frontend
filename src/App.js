@@ -10,6 +10,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/Signup';
 import UserProfile from './components/UserProfile';
+import Forum2 from './components/Forum2';
+import forumReadingPane from './components/ForumReadingPane';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
 
             <Route path="/Forum" element={<Forum />} />
+            {/* <Route path="/Forum" element={<Forum2 />} /> */}
             {/* <Route path="/Forum/post" element={<Post />} />
             <Route path="/Forum/:ForumId" element={<UpdateComment />} /> */}
 
