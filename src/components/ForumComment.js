@@ -49,7 +49,7 @@ function ForumComment(props) {
         <>
             <Form className='mb-3 forum-window' onSubmit={handleSubmit}>
                 <Form.Group className='forum-window'>
-                    <Form.Label className='forum-window'>Topic title:</Form.Label>
+                    <Form.Label className='forum-window'>Speak your mind</Form.Label>
                     <Form.Control
                         className='forum-window'
                         placeholder='What is the title?'

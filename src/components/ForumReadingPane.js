@@ -13,12 +13,6 @@ function ForumReadingPane(props) {
     const [forumTopics, setforums] = useState([]);
 
 
-
-
-
-
-
-
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
         navigate('/forum')
