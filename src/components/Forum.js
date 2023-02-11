@@ -17,26 +17,7 @@ function Forum() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  //   let myRequest = new XMLHttpRequest();
-  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  //   myRequest.send();
-
-  //   myRequest.onreadystatechange = function () {
-  //     if (this.readyState === 4) {
-  //       if (this.status === 200) {
-
-  //         let myResponse = JSON.parse(this.responseText);
-
-  //         let postTitle = myResponse.result;
-  //         let postContent = myResponse.result;
-
-  //         setPosts([...posts, { title: postTitle, content: postContent }]);
-  //         setPostTitle('');
-  //         setPostContent('');
-  //       }
-  //     }
-  //   }
+ 
   }
 
   const handleClick = (index) => {

@@ -3,8 +3,7 @@ import Stack from 'react-bootstrap/Stack'
 import CarouselFade from './HomeCarousel'
 import '../styles/Home.css';
 import AdviceAPI from '../API/AdviceAPI';
-import Footer from './Footer';
-import { Outlet } from 'react-router-dom';
+// import Footer from './Footer';
 
 function Home() {
 
@@ -15,10 +14,10 @@ function Home() {
       <Stack gap={3} className="col-md-9 mx-auto mt-3">
         <AdviceAPI />
         <CarouselFade />
+       
+
         {/* <Footer /> */}
-  
       </Stack>
-      
     </>
 
   );

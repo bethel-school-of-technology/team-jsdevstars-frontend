@@ -1,5 +1,5 @@
 *{
-  background-color: rgb(38, 45, 56);
+  background-color: rgb(58, 70, 90);
 }
 
 .dark-theme {
@@ -12,18 +12,8 @@
   color: #000;
 }
 
-.footer {
+/* .footer {
   position: absolute;
   bottom: 0;
-}
+} */
 
-.footer{
-  margin:100px;
-  font-weight: 400;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 150px 0px 0px 0px;
-  color: white;
-  position: absolute;
-  bottom: 0;
-}
