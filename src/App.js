@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import Navigation from './components/Navigation';
 // import Footer from './components/Footer';
 import './styles/App.css'
-import Forum from './components/Forum';
+// import Forum from './components/Forum';
 import Resources from './components/Resources';
 import Articles from './components/Articles';
 import Home from './components/Home';
@@ -11,7 +11,6 @@ import Login from './components/Login';
 import SignUp from './components/Signup';
 import UserProfile from './components/UserProfile';
 import Forum2 from './components/Forum2';
-import forumReadingPane from './components/ForumReadingPane';
 
 function App() {
   return (

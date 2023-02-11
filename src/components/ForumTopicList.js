@@ -1,5 +1,7 @@
 import React from 'react'
+import { ListGroup } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
+import '../styles/Forum2.css'
 
 function ForumTopicList(props) {
 
@@ -7,17 +9,27 @@ function ForumTopicList(props) {
         if (forumTopics === null) return
         return forumTopics.map((topic) =>
 
-            <ul class="list-group" key={topic.forumId}>
+            // <ListGroup class="list-group" key={topic.forumId}>
+            // <ListGroup.Item action active={this.props.selected === topic}
+            // onClick={this.props.handleTopicSelected.bind(this,topic)}>
+            // {topic.topicHeading}
+            // </ListGroup.Item>
+            // </ListGroup>
 
-                <li class="list-group-item list-group-item-light">{topic.topicHeading}</li>
-
-            </ul>
+            <div class="list-group" key={topic.forumId}>
+                 <button type="button" class="list-group-item list-group-item-action list-group-item-light">{topic.topicHeading}</button>
+            </div>
         )
     }
 
     return (
         <>
-            <h4>Topics</h4>
+        <div className="toplist">
+            <p>    </p>
+            <h4>Topics</h4>   
+            <i class="gg-add"></i>
+        </div>
+           
             <div className='topic-container'>
                 <ForumContext.Consumer>
                     {({ forumTopics }) => (
