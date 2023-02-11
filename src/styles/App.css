@@ -1,5 +1,5 @@
 *{
-  background-color: rgb(38, 45, 56);
+  background-color: rgb(58, 70, 90);
 }
 
 .dark-theme {
@@ -11,6 +11,11 @@
   background: #fff;
   color: #000;
 }
+
+/* .footer {
+  position: absolute;
+  bottom: 0;
+} */
 
 .posts_list {
   width: 700px;
