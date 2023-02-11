@@ -26,8 +26,9 @@ let {forumTopic, refreshForums, getForumTopic, addForumTopic, editForumTopic, de
                     <section className="forumLayout">
 
                         <div className="forumTopics1">
-
+<p>Topic button</p>
                             <p>List of Topics here</p>
+                            <p>dad eating</p>
                         </div>
 
 
@@ -45,7 +46,7 @@ let {forumTopic, refreshForums, getForumTopic, addForumTopic, editForumTopic, de
                         </div>
 
                         <div className="forumPosting3">
-                            <p>Make a post here</p>
+                            <p>Make a comment here</p>
                         </div>
 
                     </section>
