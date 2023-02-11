@@ -3,13 +3,13 @@ import ForumContext from '../contexts/ForumContext';
 
 function ForumTopicList(props) {
 
-    function topicList(topics) {
+    function topicList(forumTopics) {
         if (forumTopics === null) return
-        return topics.map((topic) =>
+        return forumTopics.map((topic) =>
 
-            <ul class="list-group" key={topic.id}>
+            <ul class="list-group" key={topic.forumId}>
 
-                <li class="list-group-item list-group-item-light">{topic.heading}</li>
+                <li class="list-group-item list-group-item-light">{topic.topicHeading}</li>
 
             </ul>
         )
@@ -20,8 +20,8 @@ function ForumTopicList(props) {
             <h1>Topics</h1>
             <div className='topic-container'>
                 <ForumContext.Consumer>
-                    {({ topics }) => (
-                        topicList(topics)
+                    {({ forumTopics }) => (
+                        topicList(forumTopics)
                     )}
                 </ForumContext.Consumer>
             </div>  
