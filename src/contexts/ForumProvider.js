@@ -8,7 +8,7 @@ import { createContext } from "react";
 
 export const ForumProvider = (props) => {
 
-    const [ forumTopic, setforums ] = useState([]);
+    const [ forumTopics, setforums ] = useState([]);
     const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
@@ -35,12 +35,12 @@ export const ForumProvider = (props) => {
     } 
 
 
-    function addForumTopic(forumTopic) {        
+    function addForumTopic(forumTopics) {        
         let myHeaders = {
             Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
         };
 
-        return axios.post(baseUrl, forumTopic, { headers: myHeaders })
+        return axios.post(baseUrl, forumTopics, { headers: myHeaders })
             .then(response => {
                 refreshForums();
                 return new Promise(resolve => resolve(response.data));
@@ -54,7 +54,7 @@ export const ForumProvider = (props) => {
         let myHeaders = { Authorization: 'Bearer ' + token };
        
 
-            return axios.put(baseUrl + forumTopic.forumId, forumTopic, { headers: myHeaders })
+            return axios.put(baseUrl + forumTopics.forumId, forumTopics, { headers: myHeaders })
             .then(response => {
                 refreshForums();
                 return new Promise(resolve => resolve(response.data));
@@ -78,7 +78,7 @@ export const ForumProvider = (props) => {
     return (
         <ForumContext.Provider 
         value={{
-            forumTopic,
+            forumTopics,
             refreshForums,
             getForumTopic,
             addForumTopic,

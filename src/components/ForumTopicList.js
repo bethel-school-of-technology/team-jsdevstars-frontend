@@ -17,7 +17,7 @@ function ForumTopicList(props) {
 
     return (
         <>
-            <h1>Topics</h1>
+            <h4>Topics</h4>
             <div className='topic-container'>
                 <ForumContext.Consumer>
                     {({ forumTopics }) => (

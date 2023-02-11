@@ -4,6 +4,7 @@ import ForumContext from '../contexts/ForumContext';
 import '../styles/Forum2.css'
 import forumReadingPane from './ForumReadingPane';
 import { useContext } from 'react';
+import ForumTopicList from './ForumTopicList';
 
 
 function Forum2 () {
@@ -26,9 +27,10 @@ let {forumTopic, refreshForums, getForumTopic, addForumTopic, editForumTopic, de
                     <section className="forumLayout">
 
                         <div className="forumTopics1">
-<p>Topic button</p>
-                            <p>List of Topics here</p>
-                            <p>dad eating</p>
+                        <Container>
+                        <ForumTopicList />
+                        </Container>
+                            
                         </div>
 
 
