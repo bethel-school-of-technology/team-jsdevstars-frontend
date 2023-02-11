@@ -1,30 +1,30 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ForumContext from "./ForumContext"
+import ForumCommentContext from "./ForumCommentContext"
 
-export const ForumProvider = (props) => {
+export const ForumCommentProvider = (props) => {
 
-    const [ forumTopics, setforums ] = useState([]);
+    const [ forumComments, setComments ] = useState([]);
     const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
         async function fetchData() {
-            await refreshForums();
+            await refreshComments();
         }
         fetchData();
     }, []);
 
 
-    function refreshForums() {
+    function refreshComments() {
         return axios.get(baseUrl)
         .then(response => {
-            setforums(response.data)
+            setComments(response.data)
         });
     }
 
 
-    function getForumTopic(id) {
+    function getForumComment(id) {
         return axios.get(baseUrl + id).then(response => {
             console.log(response.data)
             return new Promise(resolve => resolve(response.data))
@@ -32,63 +32,63 @@ export const ForumProvider = (props) => {
     } 
 
 
-    function addForumTopic(forumTopics) {        
+    function addTopicComment(forumComments) {        
         let myHeaders = {
             Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
         };
 
-        return axios.post(baseUrl, forumTopics, { headers: myHeaders })
+        return axios.post(baseUrl, forumComments, { headers: myHeaders })
             .then(response => {
-                refreshForums();
+                refreshComments();
                 return new Promise(resolve => resolve(response.data));
             }
         );
     }
 
    
-    function editforumTopic(forumTopic) {
+    function editTopicComment(forumComments) {
         let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
        
 
-            return axios.put(baseUrl + forumTopics.forumId, forumTopics, { headers: myHeaders })
+            return axios.put(baseUrl + forumComments.forumCommentId, forumComments, { headers: myHeaders })
             .then(response => {
-                refreshForums();
+                refreshComments();
                 return new Promise(resolve => resolve(response.data));
             }
         );
         
     }
 
-    function filterForum(param) {
-        return axios.get(`http://localhost:3000/api/forum/?q=${param}`).then(response => {
-            return new Promise(resolve => resolve(response.data))
-        })
-    }
+    // function filterForum(param) {
+    //     return axios.get(`http://localhost:3000/api/forum/?q=${param}`).then(response => {
+    //         return new Promise(resolve => resolve(response.data))
+    //     })
+    // }
  
-    function deleteForumTopic(forumId) {
+    function deleteTopicComment(forumCommentId) {
         let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
 
 
-        return axios.delete(baseUrl + forumId, { headers: myHeaders }).then(response => {
-            refreshForums();
+        return axios.delete(baseUrl + forumCommentId, { headers: myHeaders }).then(response => {
+            refreshComments();
             return new Promise(resolve => resolve(response.data))
         })
     }
 
     return (
-        <ForumContext.Provider 
+        <ForumCommentContext.Provider 
         value={{
-            forumTopics,
-            refreshForums,
-            getForumTopic,
-            addForumTopic,
-            editforumTopic, 
-            filterForum,
-            deleteForumTopic
+            forumComments,
+            refreshComments,
+            getForumComment,
+            addTopicComment,
+            editTopicComment, 
+            // filterForum,
+            deleteTopicComment
         }}>
             { props.children }
-        </ForumContext.Provider>
+        </ForumCommentContext.Provider>
     )
 };

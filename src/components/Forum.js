@@ -56,26 +56,26 @@ function Forum() {
   //   let myRequest = new XMLHttpRequest();
   //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
   //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-  //   myRequest.send();
+    // myRequest.send();
 
-  //   myRequest.onreadystatechange = function () {
-  //     if (this.readyState === 4) {
-  //       if (this.status === 200) {
+    // myRequest.onreadystatechange = function () {
+    //   if (this.readyState === 4) {
+    //     if (this.status === 200) {
 
-  //         let myResponse = JSON.parse(this.responseText);
+    //       let myResponse = JSON.parse(this.responseText);
 
-  //         let newTitle = document.getElementById('edit-title').value;
-  //         setUpdatedTitlePost([newTitle]);
+    //       let newTitle = document.getElementById('edit-title').value;
+    //       setUpdatedTitlePost([newTitle]);
 
-  //         let newContent = document.getElementById('edit-content').value;
-  //         setUpdatedContentPost([newContent]);
+    //       let newContent = document.getElementById('edit-content').value;
+    //       setUpdatedContentPost([newContent]);
           
-  //         setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
-  //         setSelectedPost([]);
-  //         setShowEditPost(false);
-  //       }
-  //     }
-  //   }
+    //       setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
+    //       setSelectedPost([]);
+    //       setShowEditPost(false);
+    //     }
+    //   }
+    // }
   }
 
   const handleSaveReply = (e) => {

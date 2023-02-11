@@ -3,19 +3,22 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import { UserProvider } from './contexts/UserProvider';
-// import { ForumProvider } from './contexts/ForumProvider';
+import { ForumProvider } from './contexts/ForumProvider';
+import { ForumCommentProvider } from './contexts/ForumCommentProvider';
 // import { ArticleProvider } from './contexts/ArticleProvider';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <UserProvider>
+    {/* <UserProvider>  */}
       <ForumProvider>
-        <ArticleProvider> */}
+      <ForumCommentProvider>
+        {/* <ArticleProvider> */}
           <App />
-        {/* </ArticleProvider>
+        {/* </ArticleProvider> */}
+        </ForumCommentProvider>
       </ForumProvider>
-    </UserProvider> */}
+    {/* </UserProvider> */}
 
   </React.StrictMode>,
   document.getElementById('root')

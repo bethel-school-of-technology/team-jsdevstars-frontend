@@ -15,7 +15,6 @@ function Home() {
         <AdviceAPI />
         <CarouselFade />
        
-
         {/* <Footer /> */}
       </Stack>
     </>

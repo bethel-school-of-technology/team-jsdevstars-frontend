@@ -9,16 +9,13 @@ function Navigation() {
 
     let navigate = useNavigate();
     function handleSearch(event) {
-
         if (event.target.value === "") return;
-
         event.preventDefault();
-
         navigate(`/${event.target.value}/search`)
-
     }
 
 
+    
     return (
         <>
             <div className="header-links">
