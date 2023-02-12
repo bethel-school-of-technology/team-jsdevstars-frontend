@@ -1,9 +1,6 @@
 import axios from 'axios';
 import UserContext from '../contexts/UserContext';
 import React, { useEffect, useState } from 'react';
-import { createContext } from 'react';
-
-export const UserContext = createContext();
 
 export const UserProvider = (props) => {
 
@@ -12,17 +9,17 @@ export const UserProvider = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      await refreshUsers();
+      // await refreshUsers();
     }
     fetchData();
   }, []);
 
-  function refreshUsers() {
-    return axios.get(baseUrl)
-      .then(response => {
-        setUser(response.data)
-      });
-  }
+  // function refreshUsers() {
+  //   return axios.get(baseUrl)
+  //     .then(response => {
+  //       setUser(response.data)
+  //     });
+  // }
 
 
   function createUser(firstName, lastName, userName, email, password) {
@@ -35,13 +32,13 @@ export const UserProvider = (props) => {
   };
 
 
-  function loginUser(email, password) {
+  async function loginUser(email, password) {
     let user = { email, password };
 
     return axios.post(`${baseUrl}/login`, user)
       .then(response => {
         localStorage.setItem
-          ('myPostsToken', response.data.token)
+          ('myUserToken', response.data.token)
         return new Promise(resolve =>
           resolve(response.data))
       })
@@ -49,7 +46,7 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider value={{
-      refreshUsers,
+      // refreshUsers,
       createUser,
       loginUser
     }}>

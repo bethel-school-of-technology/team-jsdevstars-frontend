@@ -2,16 +2,30 @@ import React, { useContext, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
+import ForumTopicList from './ForumTopicList';
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
+    const [selectedPost, setSelectedPost] = useState(null);
 
-    let { forumTopic, refreshForums, getForumTopic,
+    let { forumTopics, refreshForums, getForumTopic,
         editForumTopic, deleteForumTopic } = useContext(ForumContext)
 
-    const [forumTopics, setforums] = useState([]);
+    const [forumTopic, setforums] = useState([]);
+      const [like, setLike] = useState(false);
 
+
+
+      
+    const handleReply = () => {
+        alert('Reply to this topic');
+      };
+
+      const handleEdit = () => {
+        // setShowEditPost(true);
+        editForumTopic()
+      };
 
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
@@ -23,7 +37,7 @@ function ForumReadingPane(props) {
     return (
         <>
 
-            <Card className="readingPane" key={forumTopics.forumId}>
+            {/* <Card className="readingPane" key={forumTopics.forumId}>
                 <Card.Body>
                     <Card.Title><strong>{topicHeading}</strong></Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">by: {userId}</Card.Subtitle>
@@ -34,7 +48,33 @@ function ForumReadingPane(props) {
                     <Link to={`/forum/${forumId}`} className="btn btn-primary mx-3">Edit</Link>
                     <Button variant="danger" className="mx-3" onClick={handleDeleteTopic.bind(this, forumId)}>Delete</Button>
                 </Card.Body>
-            </Card>
+            </Card> */}
+
+            <div className='forum-content'>
+                {forumTopics && (
+                    <Card>
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+                            <Card.Text>
+                                <h6>Title: {forumTopics.topicHeading}</h6>
+                                <p>Comment: {forumTopics.topicBody}</p>
+                            </Card.Text>
+                        </Card.Body>
+                        <div>
+                            <button onClick={() => setLike((prevLike) => !prevLike)}>
+                                {like ? '🍺' : "Like"}
+                            </button>
+                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
+
+                            <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
+
+                            <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
+                        </div>
+                    </Card>
+                )}
+            </div>
+
+
 
         </>
 

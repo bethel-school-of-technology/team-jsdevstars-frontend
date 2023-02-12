@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import { UserProvider } from './contexts/UserProvider';
+import { UserProvider } from './contexts/UserProvider';
 import { ForumProvider } from './contexts/ForumProvider';
 import { ForumCommentProvider } from './contexts/ForumCommentProvider';
 // import { ArticleProvider } from './contexts/ArticleProvider';
@@ -10,7 +10,7 @@ import { ForumCommentProvider } from './contexts/ForumCommentProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <UserProvider>  */}
+    <UserProvider> 
       <ForumProvider>
       <ForumCommentProvider>
         {/* <ArticleProvider> */}
@@ -18,7 +18,7 @@ ReactDOM.render(
         {/* </ArticleProvider> */}
         </ForumCommentProvider>
       </ForumProvider>
-    {/* </UserProvider> */}
+    </UserProvider>
 
   </React.StrictMode>,
   document.getElementById('root')
