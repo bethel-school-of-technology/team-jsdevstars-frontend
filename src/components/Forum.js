@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/Forum.css';
+import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
+import PostsContext from '../contexts/PostsContext';
 
 function Forum() {
   const [postTitle, setPostTitle] = useState('');
@@ -16,45 +18,22 @@ function Forum() {
   const [showEditPost, setShowEditPost] = useState(false);
   const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
   const [updatedContentPost, setUpdatedContentPost] = useState([]);
+  let { newForum } = useContext(PostsContext);
+  let navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-
-    let postTitleRequest = new XMLHttpRequest();
-    postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    postTitleRequest.send();
-
-    let postContentRequest = new XMLHttpRequest();
-    postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    postContentRequest.send();
-
-    postTitleRequest.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
-
-          let postTitleResponse = JSON.parse(this.responseText);
-
-          let postTitle = postTitleResponse.result;
-
-          postContentRequest.onreadystatechange = function () {
-            if (this.readyState === 4) {
-              if (this.status === 200) {
-
-                let postContentResponse = JSON.parse(this.responseText);
-
-                let postContent = postContentResponse.result;
-
-                setPosts([...posts, { title: postTitle, content: postContent }]);
-                setPostTitle('');
-                setPostContent('');
-              }
-            }
-          }
-        }
-      }
-    }
+    newForum(postTitle, postContent)
+      .then(() => {
+        navigate('/forum');
+      }).catch(error => {
+        console.log(error);
+        window.alert('Failed: error creating post');
+      });
+    setPosts([...posts, { title: postTitle, content: postContent }]);
+    setPostTitle('');
+    setPostContent('');
   }
-
 
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
@@ -81,84 +60,17 @@ function Forum() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // let updatedTitleRequest = new XMLHttpRequest();
-    // updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-    // updatedTitleRequest.send();
-
-    // let updatedContentRequest = new XMLHttpRequest();
-    // updatedContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    // updatedContentRequest.send();
-
-    // updatedTitleRequest.onreadystatechange = function () {
-    //   if (this.readyState === 4) {
-    //     if (this.status === 200) {
-
-    //       let updatedTitleResponse = JSON.parse(this.responseText);
-    //       let updatedTitlePost = updatedTitleResponse.result;
-
-    //       updatedContentRequest.onreadystatechange = function () {
-    //         if (this.readyState === 4) {
-    //           if (this.status === 200) {
-
-    //             let updatedContentResponse = JSON.parse(this.responseText);
-    //             let updatedContentPost = updatedContentResponse.result;
-
     setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
     setUpdatedTitlePost('');
     setUpdatedContentPost('');
     setShowEditPost(false);
   };
-  //           };
-  //         };
-  //       };
-  //     };
-  //   }
-  // }
 
   const handleSaveReply = (e) => {
     e.preventDefault();
-    setSelectedPost({
-      ...selectedPost,
-      reply: reply
-    });
+    setSelectedPost({ ...selectedPost, reply: reply });
     handleClose();
   }
-
-  // let postTitleRequest = new XMLHttpRequest();
-  // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  // postTitleRequest.send();
-
-  // let postContentRequest = new XMLHttpRequest();
-  // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  // postContentRequest.send();
-
-  // postTitleRequest.onreadystatechange = function () {
-  //   if (this.readyState === 4) {
-  //     if (this.status === 200) {
-
-  //       let postTitleResponse = JSON.parse(this.responseText);
-
-  //       let postTitle = postTitleResponse.result;
-
-  //       postContentRequest.onreadystatechange = function () {
-  //         if (this.readyState === 4) {
-  //           if (this.status === 200) {
-
-  //             let postContentResponse = JSON.parse(this.responseText);
-
-  //             let postContent = postContentResponse.result;
-
-  //             setPosts([...posts, { title: postTitle, content: postContent }]);
-  //             setPostTitle('');
-  //             setPostContent('');
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-
 
   return (
     <>
@@ -233,7 +145,8 @@ function Forum() {
               <button onClick={() => handleDelete()}><span role='img' aria-labelledby='delete'>🗑</span></button>
             </div>
           </Card>
-        )}      </div>
+        )}
+      </div>
 
       <Modal className='forum-reply' show={showReplyPost}
         onHide={handleClose}>
