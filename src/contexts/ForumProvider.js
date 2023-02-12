@@ -24,8 +24,8 @@ export const ForumProvider = (props) => {
     }
 
 
-    function getForumTopic(id) {
-        return axios.get(baseUrl + id).then(response => {
+    function getForumTopic(forumId) {
+        return axios.get(baseUrl + forumId).then(response => {
             console.log(response.data)
             return new Promise(resolve => resolve(response.data))
         })

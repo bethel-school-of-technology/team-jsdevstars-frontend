@@ -16,6 +16,7 @@ const SignUp = () => {
   const [show, setShow] = useState(false);
   const signupBtn = "Sign up!";
   let { createUser } = useContext(UserContext);
+  
   let navigate = useNavigate();
 
   function handleSubmit(e) {

@@ -22,9 +22,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Navigation />} >
             <Route exact path="/" element={<Home />} />
-
-            <Route path="/login" element={<Login />} />
+           
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
 
             {/* <Route path="/Forum" element={<Forum />} /> */}
             <Route path="/Forum" element={<Forum2 />} />
