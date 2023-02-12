@@ -2,22 +2,18 @@ import React, { useContext, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
-import ForumTopicList from './ForumTopicList';
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
-    const [selectedPost, setSelectedPost] = useState(null);
 
     let { forumTopics, refreshForums, getForumTopic,
-        editForumTopic, deleteForumTopic } = useContext(ForumContext)
+        editForumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
 
     const [forumTopic, setforums] = useState([]);
       const [like, setLike] = useState(false);
-
-
-
       
+
     const handleReply = () => {
         alert('Reply to this topic');
       };
@@ -51,13 +47,13 @@ function ForumReadingPane(props) {
             </Card> */}
 
             <div className='forum-content'>
-                {forumTopics && (
+                {selectedForum && (
                     <Card>
                         <Card.Body>
                             <Card.Title></Card.Title>
                             <Card.Text>
-                                <h6>Title: {forumTopics.topicHeading}</h6>
-                                <p>Comment: {forumTopics.topicBody}</p>
+                                <h6>Title: {selectedForum.topicHeading}</h6>
+                                <p>Comment: {selectedForum.topicBody}</p>
                             </Card.Text>
                         </Card.Body>
                         <div>
