@@ -5,23 +5,26 @@ import { useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import ForumCommentContext from '../contexts/ForumCommentContext'
+import ForumContext from '../contexts/ForumContext'
 
 function ForumComment(props) {
 
-    let { forumComments, addTopicComment,
-        editTopicComment } = useContext(ForumCommentContext)
+    let { forumComments, refreshComments, getForumComment, addTopicComment,
+        editTopicComment, deleteTopicComment } = useContext(ForumCommentContext)
+
+    let {forumTopics, getForumTopic } = useContext(ForumContext)
 
     let params = useParams()
     let [Comment, setComment] = useState([])
 
-    let { getComment } = useContext(ForumCommentContext)
     let navigate = useNavigate()
     let { id, comment, commentDatetime, likes } = forumComments
+    let { forumId } = forumTopics
 
     useEffect(() => {
         if (id === undefined) return
         async function fetch() {
-            await getComment(id).then(Comment => setComment(Comment))
+            await refreshComments(forumId).then(Comment => setComment(Comment))
         }
         fetch()
     }, [id])
@@ -52,14 +55,13 @@ function ForumComment(props) {
                     <Form.Label className='forum-window'>Speak your mind</Form.Label>
                     <Form.Control
                         className='forum-window'
-                        placeholder='What is the title?'
                         required
                         type='text'
                         v-model='text'
                         pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+"
                         title='Letters and numbers only'
                         value={comment}
-                        onChange={handleChange}
+                        // onChange={handleChange}
                     />
                     <Button type='submit'>Comment</Button>
                 </Form.Group>

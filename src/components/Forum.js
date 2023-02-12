@@ -8,88 +8,17 @@ function Forum() {
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
-  const [updatedPosts, setUpdatedPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [like, setLike] = useState(false);
-  const [reply, setReply] = useState([]);
-  const [showReplyPost, setShowReplyPost] = useState(false);
   const [showEditPost, setShowEditPost] = useState(false);
   const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
   const [updatedContentPost, setUpdatedContentPost] = useState([]);
 
   const handleSubmit = (e) => {
-   
-
-    // let postTitleRequest = new XMLHttpRequest();
-    // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-    // postTitleRequest.send();
-
-    // let postContentRequest = new XMLHttpRequest();
-    // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-    // postContentRequest.send();
-
-    // postTitleRequest.onreadystatechange = function () {
-    //   if (this.readyState === 4) {
-    //     if (this.status === 200) {
-
-    //       let postTitleResponse = JSON.parse(this.responseText);
-
-    //       let postTitle = postTitleResponse.result;
-
-    //       postContentRequest.onreadystatechange = function () {
-    //         if (this.readyState === 4) {
-    //           if (this.status === 200) {
-
-    //             let postContentResponse = JSON.parse(this.responseText);
-
-    //             let postContent = postContentResponse.result;
-
-    //             setPosts([...posts, { title: postTitle, content: postContent }]);
-    //             setPostTitle('');
-    //             setPostContent('');
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
     e.preventDefault();
 
-  //   let postTitleRequest = new XMLHttpRequest();
-  //   postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  //   postTitleRequest.send();
-
-  //   let postContentRequest = new XMLHttpRequest();
-  //   postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  //   postContentRequest.send();
-
-  //   postTitleRequest.onreadystatechange = function () {
-  //     if (this.readyState === 4) {
-  //       if (this.status === 200) {
-
-  //         let postTitleResponse = JSON.parse(this.responseText);
-
-  //         let postTitle = postTitleResponse.result;
-
-  //         postContentRequest.onreadystatechange = function () {
-  //           if (this.readyState === 4) {
-  //             if (this.status === 200) {
-
-  //               let postContentResponse = JSON.parse(this.responseText);
-
-  //               let postContent = postContentResponse.result;
-
-  //               setPosts([...posts, { title: postTitle, content: postContent }]);
-  //               setPostTitle('');
-  //               setPostContent('');
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
+ 
+  }
 
   const handleClick = (index) => {
     setSelectedPost(posts[index]);
@@ -101,12 +30,10 @@ function Forum() {
 
   const handleClose = () => {
     setShowEditPost(false);
-    setShowReplyPost(false);
   };
 
   const handleReply = () => {
-    setShowReplyPost(true)
-  
+    alert('Reply to this topic');
   };
 
   const handleDelete = () => {
@@ -117,81 +44,30 @@ function Forum() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // // let updatedTitleRequest = new XMLHttpRequest();
-    // // updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-    // // updatedTitleRequest.send();
 
-    // let updatedContentRequest = new XMLHttpRequest();
-    // updatedContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    // updatedContentRequest.send();
+  //   let myRequest = new XMLHttpRequest();
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
+  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
+    // myRequest.send();
 
-    // updatedTitleRequest.onreadystatechange = function () {
+    // myRequest.onreadystatechange = function () {
     //   if (this.readyState === 4) {
     //     if (this.status === 200) {
 
-    //       let updatedTitleResponse = JSON.parse(this.responseText);
-    //       let updatedTitlePost = updatedTitleResponse.result;
+    //       let myResponse = JSON.parse(this.responseText);
 
-    //       updatedContentRequest.onreadystatechange = function () {
-    //         if (this.readyState === 4) {
-    //           if (this.status === 200) {
+    //       let newTitle = document.getElementById('edit-title').value;
+    //       setUpdatedTitlePost([newTitle]);
 
-    //             let updatedContentResponse = JSON.parse(this.responseText);
-    //             let updatedContentPost = updatedContentResponse.result;
-
-    //             setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
-    //             setUpdatedTitlePost('');
-    //             setUpdatedContentPost('');
-    //             setShowEditPost(false);
-    //           };
-    //         };
-    //       };
-    //     };
-    //   };
+    //       let newContent = document.getElementById('edit-content').value;
+    //       setUpdatedContentPost([newContent]);
+          
+          // setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
+          // setSelectedPost([]);
+          // setShowEditPost(false);
+    //     }
+    //   }
     // }
-  }
-
-  const handleSaveReply = (e) => {
-    e.preventDefault();
-    setSelectedPost({
-      ...selectedPost,
-      reply: reply
-    });
-    handleClose();
-  }
-
-  // let postTitleRequest = new XMLHttpRequest();
-  // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  // postTitleRequest.send();
-
-  // let postContentRequest = new XMLHttpRequest();
-  // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  // postContentRequest.send();
-
-  // postTitleRequest.onreadystatechange = function () {
-  //   if (this.readyState === 4) {
-  //     if (this.status === 200) {
-
-  //       let postTitleResponse = JSON.parse(this.responseText);
-
-  //       let postTitle = postTitleResponse.result;
-
-  //       postContentRequest.onreadystatechange = function () {
-  //         if (this.readyState === 4) {
-  //           if (this.status === 200) {
-
-  //             let postContentResponse = JSON.parse(this.responseText);
-
-  //             let postContent = postContentResponse.result;
-
-  //             setPosts([...posts, { title: postTitle, content: postContent }]);
-  //             setPostTitle('');
-  //             setPostContent('');
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
   }
 
 
@@ -254,9 +130,6 @@ function Forum() {
                 <h6>Title: {selectedPost.title}</h6>
                 <p>Comment: {selectedPost.content}</p>
               </Card.Text>
-              {selectedPost.reply &&
-                <p>Reply by "user": {selectedPost.reply}</p>
-              }
             </Card.Body>
             <div>
               <button onClick={() => setLike((prevLike) => !prevLike)}>
@@ -269,48 +142,20 @@ function Forum() {
               <button onClick={() => handleDelete()}><span role='img' aria-labelledby='delete'>🗑</span></button>
             </div>
           </Card>
-        )}      </div>
-
-      <Modal className='forum-reply' show={showReplyPost}
-        onHide={handleClose}>
-        <Modal.Header className='forum-reply'>
-          <Modal.Title>Post your reply</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='forum-reply'>
-          <Form onSubmit={handleReply}>
-            <Form.Group>
-              <Form.Label>Express yourself!:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Reply to post"
-                required
-                value={reply}
-                onChange={(e) => setReply(e.target.value)}
-                id="reply"
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-          <Button variant="primary" onClick={handleSaveReply}>Save</Button>
-        </Modal.Footer>
-      </Modal>
+        )}
+      </div>
 
       <Modal className='forum-edit' show={showEditPost} onHide={handleClose}>
         <Modal.Header className='forum-edit'>
           <Modal.Title>Edit Post</Modal.Title>
         </Modal.Header>
         <Modal.Body className='forum-edit'>
-          <Form onSubmit={handleSave}>
+          <Form>
             <Form.Group>
               <Form.Label>Title:</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Edit title"
-                required
-                value={updatedTitlePost}
-                onChange={(e) => setUpdatedTitlePost(e.target.value)}
                 id="edit-title"
               />
             </Form.Group>
@@ -320,9 +165,6 @@ function Forum() {
               <Form.Control
                 as="textarea"
                 placeholder="Edit post"
-                required
-                value={updatedContentPost}
-                onChange={(e) => setUpdatedContentPost(e.target.value)}
                 id="edit-content"
               />
             </Form.Group>

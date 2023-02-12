@@ -8,7 +8,7 @@ function ForumReadingPane(props) {
     let navigate = useNavigate()
 
     let { forumTopics, refreshForums, getForumTopic,
-        editForumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
+        editforumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
 
     const [forumTopic, setforums] = useState([]);
       const [like, setLike] = useState(false);
@@ -20,7 +20,7 @@ function ForumReadingPane(props) {
 
       const handleEdit = () => {
         // setShowEditPost(true);
-        editForumTopic()
+        editforumTopic(forumId)
       };
 
     function handleDeleteTopic(forumId) {
@@ -28,9 +28,10 @@ function ForumReadingPane(props) {
         navigate('/forum')
     }
 
-    let { forumId, topicHeading, topicBody, createdAt, userId } = forumTopics
+    let { forumId, topicHeading, topicBody, createdAt, userName } = forumTopics
 
     return (
+
         <>
 
             {/* <Card className="readingPane" key={forumTopics.forumId}>
@@ -52,15 +53,15 @@ function ForumReadingPane(props) {
                         <Card.Body>
                             <Card.Title></Card.Title>
                             <Card.Text>
-                                <h6>Title: {selectedForum.topicHeading}</h6>
-                                <p>Comment: {selectedForum.topicBody}</p>
+                                <h6><strong>{selectedForum.topicHeading}</strong></h6>
+                                <p>{selectedForum.topicBody}</p>
+                                <p>{selectedForum.userName}{selectedForum.createdAt}</p> 
                             </Card.Text>
                         </Card.Body>
                         <div>
                             <button onClick={() => setLike((prevLike) => !prevLike)}>
                                 {like ? '🍺' : "Like"}
                             </button>
-                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
 
                             <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
 

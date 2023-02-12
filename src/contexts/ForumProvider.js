@@ -46,7 +46,7 @@ export const ForumProvider = (props) => {
     }
 
    
-    function editforumTopic(forumTopic) {
+    function editforumTopic(forumId) {
         let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
        
