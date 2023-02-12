@@ -6,6 +6,7 @@ import ForumContext from "./ForumContext"
 export const ForumProvider = (props) => {
 
     const [ forumTopics, setforums ] = useState([]);
+    const [ selectedForum, setSelectedForum ] = useState(null);
     const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
@@ -24,10 +25,9 @@ export const ForumProvider = (props) => {
     }
 
 
-    function getForumTopic(id) {
-        return axios.get(baseUrl + id).then(response => {
-            console.log(response.data)
-            return new Promise(resolve => resolve(response.data))
+    function getForumTopic(forumId) {
+        return axios.get(baseUrl + forumId).then(response => {
+            setSelectedForum(response.data.forum);
         })
     } 
 
@@ -86,7 +86,8 @@ export const ForumProvider = (props) => {
             addForumTopic,
             editforumTopic, 
             filterForum,
-            deleteForumTopic
+            deleteForumTopic,
+            selectedForum
         }}>
             { props.children }
         </ForumContext.Provider>

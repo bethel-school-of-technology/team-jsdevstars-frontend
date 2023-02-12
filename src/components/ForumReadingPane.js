@@ -7,11 +7,21 @@ function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopic, refreshForums, getForumTopic,
-        editForumTopic, deleteForumTopic } = useContext(ForumContext)
+    let { forumTopics, refreshForums, getForumTopic,
+        editForumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
 
-    const [forumTopics, setforums] = useState([]);
+    const [forumTopic, setforums] = useState([]);
+      const [like, setLike] = useState(false);
+      
 
+    const handleReply = () => {
+        alert('Reply to this topic');
+      };
+
+      const handleEdit = () => {
+        // setShowEditPost(true);
+        editForumTopic()
+      };
 
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
@@ -23,7 +33,7 @@ function ForumReadingPane(props) {
     return (
         <>
 
-            <Card className="readingPane" key={forumTopics.forumId}>
+            {/* <Card className="readingPane" key={forumTopics.forumId}>
                 <Card.Body>
                     <Card.Title><strong>{topicHeading}</strong></Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">by: {userId}</Card.Subtitle>
@@ -34,7 +44,33 @@ function ForumReadingPane(props) {
                     <Link to={`/forum/${forumId}`} className="btn btn-primary mx-3">Edit</Link>
                     <Button variant="danger" className="mx-3" onClick={handleDeleteTopic.bind(this, forumId)}>Delete</Button>
                 </Card.Body>
-            </Card>
+            </Card> */}
+
+            <div className='forum-content'>
+                {selectedForum && (
+                    <Card>
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+                            <Card.Text>
+                                <h6>Title: {selectedForum.topicHeading}</h6>
+                                <p>Comment: {selectedForum.topicBody}</p>
+                            </Card.Text>
+                        </Card.Body>
+                        <div>
+                            <button onClick={() => setLike((prevLike) => !prevLike)}>
+                                {like ? '🍺' : "Like"}
+                            </button>
+                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
+
+                            <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
+
+                            <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
+                        </div>
+                    </Card>
+                )}
+            </div>
+
+
 
         </>
 
