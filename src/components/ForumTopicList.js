@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
-import { ListGroup } from 'react-bootstrap';
+import { Button, ListGroup } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
 import '../styles/Forum2.css'
 import ForumReadingPane from './ForumReadingPane';
 
 function ForumTopicList(props) {
 
-    let { getForumTopic } = useContext(ForumContext)
+    let { getForumTopic, selectedForum } = useContext(ForumContext)
 
     function topicList(forumTopics) {
 
@@ -28,7 +28,9 @@ function ForumTopicList(props) {
             // </ListGroup>
 
             <div class="list-group" key={topic.forumId}>
-                <button OnClick={handleSelecttoShow} type="button" class="list-group-item list-group-item-action list-group-item-light">{topic.topicHeading}</button>
+            <Button onClick={() => handleSelecttoShow(topic.forumId)}>
+                  {topic.topicHeading}
+            </Button>
             </div>
         )
     }
