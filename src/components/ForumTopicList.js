@@ -2,18 +2,17 @@ import React, { useContext, useState } from 'react'
 import { Button, ListGroup } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
 import '../styles/Forum2.css'
-import ForumReadingPane from './ForumReadingPane';
 
 function ForumTopicList(props) {
 
-    let { getForumTopic, selectedForum } = useContext(ForumContext)
+    let { getForumTopic, getForumComments } = useContext(ForumContext)
 
     function topicList(forumTopics) {
 
         // const [selectedPost, setSelectedPost] = useState(null);
 
         function handleSelecttoShow(forumId) {
-            getForumTopic(forumId)
+            getForumTopic(forumId);
             // setSelectedPost(topic[forumId]);
         }
 

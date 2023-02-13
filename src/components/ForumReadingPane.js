@@ -1,27 +1,25 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopics, refreshForums, getForumTopic,
-        editforumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
+    let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments } = useContext(ForumContext)
 
-    const [forumTopic, setforums] = useState([]);
-      const [like, setLike] = useState(false);
-      
+    const [like, setLike] = useState(false);
+
 
     const handleReply = () => {
         alert('Reply to this topic');
-      };
+    };
 
-      const handleEdit = () => {
+    const handleEdit = () => {
         // setShowEditPost(true);
         editforumTopic(forumId)
-      };
+    };
 
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
@@ -55,13 +53,14 @@ function ForumReadingPane(props) {
                             <Card.Text>
                                 <h6><strong>{selectedForum.topicHeading}</strong></h6>
                                 <p>{selectedForum.topicBody}</p>
-                                <p>{selectedForum.userName}{selectedForum.createdAt}</p> 
+                                <p>{selectedForum.userName}{selectedForum.createdAt}</p>
                             </Card.Text>
                         </Card.Body>
                         <div>
                             <button onClick={() => setLike((prevLike) => !prevLike)}>
                                 {like ? '🍺' : "Like"}
                             </button>
+                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
 
                             <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
 
@@ -69,6 +68,7 @@ function ForumReadingPane(props) {
                         </div>
                     </Card>
                 )}
+
             </div>
 
 

@@ -7,6 +7,7 @@ export const ForumProvider = (props) => {
 
     const [ forumTopics, setforums ] = useState([]);
     const [ selectedForum, setSelectedForum ] = useState(null);
+    const [ selectedForumComments, setSelectedForumComments] = useState([]);
     const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
@@ -24,13 +25,12 @@ export const ForumProvider = (props) => {
         });
     }
 
-
     function getForumTopic(forumId) {
         return axios.get(baseUrl + forumId).then(response => {
             setSelectedForum(response.data.forum);
+            setSelectedForumComments([...response.data.comments]);
         })
     } 
-
 
     function addForumTopic(forumTopics) {        
         let myHeaders = {
@@ -87,7 +87,8 @@ export const ForumProvider = (props) => {
             editforumTopic, 
             filterForum,
             deleteForumTopic,
-            selectedForum
+            selectedForum,
+            selectedForumComments
         }}>
             { props.children }
         </ForumContext.Provider>
