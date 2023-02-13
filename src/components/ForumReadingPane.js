@@ -1,16 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopics, refreshForums, getForumTopic,
-        editForumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
+    let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments } = useContext(ForumContext)
 
-    const [forumTopic, setforums] = useState([]);
       const [like, setLike] = useState(false);
       
 
@@ -56,18 +54,24 @@ function ForumReadingPane(props) {
                                 <p>Comment: {selectedForum.topicBody}</p>
                             </Card.Text>
                         </Card.Body>
-                        <div>
-                            <button onClick={() => setLike((prevLike) => !prevLike)}>
-                                {like ? '🍺' : "Like"}
-                            </button>
-                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
-
-                            <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
-
-                            <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
-                        </div>
                     </Card>
                 )}
+                {selectedForumComments.length > 0 && (
+                    <div>
+                    <div>{selectedForumComments[0].comment}</div>
+                    <div>
+                    <button onClick={() => setLike((prevLike) => !prevLike)}>
+                        {like ? '🍺' : "Like"}
+                    </button>
+                    <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
+
+                    <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
+
+                    <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
+                </div>
+                </div>
+                )}
+                
             </div>
 
 
