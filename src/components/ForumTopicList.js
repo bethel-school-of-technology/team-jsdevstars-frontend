@@ -18,18 +18,14 @@ function ForumTopicList(props) {
 
         if (forumTopics === null) return
         return forumTopics.map((topic) =>
-
-            // <ListGroup class="list-group" key={topic.forumId}>
-            // <ListGroup.Item action active={this.props.selected === topic}
-            // onClick={this.props.handleTopicSelected.bind(this,topic)}>
-            // {topic.topicHeading}
-            // </ListGroup.Item>
-            // </ListGroup>
-
-            <div class="list-group" key={topic.forumId}>
-            <Button onClick={() => handleSelecttoShow(topic.forumId)}>
-                  {topic.topicHeading}
-            </Button>
+            <div>
+                <ListGroup class="list-group" key={topic.forumId}>
+                    <ListGroup.Item action active={props.selected === topic}
+                        onClick={() => handleSelecttoShow(topic.forumId)}>
+                        {topic.topicHeading}
+                    </ListGroup.Item>
+                </ListGroup>
+                <p> </p>
             </div>
         )
     }
@@ -38,7 +34,7 @@ function ForumTopicList(props) {
         <>
             <div className="toplist">
                 <p>    </p>
-                <h4>Topics</h4>
+                <h5>Topics</h5>
                 <i class="gg-add"></i>
             </div>
 

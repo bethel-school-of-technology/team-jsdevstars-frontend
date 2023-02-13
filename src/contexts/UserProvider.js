@@ -26,7 +26,8 @@ export const UserProvider = (props) => {
     let user = { firstName, lastName, userName, email, password };
     return axios.post(baseUrl, user)
       .then(response => {
-        return new Promise(resolve => resolve(response.data));
+        return new Promise(resolve => resolve
+          (response.data));
       })
   };
 
@@ -36,12 +37,10 @@ export const UserProvider = (props) => {
 
     return axios.post(`${baseUrl}/login`, user)
       .then(response => {
-
         localStorage.setItem
           ('myUserToken', response.data.token)
         return new Promise(resolve =>
           resolve(response.data))
-
       })
   }
 

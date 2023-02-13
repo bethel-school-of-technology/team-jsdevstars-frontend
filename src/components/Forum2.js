@@ -6,6 +6,7 @@ import ForumReadingPane from './ForumReadingPane';
 import { useContext, useState } from 'react';
 import ForumTopicList from './ForumTopicList';
 import ForumComment from './ForumComment';
+import ForumTopicComments from './ForumTopicComments';
 
 
 function Forum2(props) {
@@ -13,8 +14,6 @@ function Forum2(props) {
     let { forumTopic, refreshForums, getForumTopic, addForumTopic, editForumTopic, deleteForumTopic } = useContext(ForumContext)
 
     const [topic, selectTopic] = useState(null);
-
-
 
 
 // handleTopicSelected(topic) {
@@ -40,6 +39,7 @@ function Forum2(props) {
                     <div>
                         <Container>
                             <ForumReadingPane />
+                            <ForumTopicComments />
                         </Container>
                     </div>
 

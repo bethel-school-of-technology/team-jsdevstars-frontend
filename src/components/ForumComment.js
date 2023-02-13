@@ -1,27 +1,31 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import ForumCommentContext from '../contexts/ForumCommentContext'
+import ForumContext from '../contexts/ForumContext'
+import '../styles/Forum2.css'
 
 function ForumComment(props) {
 
-    let { forumComments, addTopicComment,
-        editTopicComment } = useContext(ForumCommentContext)
+    let { forumComments, refreshComments, getForumComment, addTopicComment,
+        editTopicComment, deleteTopicComment } = useContext(ForumCommentContext)
+
+    let { forumTopics, getForumTopic } = useContext(ForumContext)
 
     let params = useParams()
     let [Comment, setComment] = useState([])
 
-    let { getComment } = useContext(ForumCommentContext)
     let navigate = useNavigate()
     let { id, comment, commentDatetime, likes } = forumComments
+    let { forumId } = forumTopics
 
     useEffect(() => {
         if (id === undefined) return
         async function fetch() {
-            await getComment(id).then(Comment => setComment(Comment))
+            await refreshComments(forumId).then(Comment => setComment(Comment))
         }
         fetch()
     }, [id])
@@ -47,22 +51,15 @@ function ForumComment(props) {
 
     return (
         <>
-            <Form className='mb-3 forum-window' onSubmit={handleSubmit}>
-                <Form.Group className='forum-window'>
-                    <Form.Label className='forum-window'>Speak your mind</Form.Label>
-                    <Form.Control
-                        className='forum-window'
-                        placeholder='What is the title?'
-                        required
-                        type='text'
-                        v-model='text'
-                        pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+"
-                        title='Letters and numbers only'
-                        value={comment}
-                        onChange={handleChange}
-                    />
-                    <Button type='submit'>Comment</Button>
-                </Form.Group>
+            <div>
+                <h5>Speak up</h5>
+            </div>
+            <Form className='mb-3' onSubmit={handleSubmit}>
+                <div class="form-group" className='comment-window'>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" value={comment} rows="4"></textarea>
+                    <p> </p>
+                </div>
+                <Button type='submit' onSubmit={handleSubmit}>Comment</Button>
             </Form>
         </>
     )

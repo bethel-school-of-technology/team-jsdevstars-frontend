@@ -28,6 +28,7 @@ function App() {
 
             {/* <Route path="/Forum" element={<Forum />} /> */}
             <Route path="/Forum" element={<Forum2 />} />
+            <Route path="/Forum/:forumId" element={<Forum2 />} />
             {/* <Route path="/Forum/post" element={<Post />} />
             <Route path="/Forum/:ForumId" element={<UpdateComment />} /> */}
 
