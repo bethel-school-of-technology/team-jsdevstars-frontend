@@ -15,8 +15,6 @@ function Forum2(props) {
     const [topic, selectTopic] = useState(null);
 
 
-
-
 // handleTopicSelected(topic) {
 //     this.state({ selected: topic})
 // }

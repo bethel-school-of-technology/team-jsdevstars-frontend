@@ -20,7 +20,6 @@ function Forum() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
- 
   }
 
 
@@ -52,30 +51,6 @@ function Forum() {
     let updatedTitleRequest = new XMLHttpRequest();
     updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
     updatedTitleRequest.send();
-
-  //   let myRequest = new XMLHttpRequest();
-  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
-  //   myRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedContentPost, true);
-    // myRequest.send();
-
-    // myRequest.onreadystatechange = function () {
-    //   if (this.readyState === 4) {
-    //     if (this.status === 200) {
-
-    //       let myResponse = JSON.parse(this.responseText);
-
-    //       let newTitle = document.getElementById('edit-title').value;
-    //       setUpdatedTitlePost([newTitle]);
-
-    //       let newContent = document.getElementById('edit-content').value;
-    //       setUpdatedContentPost([newContent]);
-          
-    //       setPosts(posts.map(post => (post.title === selectedPost.title ? { ...post, title: newTitle, content: newContent } : post)));
-    //       setSelectedPost([]);
-    //       setShowEditPost(false);
-    //     }
-    //   }
-    // }
   }
 
   const handleSaveReply = (e) => {
@@ -86,42 +61,6 @@ function Forum() {
     });
     handleClose();
   }
-
-  // let postTitleRequest = new XMLHttpRequest();
-  // postTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postTitle, true);
-  // postTitleRequest.send();
-
-  // let postContentRequest = new XMLHttpRequest();
-  // postContentRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + postContent, true);
-  // postContentRequest.send();
-
-  // postTitleRequest.onreadystatechange = function () {
-  //   if (this.readyState === 4) {
-  //     if (this.status === 200) {
-
-  //       let postTitleResponse = JSON.parse(this.responseText);
-
-  //       let postTitle = postTitleResponse.result;
-
-  //       postContentRequest.onreadystatechange = function () {
-  //         if (this.readyState === 4) {
-  //           if (this.status === 200) {
-
-  //             let postContentResponse = JSON.parse(this.responseText);
-
-  //             let postContent = postContentResponse.result;
-
-  //             setPosts([...posts, { title: postTitle, content: postContent }]);
-  //             setPostTitle('');
-  //             setPostContent('');
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-
 
   return (
     <>
