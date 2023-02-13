@@ -1,27 +1,26 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopics, refreshForums, getForumTopic,
-        editforumTopic, deleteForumTopic, selectedForum } = useContext(ForumContext)
+    let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments } = useContext(ForumContext)
 
-    const [forumTopic, setforums] = useState([]);
-      const [like, setLike] = useState(false);
-      
+    const [like, setLike] = useState(false);
+
 
     const handleReply = () => {
         alert('Reply to this topic');
-      };
+    };
 
-      const handleEdit = () => {
+    const handleEdit = () => {
         // setShowEditPost(true);
-        editforumTopic(forumId)
-      };
+        editForumTopic(forumId)
+    };
+
 
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
@@ -55,70 +54,13 @@ function ForumReadingPane(props) {
                             <Card.Text>
                                 <h6><strong>{selectedForum.topicHeading}</strong></h6>
                                 <p>{selectedForum.topicBody}</p>
-                                <p>{selectedForum.userName}{selectedForum.createdAt}</p> 
                             </Card.Text>
                         </Card.Body>
-                        <div>
-                            <button onClick={() => setLike((prevLike) => !prevLike)}>
-                                {like ? '🍺' : "Like"}
-                            </button>
-
-                            <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
-
-                            <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
-                        </div>
                     </Card>
                 )}
             </div>
-
-
-
         </>
-
-
     )
-
 }
 
 export default ForumReadingPane;
-
-// class ForumReadingPane extends React.Component {
-
-//     render() {
-
-//         if (this.props.oneTopic == null) {
-//             return (
-//                 <div style={{ display: 'block', width: 350, padding: 30 }}>
-
-//                     <Card className="w-0 align-self-start">
-//                         <Card.Body>
-//                             <Card.Title>No Topic Selected</Card.Title>
-//                             <Card.Text>
-//                                 Click a topic on the left or create a topic
-//                             </Card.Text>
-//                         </Card.Body>
-//                     </Card>
-//                 </div>
-//             )
-
-//         } else {
-//             let { topicHeading, topicBody, createdAt, userId } = this.props.oneTopic
-//             return (
-//                 <Card className="w-0 align-self-start">
-//                     <Card.Body>
-//                         <Card.Title>{topicHeading} </Card.Title>
-//                         <Card.Subtitle className="mb-2 text-muted">by:{userId}</Card.Subtitle>
-//                         <Card.Text>
-//                             {topicBody} {createdAt}.
-//                         </Card.Text>
-//                         <Button>Comment</Button>
-//                     </Card.Body>
-//                 </Card>
-//             )
-//         }
-
-
-//     }
-// }
-
-// export default ForumReadingPane;
