@@ -9,17 +9,17 @@ function ForumReadingPane(props) {
 
     let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments } = useContext(ForumContext)
 
-      const [like, setLike] = useState(false);
-      
+    const [like, setLike] = useState(false);
+
 
     const handleReply = () => {
         alert('Reply to this topic');
-      };
+    };
 
-      const handleEdit = () => {
+    const handleEdit = () => {
         // setShowEditPost(true);
         editForumTopic()
-      };
+    };
 
     function handleDeleteTopic(forumId) {
         deleteForumTopic(forumId)
@@ -56,72 +56,15 @@ function ForumReadingPane(props) {
                         </Card.Body>
                     </Card>
                 )}
-                {selectedForumComments.length > 0 && (
-                    <div>
-                    <div>{selectedForumComments[0].comment}</div>
-                    <div>
-                    <button onClick={() => setLike((prevLike) => !prevLike)}>
-                        {like ? '🍺' : "Like"}
-                    </button>
-                    <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
+                if (selectedForumComments.length > 0) {
+                    selectedForumComments.map((comment, index) => { <div>{comment.comment}</div> })
+                }
+                <ul>{selectedForumComments}</ul>
 
-                    <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
-
-                    <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
-                </div>
-                </div>
-                )}
-                
             </div>
+            )
 
-
-
-        </>
-
-
-    )
 
 }
 
-export default ForumReadingPane;
-
-// class ForumReadingPane extends React.Component {
-
-//     render() {
-
-//         if (this.props.oneTopic == null) {
-//             return (
-//                 <div style={{ display: 'block', width: 350, padding: 30 }}>
-
-//                     <Card className="w-0 align-self-start">
-//                         <Card.Body>
-//                             <Card.Title>No Topic Selected</Card.Title>
-//                             <Card.Text>
-//                                 Click a topic on the left or create a topic
-//                             </Card.Text>
-//                         </Card.Body>
-//                     </Card>
-//                 </div>
-//             )
-
-//         } else {
-//             let { topicHeading, topicBody, createdAt, userId } = this.props.oneTopic
-//             return (
-//                 <Card className="w-0 align-self-start">
-//                     <Card.Body>
-//                         <Card.Title>{topicHeading} </Card.Title>
-//                         <Card.Subtitle className="mb-2 text-muted">by:{userId}</Card.Subtitle>
-//                         <Card.Text>
-//                             {topicBody} {createdAt}.
-//                         </Card.Text>
-//                         <Button>Comment</Button>
-//                     </Card.Body>
-//                 </Card>
-//             )
-//         }
-
-
-//     }
-// }
-
-// export default ForumReadingPane;
+            export default ForumReadingPane;
