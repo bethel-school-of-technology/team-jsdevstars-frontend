@@ -1,15 +1,46 @@
 import React from 'react';
-import '../styles/about.css'
+import '../styles/About.css';
 
-
-const About = () => {
-  return (
-    <div>
-      <h1>About these Dads</h1>
-      <p>We are a team of dedicated developers who are passionate about creating innovative and user-friendly web applications. We believe that technology should be accessible to everyone and strive to build products that are easy to use and understand.</p>
-      <p>Our goal is to provide our clients with cutting-edge solutions that meet their unique needs and exceed their expectations. We believe in working closely with our clients to understand their vision and deliver a final product that they can be proud of.</p>
-    </div>
-  );
+function About() {
+return (
+<div className="about-container">
+<header className="about-header">For Dads</header>
+<div className="about-text">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
+euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem,
+adipiscing in adipiscing et, interdum nec metus.
+</div>
+<header className="about-mission-header">We are For Dads</header>
+<div className="about-mission-text">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
+euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem,
+adipiscing in adipiscing et, interdum nec metus.
+</div>
+<header className="about-team-header">Our Team</header>
+<div className="about-team-list">
+<div className="about-team-member">
+<header className="about-team-member-name">Brett Murray</header>
+<div className="about-team-member-position">Assistant Developer</div>
+<div className="about-team-member-bio">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+viverra euismod odio, gravida pellentesque urna varius vitae. Sed
+dui lorem, adipiscing in adipiscing et, interdum nec metus.
+</div>
+<img src="" alt="Brett Murray" />
+</div>
+<div className="about-team-member">
+<header className="about-team-member-name">Andrew Chen</header>
+<div className="about-team-member-position">CMO</div>
+<div className="about-team-member-bio">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+viverra euismod odio, gravida pellentesque urna varius vitae. Sed
+dui lorem, adipiscing in adipiscing et, interdum nec metus.
+</div>
+<img src="" alt="Andrew Chen" />
+</div>
+</div>
+</div>
+);
 }
 
 export default About;
