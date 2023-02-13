@@ -8,6 +8,7 @@ export const ForumProvider = (props) => {
     const [ forumTopics, setforums ] = useState([]);
     const [ selectedForum, setSelectedForum ] = useState(null);
     const [ selectedForumComments, setSelectedForumComments] = useState([]);
+    const [userInfo, setUserInfo ] = useState([])
     const baseUrl = "http://localhost:3000/api/forum/";
 
     useEffect(() => {
@@ -22,6 +23,7 @@ export const ForumProvider = (props) => {
         return axios.get(baseUrl)
         .then(response => {
             setforums(response.data)
+            setUserInfo(response.data.user)
         });
     }
 
@@ -29,6 +31,7 @@ export const ForumProvider = (props) => {
         return axios.get(baseUrl + forumId).then(response => {
             setSelectedForum(response.data.forum);
             setSelectedForumComments([...response.data.comments]);
+            setUserInfo(response.data.user)
         })
     } 
 
@@ -88,7 +91,8 @@ export const ForumProvider = (props) => {
             filterForum,
             deleteForumTopic,
             selectedForum,
-            selectedForumComments
+            selectedForumComments,
+            setUserInfo
         }}>
             { props.children }
         </ForumContext.Provider>

@@ -2,61 +2,56 @@ import React, { useContext, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
+import '../styles/Forum2.css'
 
 function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments } = useContext(ForumContext)
+    let { forumTopics, editForumTopic, deleteForumTopic, selectedForum, selectedForumComments, setUserInfo } = useContext(ForumContext)
 
-    const [like, setLike] = useState(false);
-
-
-    const handleReply = () => {
-        alert('Reply to this topic');
-    };
-
-    const handleEdit = () => {
-        // setShowEditPost(true);
-        editForumTopic(forumId)
-    };
+    // const [like, setLike] = useState(false);
 
 
-    function handleDeleteTopic(forumId) {
-        deleteForumTopic(forumId)
-        navigate('/forum')
-    }
+    // const handleReply = () => {
+    //     alert('Reply to this topic');
+    // };
 
-    let { forumId, topicHeading, topicBody, createdAt, userName } = forumTopics
+    // const handleEdit = () => {
+    //     // setShowEditPost(true);
+    //     editForumTopic(forumId)
+    // };
+
+
+    // function handleDeleteTopic(forumId) {
+    //     deleteForumTopic(forumId)
+    //     navigate('/forum')
+    // }
+
+    let { forumId, topicHeading, topicBody, createdAt, userId } = forumTopics
+    let { userName } = setUserInfo
 
     return (
 
         <>
 
-            {/* <Card className="readingPane" key={forumTopics.forumId}>
-                <Card.Body>
-                    <Card.Title><strong>{topicHeading}</strong></Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">by: {userId}</Card.Subtitle>
-                    <Card.Text>
-                        <strong>{topicBody}</strong>
-                        <span>{createdAt}</span>
-                    </Card.Text>
-                    <Link to={`/forum/${forumId}`} className="btn btn-primary mx-3">Edit</Link>
-                    <Button variant="danger" className="mx-3" onClick={handleDeleteTopic.bind(this, forumId)}>Delete</Button>
-                </Card.Body>
-            </Card> */}
-
-            <div className='forum-content'>
+            <div class="card border-light mb-3">
                 {selectedForum && (
-                    <Card>
+                    <Card key={selectedForum.forumId}>
                         <Card.Body>
-                            <Card.Title></Card.Title>
+                            <Card.Title>{selectedForum.topicHeading}</Card.Title>
                             <Card.Text>
-                                <h6><strong>{selectedForum.topicHeading}</strong></h6>
                                 <p>{selectedForum.topicBody}</p>
+                                <br />
+                                <p class="card-subtitle mb-1 text-muted">{setUserInfo.userName}</p>
+                                <p>{selectedForum.createdAt}</p>
                             </Card.Text>
+                           
                         </Card.Body>
+                        
+
                     </Card>
+
                 )}
             </div>
         </>

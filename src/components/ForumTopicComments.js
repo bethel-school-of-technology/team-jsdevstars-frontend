@@ -16,9 +16,10 @@ function ForumTopicComments(props) {
         if (selectedForumComments === null) return
         return selectedForumComments.map((comment) =>
 
-            <ListGroup class="list-group" key={comment.forumCommentId}>
-                <ListGroup.Item>
-                    {comment.comment}
+            <ListGroup key={comment.forumCommentId}>
+               
+                <div class="d-inline-flex p-2"> {comment.comment}</div>
+                   
                     {/* <div>
                             <button onClick={() => setLike((prevLike) => !prevLike)}>
                                 {like ? '🍺' : "Like"}
@@ -29,7 +30,8 @@ function ForumTopicComments(props) {
 
                             <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
                         </div> */}
-                </ListGroup.Item>
+          
+                <p> </p>
             </ListGroup>
         )
     }

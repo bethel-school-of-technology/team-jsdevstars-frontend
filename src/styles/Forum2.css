@@ -35,6 +35,10 @@ section {
 
 }
 
+.readingPane {
+    background-color: aqua;
+}
+
 /* Add button */
 .gg-add {
     box-sizing: border-box;
@@ -66,4 +70,9 @@ section {
     height: 10px;
     top: 4px;
     left: 8px
+}
+
+.comment-window {
+    border-radius: 9px;
+    max-width: 400px;
 }
