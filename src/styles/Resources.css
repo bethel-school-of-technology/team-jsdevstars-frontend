@@ -1,0 +1,12 @@
+.title{
+  text-align: center;
+}
+
+.links{
+  max-width: 300px;
+}
+
+.resource-cards{
+  padding: 10px;
+  background-color: rgb(38, 45, 56);
+}

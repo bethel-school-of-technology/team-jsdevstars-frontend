@@ -1,0 +1,37 @@
+.mb-3, .forum-window{
+  border-radius: 9px;
+  max-width: 400px;
+}
+
+.forum-links {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  transform: translateX(-50%);
+  margin: -300px 0px 0px 30px;
+  border: 2px solid white;
+  padding: 15px 10px 0px;
+  width: 270px;
+  overflow-y: scroll;
+  border-radius: 9px;
+}
+
+.click-to-post :hover{
+  color: lightblue;
+}
+
+.forum-btn{
+  margin-left: '10px';
+}
+
+.forum-content{
+  position: absolute;
+  right: 4%;
+  top: 47%;
+  width: 400px;
+  overflow-y: scroll;
+}
+
+.forum-edit{
+border: 2px solid white;
+}

@@ -1,0 +1,26 @@
+*{
+  background-color: rgb(58, 70, 90);
+}
+
+.dark-theme {
+  background: #000;
+  color: #fff;
+}
+
+.light-theme {
+  background: #fff;
+  color: #000;
+}
+
+/* .footer {
+  position: absolute;
+  bottom: 0;
+} */
+
+.posts_list {
+  width: 700px;
+  padding: 1px 15px 5px;
+  margin: 25px 5px 5px 5px;
+  border: 3px solid rgba(0, 0, 255, 0.336);
+  text-align: right;
+}
