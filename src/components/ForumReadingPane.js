@@ -44,11 +44,11 @@ function ForumReadingPane(props) {
                                 <p>{selectedForum.topicBody}</p>
                                 <br />
                                 <p class="card-subtitle mb-1 text-muted">{setUserInfo.userName}</p>
-                                <p>{selectedForum.createdAt}</p>
+                                <p>{new Date(selectedForum.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
                             </Card.Text>
-                           
+
                         </Card.Body>
-                        
+
 
                     </Card>
 
