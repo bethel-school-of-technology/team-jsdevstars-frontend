@@ -56,7 +56,7 @@ function ForumReadingPane(props) {
                             <Card.Text>
                                 <p>{selectedForum.topicBody}</p>
                                 <br />
-                                <p class="card-subtitle mb-1 text-muted">{setUserInfo.userName}</p>
+                                <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
                                 <p>{selectedForum.createdAt}</p>
                             </Card.Text>
                         </Card.Body>
