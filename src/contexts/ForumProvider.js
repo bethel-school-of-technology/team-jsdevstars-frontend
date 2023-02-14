@@ -8,6 +8,8 @@ export const ForumProvider = (props) => {
     const [ forumTopics, setforums ] = useState([]);
     const [ selectedForum, setSelectedForum ] = useState(null);
     const [ selectedForumComments, setSelectedForumComments] = useState([]);
+    const [ heading, setHeading ] = useState("");
+    const [ body, setBody ] = useState("");
     const [userInfo, setUserInfo ] = useState([])
     const baseUrl = "http://localhost:3000/api/forum/";
 
@@ -30,6 +32,8 @@ export const ForumProvider = (props) => {
     function getForumTopic(forumId) {
         return axios.get(baseUrl + forumId).then(response => {
             setSelectedForum(response.data.forum);
+            setHeading(response.data.forum.topicHeading);
+            setBody(response.data.forum.topicBody);
             setSelectedForumComments([...response.data.comments]);
             setUserInfo(response.data.user)
         })
@@ -48,13 +52,11 @@ export const ForumProvider = (props) => {
         );
     }
 
-   
-    function editForumTopic(forumId) {
+    function editForum(forumId, heading, body) {
         let token = localStorage.getItem('myUserToken');  
         let myHeaders = { Authorization: 'Bearer ' + token };
        
-
-            return axios.put(baseUrl + forumTopics.forumId, forumTopics, { headers: myHeaders })
+            return axios.put(baseUrl + forumId, {topicHeading: heading, topicBody: body}, { headers: myHeaders })
             .then(response => {
                 refreshForums();
                 return new Promise(resolve => resolve(response.data));
@@ -87,12 +89,16 @@ export const ForumProvider = (props) => {
             refreshForums,
             getForumTopic,
             addForumTopic,
-            editForumTopic, 
+            editForum, 
             filterForum,
             deleteForumTopic,
             selectedForum,
             selectedForumComments,
-            setUserInfo
+            setUserInfo,
+            heading,
+            body,
+            setHeading,
+            setBody
         }}>
             { props.children }
         </ForumContext.Provider>
