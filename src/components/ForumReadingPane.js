@@ -8,14 +8,19 @@ function ForumReadingPane(props) {
 
     let navigate = useNavigate()
 
-    let { forumTopics, deleteForumTopic, selectedForum, getForumTopic, setUserInfo, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
+    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, setUserInfo, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
     const [showEditModal, setShowEditModal] = useState(false);
 
     const handleClose = () => setShowEditModal(false);
     const handleEdit = () => setShowEditModal(true);
     const handleSave = (forumId) => {
-        editForum(forumId, heading, body);
+        editForum(forumId, heading, body).then((val) => {
+            console.log(val);
+            //setSelectedForum(val);
+        
+        });
+        
         handleClose();
     }
 

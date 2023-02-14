@@ -59,6 +59,7 @@ export const ForumProvider = (props) => {
             return axios.put(baseUrl + forumId, {topicHeading: heading, topicBody: body}, { headers: myHeaders })
             .then(response => {
                 refreshForums();
+                setSelectedForum(response.data)
                 return new Promise(resolve => resolve(response.data));
             }
         );
