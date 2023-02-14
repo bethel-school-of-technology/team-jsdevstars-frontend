@@ -19,7 +19,7 @@ function Navigation() {
     return (
         <>
             <div className="header-links">
-                    <Link className="nav-link text-white" to="/login">Login</Link> 
+                    <Link className="nav-link text-white" to="/login">Login</Link>
                     <Link className="nav-link text-white" to="/signup">Signup</Link>
 
                     <Form>
