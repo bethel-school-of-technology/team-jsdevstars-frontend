@@ -17,10 +17,11 @@ function ForumTopicComments(props) {
         return selectedForumComments.map((comment) =>
 
             <ListGroup key={comment.forumCommentId}>
-               
+
                 <div class="d-inline-flex p-2"> {comment.comment}</div>
-                   
-                    {/* <div>
+                <p>{new Date(comment.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
+
+                {/* <div>
                             <button onClick={() => setLike((prevLike) => !prevLike)}>
                                 {like ? '🍺' : "Like"}
                             </button>
@@ -30,7 +31,7 @@ function ForumTopicComments(props) {
 
                             <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
                         </div> */}
-          
+
                 <p> </p>
             </ListGroup>
         )

@@ -15,42 +15,42 @@ function Navigation() {
     }
 
 
-    
+
     return (
         <>
             <div className="header-links">
-                    <Link className="nav-link text-white" to="/login">Login</Link>
-                    <Link className="nav-link text-white" to="/signup">Signup</Link>
-
-                    <Form>
-                        <Form.Control
-                            onChange={handleSearch}
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                    </Form>
+                <img width="40" height="40" src="/logo.png" alt="" />
+                <Link className="nav-link text-white" to="/login">Login</Link>
+                <Link className="nav-link text-white" to="/signup">Signup</Link>
+                <Form>
+                    <Form.Control
+                        onChange={handleSearch}
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                    />
+                </Form>
             </div>
             <div className="title">
-                    <h1>For Dads.</h1>
-             </div>
+                <h1>For Dads</h1>
+            </div>
             <Navbar className="justify-content-center">
-                    <Nav className="pageLinks">
-                        <NavLink className="nav-link text-white" to="/">Home</NavLink>
-                        <NavLink className="nav-link text-white" to="/forum">Forum</NavLink>
-                        <NavLink className="nav-link text-white" to="/articles">Articles</NavLink>
-                        <NavLink className="nav-link text-white" to="/resources">Resources</NavLink>
-                    </Nav>
+                <Nav className="pageLinks">
+                    <NavLink className="nav-link text-white" to="/">Home</NavLink>
+                    <NavLink className="nav-link text-white" to="/forum">Forum</NavLink>
+                    <NavLink className="nav-link text-white" to="/articles">Articles</NavLink>
+                    <NavLink className="nav-link text-white" to="/resources">Resources</NavLink>
+                </Nav>
             </Navbar>
 
             <Stack className="col-md-10 mx-auto mt-3">
                 <Outlet />
             </Stack>
-         
+
             <Footer />
-      
-         
+
+
 
         </>
     );

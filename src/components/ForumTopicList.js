@@ -30,13 +30,20 @@ function ForumTopicList(props) {
         )
     }
 
+    function handleShow() {
+        alert('hey')
+    }
+
+
     return (
         <>
             <div className="toplist">
                 <p>    </p>
                 <h5>Topics</h5>
-                <i class="gg-add"></i>
+                <i class="gg-add" onClick={handleShow}></i>
             </div>
+
+
 
             <div className='topic-container'>
                 <ForumContext.Consumer>
