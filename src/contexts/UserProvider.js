@@ -4,36 +4,49 @@ import React, { useEffect, useState } from 'react';
 
 export const UserProvider = (props) => {
 
-  // const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
   const baseUrl = 'http://localhost:3000/api/users';
 
   useEffect(() => {
     async function fetchData() {
-      fetchData();
+      // await refreshUsers();
     }
-  })
+    fetchData();
+  }, []);
+
+  // function refreshUsers() {
+  //   return axios.get(baseUrl)
+  //     .then(response => {
+  //       setUser(response.data)
+  //     });
+  // }
+
 
   function createUser(firstName, lastName, userName, email, password) {
     let user = { firstName, lastName, userName, email, password };
     return axios.post(baseUrl, user)
       .then(response => {
-        return new Promise(resolve => resolve(response.data));
+        return new Promise(resolve => resolve
+          (response.data));
       })
   };
 
 
-  function loginUser(email, password) {
+  async function loginUser(email, password) {
     let user = { email, password };
 
     return axios.post(`${baseUrl}/login`, user)
       .then(response => {
-        localStorage.setItem('myPostsToken', response.data.token)
-        return new Promise(resolve => resolve(response.data))
+        localStorage.setItem
+          ('myUserToken', response.data.token)
+        return new Promise(resolve =>
+          resolve(response.data))
       })
   }
 
   return (
     <UserContext.Provider value={{
+      // refreshUsers,
       createUser,
       loginUser
     }}>
@@ -41,5 +54,4 @@ export const UserProvider = (props) => {
     </UserContext.Provider>
   )
 
-
-}
+};

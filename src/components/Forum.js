@@ -10,11 +10,8 @@ function Forum() {
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
-  const [updatedPosts, setUpdatedPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [like, setLike] = useState(false);
-  const [reply, setReply] = useState([]);
-  const [showReplyPost, setShowReplyPost] = useState(false);
   const [showEditPost, setShowEditPost] = useState(false);
   const [updatedTitlePost, setUpdatedTitlePost] = useState([]);
   const [updatedContentPost, setUpdatedContentPost] = useState([]);
@@ -45,11 +42,10 @@ function Forum() {
 
   const handleClose = () => {
     setShowEditPost(false);
-    setShowReplyPost(false);
   };
 
   const handleReply = () => {
-    setShowReplyPost(true)
+    alert('Reply to this topic');
   };
 
   const handleDelete = () => {
@@ -60,11 +56,18 @@ function Forum() {
 
   const handleSave = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     setPosts([...updatedPosts, { title: updatedTitlePost, content: updatedContentPost }]);
     setUpdatedTitlePost('');
     setUpdatedContentPost('');
     setShowEditPost(false);
   };
+=======
+    let updatedTitleRequest = new XMLHttpRequest();
+    updatedTitleRequest.open('GET', 'https://www.purgomalum.com/service/json?text=' + updatedTitlePost, true);
+    updatedTitleRequest.send();
+  }
+>>>>>>> 822ff8665bcd1c283b860a3bd6ac88cb8ea68f90
 
   const handleSaveReply = (e) => {
     e.preventDefault();
@@ -130,9 +133,6 @@ function Forum() {
                 <h6>Title: {selectedPost.title}</h6>
                 <p>Comment: {selectedPost.content}</p>
               </Card.Text>
-              {selectedPost.reply &&
-                <p>Reply by "user": {selectedPost.reply}</p>
-              }
             </Card.Body>
             <div>
               <button onClick={() => setLike((prevLike) => !prevLike)}>
@@ -147,6 +147,7 @@ function Forum() {
           </Card>
         )}
       </div>
+<<<<<<< HEAD
 
       <Modal className='forum-reply' show={showReplyPost}
         onHide={handleClose}>
@@ -173,21 +174,20 @@ function Forum() {
           <Button variant="primary" onClick={handleSaveReply}>Save</Button>
         </Modal.Footer>
       </Modal>
+=======
+>>>>>>> 822ff8665bcd1c283b860a3bd6ac88cb8ea68f90
 
       <Modal className='forum-edit' show={showEditPost} onHide={handleClose}>
         <Modal.Header className='forum-edit'>
           <Modal.Title>Edit Post</Modal.Title>
         </Modal.Header>
         <Modal.Body className='forum-edit'>
-          <Form onSubmit={handleSave}>
+          <Form>
             <Form.Group>
               <Form.Label>Title:</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Edit title"
-                required
-                value={updatedTitlePost}
-                onChange={(e) => setUpdatedTitlePost(e.target.value)}
                 id="edit-title"
               />
             </Form.Group>
@@ -197,9 +197,6 @@ function Forum() {
               <Form.Control
                 as="textarea"
                 placeholder="Edit post"
-                required
-                value={updatedContentPost}
-                onChange={(e) => setUpdatedContentPost(e.target.value)}
                 id="edit-content"
               />
             </Form.Group>
