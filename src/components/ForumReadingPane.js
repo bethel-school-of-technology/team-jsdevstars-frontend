@@ -1,12 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Card, Button, Modal, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import ForumContext from '../contexts/ForumContext';
 import '../styles/Forum2.css'
 
 function ForumReadingPane(props) {
-
-    let navigate = useNavigate()
 
     let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, setUserInfo, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
@@ -15,12 +12,7 @@ function ForumReadingPane(props) {
     const handleClose = () => setShowEditModal(false);
     const handleEdit = () => setShowEditModal(true);
     const handleSave = (forumId) => {
-        editForum(forumId, heading, body).then((val) => {
-            console.log(val);
-            //setSelectedForum(val);
-        
-        });
-        
+        editForum(forumId, heading, body);
         handleClose();
     }
 

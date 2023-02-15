@@ -63,7 +63,18 @@ export const ForumProvider = (props) => {
                 return new Promise(resolve => resolve(response.data));
             }
         );
-        
+    }
+
+    function editForumComment(forumId, commentId, comment) {
+        let token = localStorage.getItem('myUserToken');  
+        let myHeaders = { Authorization: 'Bearer ' + token };
+       
+            return axios.put(baseUrl + forumId + "/" + commentId, {comment: comment}, { headers: myHeaders })
+            .then(response => {
+                getForumTopic(forumId)
+                return new Promise(resolve => resolve(response.data));
+            }
+        );
     }
 
     function filterForum(param) {
@@ -91,6 +102,7 @@ export const ForumProvider = (props) => {
             getForumTopic,
             addForumTopic,
             editForum, 
+            editForumComment,
             filterForum,
             deleteForumTopic,
             selectedForum,
