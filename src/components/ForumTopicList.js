@@ -9,14 +9,7 @@ function ForumTopicList(props) {
 
     let navigate = useNavigate();
 
-    let { getForumTopic, getForumComments, addForumTopic } = useContext(ForumContext);
-
-    const [newTopic, setNewTopic] = useState({
-        topicHeading: "",
-        topicBody: "",
-    });
-
-    let { topicHeading, topicBody } = newTopic;
+    let { getForumTopic, addForumTopic } = useContext(ForumContext);
 
     const [showEditModal, setShowEditModal] = useState(false);
     const [newTopicHeading, setTopicHeading] = useState("");
@@ -46,9 +39,9 @@ function ForumTopicList(props) {
         setShowEditModal(true);
     }
 
-
     function addTopicHB() {
-        addForumTopic(topicHeading, topicBody);
+        addForumTopic(newTopicHeading, newTopicBody);
+        setShowEditModal(false);
     }
     return (
         <>

@@ -44,12 +44,12 @@ export const ForumProvider = (props) => {
             Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
         };
 
-        return axios.post(baseUrl, newForumTopic, { headers: myHeaders })
+        return axios.post(baseUrl, {topicHeading: newForumHeading, topicBody: newForumBody}, { headers: myHeaders })
             .then(response => {
                 refreshForums();
                 return new Promise(resolve => resolve(response.data));
             }
-            );
+        );
     }
 
     function editForum(forumId, heading, body) {
