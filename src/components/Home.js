@@ -14,8 +14,6 @@ function Home() {
       <Stack gap={3} className="col-md-9 mx-auto mt-3">
         <AdviceAPI />
         <CarouselFade />
-
-        {/* <Footer /> */}
       </Stack>
     </>
 

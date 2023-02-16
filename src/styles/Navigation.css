@@ -5,7 +5,6 @@ Link{
 }
 
 .footer{
-    /* margin: 100px; */
     position: absolute;
     bottom: 0;
     font-weight: 400;
@@ -32,9 +31,3 @@ Link{
     font-weight: 600;
     justify-content: center;
   }
-
-  /* .date {
-    display: flex;
-    margin: 10px;
-    justify-content: space-between;
-} */
