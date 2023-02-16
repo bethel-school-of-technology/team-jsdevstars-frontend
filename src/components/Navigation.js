@@ -33,7 +33,7 @@ function Navigation() {
                     </Form>
             </div>
             <div className="title">
-                    <h1>For Dads.</h1>
+                    <h1 className='h1-title'>For Dads.</h1>
              </div>
             <Navbar className="justify-content-center">
                     <Nav className="pageLinks">
