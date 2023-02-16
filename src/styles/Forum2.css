@@ -76,3 +76,10 @@ section {
     border-radius: 9px;
     max-width: 400px;
 }
+
+.topiclist {
+    padding: 10px 15px;
+    max-width: 600px;
+    float: none;
+    margin: 0 auto;
+}
