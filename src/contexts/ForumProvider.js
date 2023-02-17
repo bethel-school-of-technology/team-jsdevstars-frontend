@@ -90,9 +90,10 @@ export const ForumProvider = (props) => {
         let token = localStorage.getItem('myUserToken');
         let myHeaders = { Authorization: 'Bearer ' + token };
 
-
         return axios.delete(baseUrl + forumId, { headers: myHeaders }).then(response => {
             refreshForums();
+            setSelectedForum(null);
+            setSelectedForumComments([]);
             return new Promise(resolve => resolve(response.data))
         })
     }

@@ -5,7 +5,7 @@ import '../styles/Forum2.css'
 
 function ForumReadingPane(props) {
 
-    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, setUserInfo, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
+    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
     const [showEditModal, setShowEditModal] = useState(false);
 
@@ -15,27 +15,9 @@ function ForumReadingPane(props) {
         editForum(forumId, heading, body);
         handleClose();
     }
-
-    // const [like, setLike] = useState(false);
-
-
-    // const handleReply = () => {
-    //     alert('Reply to this topic');
-    // };
-
-    // const handleEdit = () => {
-    //     // setShowEditPost(true);
-    //     editForumTopic(forumId)
-    // };
-
-
-    // function handleDeleteTopic(forumId) {
-    //     deleteForumTopic(forumId)
-    //     navigate('/forum')
-    // }
-
-    let { forumId, topicHeading, topicBody, createdAt, userId } = forumTopics
-    let { userName } = setUserInfo
+    const handleDelete = (forumId) => {
+        deleteForumTopic(forumId);
+    }
 
     return (
         <>
@@ -56,6 +38,9 @@ function ForumReadingPane(props) {
                     <Button variant="primary" onClick={handleEdit}>
                         Edit
                     </Button>
+                    <Button variant="secondary" onClick={() => handleDelete(selectedForum.forumId)}>
+                        Delete
+                    </Button> 
                     </>
                 )}
 
