@@ -22,6 +22,7 @@ function ForumTopicList(props) {
         }
 
         if (forumTopics === null) return
+        forumTopics.sort((a, b) => b.dateCreated - a.dateCreated);
         return forumTopics.map((topic) =>
             <div>
                 <ListGroup class="list-group" key={topic.forumId}>

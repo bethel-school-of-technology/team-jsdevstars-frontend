@@ -39,7 +39,6 @@ section {
     background-color: aqua;
 }
 
-/* Add button */
 .gg-add {
     box-sizing: border-box;
     position: relative;
@@ -82,4 +81,9 @@ section {
     max-width: 600px;
     float: none;
     margin: 0 auto;
+}
+
+.topic-container {
+    overflow-y: scroll;
+    height: 300px;
 }
