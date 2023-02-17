@@ -60,12 +60,21 @@ function ForumTopicList(props) {
             </div>
 
             <Modal
-                show={showEditModal}
-            >
+                show={showEditModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>New Topic</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    {/* <Form.Group controlId="topicHeading">
+                        <Form.Label>Heading</Form.Label>
+                        <Form.Control type="text" name="topicHeading" onChange={e => setTopicHeading(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="topicBody">
+                        <Form.Label>Tell us about it...</Form.Label>
+                        <Form.Control type="text" onChange={e => setTopicBody(e.target.value)} />
+                    </Form.Group> */}
+
                     <Form.Group controlId="topicHeading">
                         <Form.Label>Heading</Form.Label>
                         <Form.Control type="text" name="topicHeading" onChange={e => setTopicHeading(e.target.value)} />

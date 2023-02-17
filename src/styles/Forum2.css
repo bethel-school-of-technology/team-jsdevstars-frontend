@@ -35,10 +35,6 @@ section {
 
 }
 
-.readingPane {
-    background-color: aqua;
-}
-
 /* Add button */
 .gg-add {
     box-sizing: border-box;
@@ -83,3 +79,16 @@ section {
     float: none;
     margin: 0 auto;
 }
+
+.commentEditButton {
+    max-width: 50px;
+    /* display: flex;
+    justify-content: flex-end; */
+    text-align: right;
+}
+
+.commentDiv {
+    display: flex;
+    justify-content: flex-start;
+}
+

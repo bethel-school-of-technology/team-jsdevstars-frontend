@@ -24,23 +24,25 @@ function ForumReadingPane(props) {
             <div class="card border-light mb-3">
                 {selectedForum && (
                     <>
-                    <Card key={selectedForum.forumId}>
-                        <Card.Body>
-                            <Card.Title>{selectedForum.topicHeading}</Card.Title>
-                            <Card.Text>
-                                <p>{selectedForum.topicBody}</p>
-                                <br />
-                                <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
-                                <p>{selectedForum.createdAt}</p>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Button variant="primary" onClick={handleEdit}>
-                        Edit
-                    </Button>
-                    <Button variant="secondary" onClick={() => handleDelete(selectedForum.forumId)}>
-                        Delete
-                    </Button> 
+                        <Card key={selectedForum.forumId}>
+                            <Card.Body>
+                                <Card.Title>{selectedForum.topicHeading}</Card.Title>
+                                <Card.Text>
+                                    <p>{selectedForum.topicBody}</p>
+                                    <br />
+                                    <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
+                                    <p>{selectedForum.createdAt}</p>
+                                </Card.Text>
+                            </Card.Body>
+                            <div>
+                                <Button variant="primary" onClick={handleEdit}>
+                                    Edit
+                                </Button>
+                                <Button variant="secondary" onClick={() => handleDelete(selectedForum.forumId)}>
+                                    Delete
+                                </Button>
+                            </div>
+                        </Card>
                     </>
                 )}
 
@@ -49,35 +51,35 @@ function ForumReadingPane(props) {
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>      
+                <Modal.Body>
                     <Form className='mb-3 forum-window'>
                         <Form.Group className='forum-window'>
-                        <Form.Label className='forum-window'>Title:</Form.Label>
-                        <Form.Control
-                            className='forum-window'
-                            placeholder='What is the title?'
-                            required
-                            type='text'
-                            v-model="text" 
-                            pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" 
-                            title="Letters and numbers only"
-                            value={heading}
-                            onChange={(e) => setHeading(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className='forum-window'>
-                        <Form.Label>Topic:</Form.Label>
-                        <Form.Control
-                            required
-                            placeholder='Let your imagination run wild!'
-                            as='textarea'
-                            rows={5}
-                            value={body}
-                            v-model="text" 
-                            pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+" 
-                            title="Letters and numbers only"
-                            onChange={(e) => setBody(e.target.value)} />
-                    </Form.Group> 
-                </Form>
+                            <Form.Label className='forum-window'>Title:</Form.Label>
+                            <Form.Control
+                                className='forum-window'
+                                placeholder='What is the title?'
+                                required
+                                type='text'
+                                v-model="text"
+                                pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+"
+                                title="Letters and numbers only"
+                                value={heading}
+                                onChange={(e) => setHeading(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group className='forum-window'>
+                            <Form.Label>Topic:</Form.Label>
+                            <Form.Control
+                                required
+                                placeholder='Let your imagination run wild!'
+                                as='textarea'
+                                rows={5}
+                                value={body}
+                                v-model="text"
+                                pattern="[\w\d\s@&!?#$%^*()+-_{}:;']+"
+                                title="Letters and numbers only"
+                                onChange={(e) => setBody(e.target.value)} />
+                        </Form.Group>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => handleSave(selectedForum.forumId)}>

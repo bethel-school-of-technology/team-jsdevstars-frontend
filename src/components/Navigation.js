@@ -46,6 +46,8 @@ function Navigation() {
 
             <Stack className="col-md-10 mx-auto mt-3">
                 <Outlet />
+            
+
             </Stack>
          
             <Footer />
