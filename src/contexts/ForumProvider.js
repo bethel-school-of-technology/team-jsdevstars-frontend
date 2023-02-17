@@ -44,12 +44,15 @@ export const ForumProvider = (props) => {
             Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
         };
 
-        return axios.post(baseUrl, {topicHeading: newForumHeading, topicBody: newForumBody}, { headers: myHeaders })
+        return axios.post(baseUrl, { topicHeading: newForumHeading, topicBody: newForumBody }, { headers: myHeaders })
             .then(response => {
                 refreshForums();
                 return new Promise(resolve => resolve(response.data));
             }
-        );
+            ).catch(error => {
+                //console.log(response)
+                alert(error.response.data);
+            });
     }
 
     function editForum(forumId, heading, body) {
@@ -59,7 +62,7 @@ export const ForumProvider = (props) => {
         return axios.put(baseUrl + forumId, { topicHeading: heading, topicBody: body }, { headers: myHeaders })
             .then(response => {
                 refreshForums();
-                setSelectedForum(response.data)
+                setSelectedForum({ ...selectedForum, ...response.data })
                 return new Promise(resolve => resolve(response.data));
             }
             );
