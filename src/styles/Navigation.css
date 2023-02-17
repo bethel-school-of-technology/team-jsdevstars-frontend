@@ -1,4 +1,3 @@
-
 Link{
     color: white;
     padding: 100px;
@@ -14,13 +13,6 @@ Link{
     color: white;
   }
 
-  .header-links {
-    display: flex;
-    margin: 15px;
-      justify-content: flex-end;
-      align-items: center;
-  }
-
   .pageLinks {
     display: flex;
     justify-content: space-around;
@@ -31,3 +23,13 @@ Link{
     font-weight: 600;
     justify-content: center;
   }
+
+.header-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+}
