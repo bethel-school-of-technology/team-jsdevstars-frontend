@@ -8,9 +8,8 @@ import UserContext from "../contexts/UserContext";
 
 function Navigation() {
 
-    let { getUser } = useContext(UserContext)
+    // let { user } = useContext(UserContext)
 
-    let { firstName } = getUser
 
     let navigate = useNavigate();
     function handleSearch(event) {
@@ -19,19 +18,35 @@ function Navigation() {
         navigate(`/${event.target.value}/search`)
     }
 
-    function signinorout(firstName) {
-    
+    function signinorout() {
+
         let token = localStorage.getItem('myUserToken');
 
+
+
+        function signOut() {
+            localStorage.removeItem('user')
+            localStorage.removeItem('myUserToken')
+        }
+
         if (token) {
+
+            let user = localStorage.getItem('user')
+
+            if (!user) {
+                return
+            }
+
+            let { firstName } = user
+
             return (
                 <div className="header-links">
-                    <p>Welcome {firstName}</p>
+                    <p>Welcome {user}</p>
                     <p> </p>
-                    <Link className="nav-link text-white">Log out</Link>
+                    <Link onClick={signOut} className="nav-link text-white">Log out</Link>
                 </div>
             )
-            
+
         } else {
             return (
                 <div className="header-links">
@@ -50,6 +65,8 @@ function Navigation() {
                 </div>
             )
         }
+
+
     }
 
 

@@ -10,7 +10,6 @@ export const UserProvider = (props) => {
   useEffect(() => {
     async function fetchData() {
       // await refreshUsers();
-      getUser()
       console.log(user)
     }
     fetchData();
@@ -41,20 +40,20 @@ export const UserProvider = (props) => {
       .then(response => {
         localStorage.setItem
           ('myUserToken', response.data.token);
-        // localStorage.setItem
-        //   ('user', response.data.user);
+        localStorage.setItem
+          ('user', response.data.user.firstName);
         return new Promise(resolve =>
           resolve(response.data))
       })
   }
 
-  function getUser(userId) {
-    return axios.get(baseUrl + userId).then(response => {
-      // return new Promise(resolve => resolve(response.data))
-      setUser(response.data);
-      console.log(response.data)
-    })
-  }
+  // function getUser(userId) {
+  //   return axios.get(baseUrl + userId).then(response => {
+  //     // return new Promise(resolve => resolve(response.data))
+  //     setUser(response.data);
+  //     console.log(response.data)
+  //   })
+  // }
 
   function getForumComment(id) {
     return axios.get(baseUrl + id).then(response => {
@@ -69,7 +68,7 @@ export const UserProvider = (props) => {
       user,
       createUser,
       loginUser,
-      getUser
+      // getUser
     }}>
       {props.children}
     </UserContext.Provider>
