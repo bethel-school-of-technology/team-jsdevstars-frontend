@@ -48,7 +48,7 @@ function About() {
                 Brent is aprt of our ux/design department. He is unique to us in that he works remotley while on the mission field in brazil.
                 he is a proud Father of four incredible children.
             </div>
-            <img src="/Andrew.jpg" alt="Andrew.jpg" />
+            <img src="/brent.jpg" alt="brent.jpg" />
         </div>
     );
 }

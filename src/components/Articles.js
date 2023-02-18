@@ -23,38 +23,35 @@ function Articles() {
             </Card>
             <br />
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://thumbs.dreamstime.com/z/super-bowl-xlviii-logo-presented-broadway-super-bowl-xlviii-week-manhattan-37480379.jpg" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Super Bowl Stats</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                Here is a quick rundown of the numbers for the Chiefs and the Niners.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <a href="https://www.msn.com/en-us/sports/nfl/schedule?ocid=bingsports">Game Stats</a>
               </Card.Body>
             </Card>
             <br />
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://wallpapercave.com/wp/wp3293181.jpg" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Crossfit Event</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                Come join us on your fitness journey. Check your local area for an event near you.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <a href="https://games.crossfit.com/">Crossfit4Life</a>
               </Card.Body>
             </Card>
             <br />
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://th.bing.com/th/id/OIP.0XJQJAZPAyVZfStvsZeWdgHaHa?pid=ImgDet&rs=1" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>SportsCars</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                Do you feel the need for speed?Here is a great line up of the next wave of sportscars.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <a href="https://www.motor1.com/news/629084/toms-racing-2023-tokyo-auto-salon/">Tokyo Auto-Salon</a>
               </Card.Body>
             </Card>
             <br />
@@ -74,9 +71,10 @@ function Articles() {
 
         <div className='main--container'>
           <Container className='main--container'>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="people chatting" />
-            <h3 >Heading for first image</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi dolorem atque pariatur earum voluptates dolores soluta reprehenderit, molestiae, dignissimos inventore tenetur quas magni, porro nesciunt velit similique maiores sint aspernatur tempora iure nisi odio. Impedit omnis dolorum natus quasi! Ea voluptate voluptas labore voluptatibus dolorum magnam quidem explicabo culpa?</p>
+            <img src="https://media.istockphoto.com/photos/bible-study-picture-id469812334" />
+            <h3 >Journal Bible</h3>
+            <p>This Bible was formatted with you in mind.
+                   Catalog your spiritual journey and growth. </p>
           </Container>
         </div>
         <div className='main--container'>
