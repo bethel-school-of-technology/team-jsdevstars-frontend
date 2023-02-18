@@ -12,14 +12,13 @@ function Articles() {
         <div className='articles-cards'>
           <Container>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="/Harvard.jpg" alt="Andrew.jpg" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Health Study</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                Harvard research uncovers some informative new health facts.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+               <a href= "https://www.health.harvard.edu/topics/mens-health" >Harvard Health</a>
               </Card.Body>
             </Card>
             <br />
