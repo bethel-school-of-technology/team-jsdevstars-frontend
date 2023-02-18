@@ -16,10 +16,6 @@ function Forum2(props) {
     const [topic, selectTopic] = useState(null);
 
 
-// handleTopicSelected(topic) {
-//     this.state({ selected: topic})
-// }
-
     return (
 
 
@@ -55,9 +51,12 @@ function Forum2(props) {
 
             </section>
 
-
-
-
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
 
     )
@@ -66,50 +65,3 @@ function Forum2(props) {
 
 export default Forum2;
 
-// class Forum2 extends React.Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = { topics: this.topicData(), selected: null }
-//         this.handleTopicSelected = this.handleTopicSelected.bind(this);
-//     }
-
-//     topicData() {
-       
-//         let { forumTopic } = useContext(ForumContext)
-
-//         let { forumId, topicHeading, topicBody, createdAt, updatedAt,userId } = forumTopic
-
-//         for (let i = 0; i < 10; i++) {
-//             forumTopic.push({
-//                 forumId: forumId(),
-//                 topicHeading: topicHeading(),
-//                 topicBody: topicBody(),
-//                 createdAt: createdAt(),
-//                 updatedAt: updatedAt(),
-//                 userId: userId()
-//             })
-//         }
-//         return forumTopic;
-//     }
-
-//     handleTopicSelected(topicHeading) {
-//         this.state({ selected: topicHeading })
-//     }
-
-//     render() {
-//         return (
-//             <Stack gap={3} direction="horizontal" className="p-5 col-md-20 offset-md-2">
-//                 <ForumTopicList
-//                     topics={this.state.forumTopic}
-//                     handleTopicSelected={this.handleTopicSelected}
-//                     selected={this.state.selected}
-//                 />
-//                 <ForumReadingPane oneTopic={this.state.selected} />
-//             </Stack>
-//         )
-//     }
-
-// }
-
-// export default Forum2

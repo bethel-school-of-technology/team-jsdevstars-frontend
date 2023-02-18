@@ -6,7 +6,7 @@ const moment = require('moment-timezone');
 
 function ForumReadingPane(props) {
 
-    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, setUserInfo, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
+    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
     const [showEditModal, setShowEditModal] = useState(false);
 
@@ -16,27 +16,9 @@ function ForumReadingPane(props) {
         editForum(forumId, heading, body);
         handleClose();
     }
-
-    // const [like, setLike] = useState(false);
-
-
-    // const handleReply = () => {
-    //     alert('Reply to this topic');
-    // };
-
-    // const handleEdit = () => {
-    //     // setShowEditPost(true);
-    //     editForumTopic(forumId)
-    // };
-
-
-    // function handleDeleteTopic(forumId) {
-    //     deleteForumTopic(forumId)
-    //     navigate('/forum')
-    // }
-
-    let { forumId, topicHeading, topicBody, createdAt, userId } = forumTopics
-    let { userName } = setUserInfo
+    const handleDelete = (forumId) => {
+        deleteForumTopic(forumId);
+    }
 
     return (
         <>
@@ -50,6 +32,7 @@ function ForumReadingPane(props) {
                                     <p>{selectedForum.topicBody}</p>
                                     <br />
                                     <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
+<<<<<<< HEAD
                                     <p>{moment.tz(selectedForum.createdAt, moment.tz.guess()).format('MMMM Do YYYY, h:mm a z')}</p>
                                 </Card.Text>
                             </Card.Body>
@@ -57,6 +40,20 @@ function ForumReadingPane(props) {
                         <Button variant="primary" onClick={handleEdit}>
                             Edit
                         </Button>
+=======
+                                    <p>{selectedForum.createdAt}</p>
+                                </Card.Text>
+                            </Card.Body>
+                            <div>
+                                <Button variant="primary" onClick={handleEdit}>
+                                    Edit
+                                </Button>
+                                <Button variant="secondary" onClick={() => handleDelete(selectedForum.forumId)}>
+                                    Delete
+                                </Button>
+                            </div>
+                        </Card>
+>>>>>>> dce098a8815b5d9d3c7933a9d6ba4fa5eda90624
                     </>
                 )}
 
