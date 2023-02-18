@@ -18,50 +18,49 @@ function Articles() {
                 <Card.Text>
                   Harvard research uncovers some informative new health facts.
                 </Card.Text>
-                <Button variant="primary"> <a href= "https://www.health.harvard.edu/topics/mens-health" >Harvard Health</a></Button>
+                <Button variant="primary"> <a href="https://www.health.harvard.edu/topics/mens-health" >Harvard Health</a></Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://th.bing.com/th/id/R.802f662848588bc1a77a98548a189b9b?rik=Ze2rMoELbO6kPw&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f02%2fHarvard-college-emblems.jpg&ehk=9rg3KwYsqal9vFvlqSyafJz92ZJY%2bT69l7MolLp9%2bmA%3d&risl=&pid=ImgRaw&r=0" />
+              <Card.Img variant="top" src="https://thumbs.dreamstime.com/z/super-bowl-xlviii-logo-presented-broadway-super-bowl-xlviii-week-manhattan-37480379.jpg" />
               <Card.Body>
                 <Card.Title>Super Bowl Stats</Card.Title>
                 <Card.Text>
                   Here is a quick rundown of the numbers for the Chiefs and the Niners.
                 </Card.Text>
-                <Button variant="primary"></Button>
+                <Button variant="primary"> <a href="https://www.msn.com/en-us/sports/nfl/schedule?ocid=bingsports">Game Stats</a></Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://wallpapercave.com/wp/wp3293181.jpg" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Crossfit Event</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                  Come join us on your fitness journey. Check your local area for an event near you.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">< a href="https://games.crossfit.com/">Crossfit4Life</a></Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://th.bing.com/th/id/OIP.0XJQJAZPAyVZfStvsZeWdgHaHa?pid=ImgDet&rs=1" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>SportsCars</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                  Do you feel the need for speed?Here is a great line up of the next wave of sportscars.
+
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary"><a href="https://www.motor1.com/news/629084/toms-racing-2023-tokyo-auto-salon/">Tokyo Auto-Salon</a></Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ydW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" />
+              <Card.Img variant="top" src="https://media.istockphoto.com/photos/bible-study-picture-id469812334" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Journal Bible</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of card.
+                  This Bible was formatted with you in mind.
+                   Catalog your spiritual journey and growth. 
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Bible</Button>
               </Card.Body>
             </Card>
 
