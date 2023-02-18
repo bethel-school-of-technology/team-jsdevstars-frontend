@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet, useNavigate, NavLink } from "react-router-dom";
 import { Navbar, Nav, Form } from 'react-bootstrap'
 import Stack from 'react-bootstrap/Stack'
 import '../styles/Navigation.css';
 import Footer from "./Footer";
+import UserContext from "../contexts/UserContext";
 
 function Navigation() {
+
+    let { getUser } = useContext(UserContext)
+
+    let { firstName } = getUser
 
     let navigate = useNavigate();
     function handleSearch(event) {
@@ -14,11 +19,22 @@ function Navigation() {
         navigate(`/${event.target.value}/search`)
     }
 
-
+    function signinorout(firstName) {
     
-    return (
-        <>
-            <div className="header-links">
+        let token = localStorage.getItem('myUserToken');
+
+        if (token) {
+            return (
+                <div className="header-links">
+                    <p>Welcome {firstName}</p>
+                    <p> </p>
+                    <Link className="nav-link text-white">Log out</Link>
+                </div>
+            )
+            
+        } else {
+            return (
+                <div className="header-links">
                     <Link className="nav-link text-white" to="/login">Login</Link>
                     <Link className="nav-link text-white" to="/signup">Signup</Link>
 
@@ -31,28 +47,50 @@ function Navigation() {
                             aria-label="Search"
                         />
                     </Form>
-            </div>
+                </div>
+            )
+        }
+    }
+
+
+    return (
+        <>
+            <div>{signinorout()}</div>
+            {/* <div className="header-links">
+                <Link className="nav-link text-white" to="/login">Login</Link>
+                <Link className="nav-link text-white" to="/signup">Signup</Link>
+
+                <Form>
+                    <Form.Control
+                        onChange={handleSearch}
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                    />
+                </Form>
+            </div> */}
             <div className="title">
-                    <h1 className='h1-title'>For Dads.</h1>
-             </div>
+                <h1 className='h1-title'>For Dads.</h1>
+            </div>
             <Navbar className="justify-content-center">
-                    <Nav className="pageLinks">
-                        <NavLink className="nav-link text-white" to="/">Home</NavLink>
-                        <NavLink className="nav-link text-white" to="/forum">Forum</NavLink>
-                        <NavLink className="nav-link text-white" to="/articles">Articles</NavLink>
-                        <NavLink className="nav-link text-white" to="/resources">Resources</NavLink>
-                    </Nav>
+                <Nav className="pageLinks">
+                    <NavLink className="nav-link text-white" to="/">Home</NavLink>
+                    <NavLink className="nav-link text-white" to="/forum">Forum</NavLink>
+                    <NavLink className="nav-link text-white" to="/articles">Articles</NavLink>
+                    <NavLink className="nav-link text-white" to="/resources">Resources</NavLink>
+                </Nav>
             </Navbar>
 
             <Stack className="col-md-10 mx-auto mt-3">
                 <Outlet />
-            
+
 
             </Stack>
-         
+
             <Footer />
-      
-         
+
+
 
         </>
     );
