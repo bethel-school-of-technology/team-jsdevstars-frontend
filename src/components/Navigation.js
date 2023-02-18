@@ -73,22 +73,9 @@ function Navigation() {
     return (
         <>
             <div>{signinorout()}</div>
-            {/* <div className="header-links">
-                <Link className="nav-link text-white" to="/login">Login</Link>
-                <Link className="nav-link text-white" to="/signup">Signup</Link>
-
-                <Form>
-                    <Form.Control
-                        onChange={handleSearch}
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                    />
-                </Form>
-            </div> */}
             <div className="title">
                 <h1 className='h1-title'>For Dads.</h1>
+                <img style={{ width: '5%', left: '-10%' }} src='../logo.png' alt='logo for dads site'></img>
             </div>
             <Navbar className="justify-content-center">
                 <Nav className="pageLinks">
