@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Faq.css';
+import Accordion from 'react-bootstrap/Accordion';
 
 function Faq() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -9,70 +9,21 @@ function Faq() {
   };
 
   return (
-    <div className="container">
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              onClick={() => handleAccordionClick(0)}
-            >
-              Accordion Item #1
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className={`accordion-collapse ${
-              activeIndex === 0 ? 'show' : ''
-            }`}
-            aria-labelledby="headingOne"
-            data-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingTwo">
-            <button
-              className="accordion-button"
-              type="button"
-              onClick={() => handleAccordionClick(1)}
-            >
-              Accordion Item #2
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className={`accordion-collapse ${
-              activeIndex === 1 ? 'show' : ''
-            }`}
-            aria-labelledby="headingTwo"
-            data-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<Accordion defaultActiveKey="0">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Where Did it all start</Accordion.Header>
+        <Accordion.Body>
+         So there we were four dads...lol seriously truth be told the man and visionare behind For Dads is none other than our very own CEO and lead ux designer Felipe Sarres.
+         The vision is to create a community of men that can connnecet and grow together. A platform for knowledge and practical wisdom to be shared. 
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header></Accordion.Header>
+        <Accordion.Body>
+
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 }
 

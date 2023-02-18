@@ -1,25 +1,56 @@
-/* / Import Bootstrap */
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import './Faq.js';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-/* FAQ styles */
-.faq {
-  padding: 2rem;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.faq h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+.accordion-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.faq h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.accordion-button:hover,
+.accordion-button:focus {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  cursor: pointer;
 }
 
-.faq p {
-  font-size: 1.2rem;
-  line-height: 1.5;
+.accordion-button[aria-expanded="true"] {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
-  
+.accordion-body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  margin: 0 5px 5px 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-body.show {
+  display: block;
+}
+
+.accordion-body.hide {
+  display: none;
+}
