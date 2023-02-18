@@ -31,13 +31,7 @@ function Navigation() {
 
         if (token) {
 
-            let user = localStorage.getItem('user')
-
-            if (!user) {
-                return
-            }
-
-            let { firstName } = user
+            let user = localStorage.getItem('user');
 
             return (
                 <div className="header-links">
