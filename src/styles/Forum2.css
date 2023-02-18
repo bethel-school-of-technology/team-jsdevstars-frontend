@@ -35,14 +35,7 @@ section {
 
 }
 
-<<<<<<< HEAD
-.readingPane {
-    background-color: aqua;
-}
-
-=======
 /* Add button */
->>>>>>> dce098a8815b5d9d3c7933a9d6ba4fa5eda90624
 .gg-add {
     box-sizing: border-box;
     position: relative;
@@ -87,12 +80,6 @@ section {
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-.topic-container {
-    overflow-y: scroll;
-    height: 300px;
-}
-=======
 .commentEditButton {
     max-width: 50px;
     /* display: flex;
@@ -105,4 +92,7 @@ section {
     justify-content: flex-start;
 }
 
->>>>>>> dce098a8815b5d9d3c7933a9d6ba4fa5eda90624
+.topic-container {
+    overflow-y: scroll;
+    height: 300px;
+}

@@ -32,7 +32,7 @@ function ForumReadingPane(props) {
                                     <p>{selectedForum.topicBody}</p>
                                     <br />
                                     <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
-                                    <p>{selectedForum.createdAt}</p>
+                                    <p>{moment.tz(selectedForum.createdAt, moment.tz.guess()).format('MMMM Do YYYY, h:mm a z')}</p>
                                 </Card.Text>
                             </Card.Body>
                             <div>
