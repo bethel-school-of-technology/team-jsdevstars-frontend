@@ -22,7 +22,7 @@ function ForumTopicList(props) {
         }
 
         if (forumTopics === null) return
-        return forumTopics.map((topic) =>
+        return forumTopics.slice(0).reverse().map((topic) =>
             <div>
                 <ListGroup class="list-group" key={topic.forumId}>
                     <ListGroup.Item action active={props.selected === topic}
