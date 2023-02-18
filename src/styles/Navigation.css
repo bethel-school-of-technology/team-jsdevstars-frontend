@@ -1,28 +1,29 @@
-Link{
-    color: white;
-    padding: 100px;
+
+Link {
+  color: white;
+  padding: 100px;
 }
 
-.footer{
-    position: absolute;
-    bottom: 0;
-    font-weight: 400;
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 50ppx;
-    color: white;
-  }
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 50ppx;
+  color: white;
+}
 
-  .pageLinks {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding: 0px, 30px, 0px, 30px;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 600;
-    justify-content: center;
-  }
+.pageLinks {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0px, 30px, 0px, 30px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  justify-content: center;
+}
 
 .header-links {
   display: flex;
@@ -33,3 +34,4 @@ Link{
   margin: 0 auto;
   padding: 30px;
 }
+

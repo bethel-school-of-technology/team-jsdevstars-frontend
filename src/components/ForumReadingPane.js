@@ -6,7 +6,7 @@ const moment = require('moment-timezone');
 
 function ForumReadingPane(props) {
 
-    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
+    let { deleteForumTopic, selectedForum, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
     const [showEditModal, setShowEditModal] = useState(false);
 
