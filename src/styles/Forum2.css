@@ -92,3 +92,7 @@ section {
     justify-content: flex-start;
 }
 
+.topic-container {
+    overflow-y: scroll;
+    height: 300px;
+}

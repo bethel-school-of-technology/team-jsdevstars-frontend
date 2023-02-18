@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Card, Button, Modal, Form } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
 import '../styles/Forum2.css'
+const moment = require('moment-timezone');
 
 function ForumReadingPane(props) {
 
@@ -31,7 +32,7 @@ function ForumReadingPane(props) {
                                     <p>{selectedForum.topicBody}</p>
                                     <br />
                                     <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
-                                    <p>{selectedForum.createdAt}</p>
+                                    <p>{moment.tz(selectedForum.createdAt, moment.tz.guess()).format('MMMM Do YYYY, h:mm a z')}</p>
                                 </Card.Text>
                             </Card.Body>
                             <div>

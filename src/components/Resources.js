@@ -7,7 +7,6 @@ import ReactPlayer from 'react-player';
 const Resources = () => {
   return (
     <div className="resources-page">
-      <h1 className='title'>Resources for dads</h1>
       <div className="row">
         <div className="col-md-3">
           <Table className='links'>

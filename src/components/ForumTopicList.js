@@ -33,6 +33,7 @@ function ForumTopicList(props) {
                 <p> </p>
             </div>
         )
+
     }
 
     function addTopic() {
