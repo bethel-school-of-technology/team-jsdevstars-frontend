@@ -5,7 +5,7 @@ import '../styles/Forum2.css'
 
 function ForumReadingPane(props) {
 
-    let { forumTopics, deleteForumTopic, setSelectedForum, selectedForum, getForumTopic, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
+    let { deleteForumTopic, selectedForum, editForum, heading, body, setHeading, setBody } = useContext(ForumContext)
 
     const [showEditModal, setShowEditModal] = useState(false);
 
