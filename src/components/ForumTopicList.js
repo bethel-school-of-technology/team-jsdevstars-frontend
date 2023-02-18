@@ -22,12 +22,7 @@ function ForumTopicList(props) {
         }
 
         if (forumTopics === null) return
-<<<<<<< HEAD
-        forumTopics.sort((a, b) => b.dateCreated - a.dateCreated);
-        return forumTopics.map((topic) =>
-=======
         return forumTopics.slice(0).reverse().map((topic) =>
->>>>>>> dce098a8815b5d9d3c7933a9d6ba4fa5eda90624
             <div>
                 <ListGroup class="list-group" key={topic.forumId}>
                     <ListGroup.Item action active={props.selected === topic}

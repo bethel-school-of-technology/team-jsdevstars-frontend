@@ -32,15 +32,6 @@ function ForumReadingPane(props) {
                                     <p>{selectedForum.topicBody}</p>
                                     <br />
                                     <p class="card-subtitle mb-1 text-muted">by {selectedForum.User.userName}</p>
-<<<<<<< HEAD
-                                    <p>{moment.tz(selectedForum.createdAt, moment.tz.guess()).format('MMMM Do YYYY, h:mm a z')}</p>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        <Button variant="primary" onClick={handleEdit}>
-                            Edit
-                        </Button>
-=======
                                     <p>{selectedForum.createdAt}</p>
                                 </Card.Text>
                             </Card.Body>
@@ -53,7 +44,6 @@ function ForumReadingPane(props) {
                                 </Button>
                             </div>
                         </Card>
->>>>>>> dce098a8815b5d9d3c7933a9d6ba4fa5eda90624
                     </>
                 )}
 
