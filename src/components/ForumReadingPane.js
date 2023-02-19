@@ -39,7 +39,7 @@ function ForumReadingPane(props) {
                                 <Button variant="primary" onClick={handleEdit}>
                                     Edit
                                 </Button>
-                                <Button variant="secondary" onClick={() => handleDelete(selectedForum.forumId)}>
+                                <Button variant="danger" onClick={() => handleDelete(selectedForum.forumId)}>
                                     Delete
                                 </Button>
                             </div>
