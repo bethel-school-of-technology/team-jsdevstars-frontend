@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ListGroup, Button, Form, Modal } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
-// import ForumCommentContext from '../contexts/ForumCommentContext';
 import '../styles/Forum2.css'
 
 
