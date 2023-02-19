@@ -19,6 +19,18 @@ function ForumReadingPane(props) {
     const handleDelete = (forumId) => {
         deleteForumTopic(forumId);
     }
+    const displayButtons = () => {
+        if (selectedForum.userId == localStorage.getItem('userId')) {
+            return (<div>
+            <Button variant="primary" onClick={handleEdit}>
+                Edit
+            </Button>
+            <Button variant="danger" onClick={() => handleDelete(selectedForum.forumId)}>
+                Delete
+            </Button>
+        </div>)
+        }
+    }
 
     return (
         <>
@@ -35,14 +47,7 @@ function ForumReadingPane(props) {
                                     <p>{moment.tz(selectedForum.createdAt, moment.tz.guess()).format('MMMM Do YYYY, h:mm a z')}</p>
                                 </Card.Text>
                             </Card.Body>
-                            <div>
-                                <Button variant="primary" onClick={handleEdit}>
-                                    Edit
-                                </Button>
-                                <Button variant="danger" onClick={() => handleDelete(selectedForum.forumId)}>
-                                    Delete
-                                </Button>
-                            </div>
+                        {displayButtons()}
                         </Card>
                     </>
                 )}

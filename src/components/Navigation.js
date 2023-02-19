@@ -23,6 +23,8 @@ function Navigation() {
         function signOut() {
             localStorage.removeItem('user')
             localStorage.removeItem('myUserToken')
+            localStorage.removeItem('userId')
+            window.location.reload()
         }
 
         if (token) {
