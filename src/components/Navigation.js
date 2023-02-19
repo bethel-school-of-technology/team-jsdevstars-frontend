@@ -66,6 +66,8 @@ function Navigation() {
                     <NavLink className="nav-link text-white" to="/forum">Forum</NavLink>
                     <NavLink className="nav-link text-white" to="/articles">Articles</NavLink>
                     <NavLink className="nav-link text-white" to="/resources">Resources</NavLink>
+                    <NavLink className="nav-link text-white" to="/faq">FAQ</NavLink>
+                    <NavLink className="nav-link text-white" to="/about">About</NavLink>
                 </Nav>
             </Navbar>
 
