@@ -31,7 +31,8 @@ Link {
   align-items: center;
   justify-content: space-between;
   width: 50%;
+  flex-wrap: nowrap;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
 }
 

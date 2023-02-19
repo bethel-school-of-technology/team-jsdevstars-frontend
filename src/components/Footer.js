@@ -4,16 +4,10 @@ import '../styles/App.css';
 
 function Footer() {
   return (
-  
-     <div className='footer'>
-<div >
-        <Link className="nav-link text-white" to="/faq">FAQ</Link>
-          <Link className="nav-link text-white" to="/about">About</Link>
-</div>
-          
 
-        <p>© 2023 | JSDevStars</p>
-      </div>
+    <div className='footer'>
+      <p>© 2023 | JSDevStars</p>
+    </div>
   );
 }
 
