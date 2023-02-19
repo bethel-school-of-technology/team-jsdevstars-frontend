@@ -12,7 +12,7 @@ function CarouselFade() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Father's support</h3>
+          <h3>A dad is the be</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
