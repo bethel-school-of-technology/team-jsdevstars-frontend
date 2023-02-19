@@ -16,9 +16,9 @@ function Articles() {
               <Card.Body>
                 <Card.Title>Health Study</Card.Title>
                 <Card.Text>
-                Harvard research uncovers some informative new health facts.
+                  Harvard research uncovers some informative new health facts.
                 </Card.Text>
-               <a href= "https://www.health.harvard.edu/topics/mens-health" >Harvard Health</a>
+                <a href="https://www.health.harvard.edu/topics/mens-health" >Harvard Health</a>
               </Card.Body>
             </Card>
             <br />

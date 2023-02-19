@@ -6,7 +6,6 @@ import '../styles/Navigation.css';
 import Footer from "./Footer";
 
 function Navigation() {
-
     let navigate = useNavigate();
     function handleSearch(event) {
         if (event.target.value === "") return;
@@ -15,27 +14,19 @@ function Navigation() {
     }
 
     function signinorout() {
-
         let token = localStorage.getItem('myUserToken');
-
-
-
         function signOut() {
             localStorage.removeItem('user')
             localStorage.removeItem('myUserToken')
         }
-
         if (token) {
-
             let user = localStorage.getItem('user');
-
             return (
                 <div className="header-links">
                     <p>Welcome, {user}!</p>
                     <Link onClick={signOut} className="nav-link text-white">Log out</Link>
                 </div>
             )
-
         } else {
             return (
                 <div className="header-links" >
@@ -45,7 +36,6 @@ function Navigation() {
             )
         }
     }
-
 
     return (
         <>
@@ -66,17 +56,10 @@ function Navigation() {
                     <NavLink className="nav-link text-white" to="/about">About</NavLink>
                 </Nav>
             </Navbar>
-
             <Stack className="col-md-10 mx-auto mt-3">
                 <Outlet />
-
-
             </Stack>
-
             <Footer />
-
-
-
         </>
     );
 }

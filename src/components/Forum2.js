@@ -12,19 +12,11 @@ import ForumTopicComments from './ForumTopicComments';
 function Forum2(props) {
 
     let { forumTopic, refreshForums, getForumTopic, addForumTopic, editForumTopic, deleteForumTopic } = useContext(ForumContext)
-
     const [topic, selectTopic] = useState(null);
-
-
     return (
-
-
         <div className="forumWhole">
             <h3>Forum</h3>
-
-
             <section className="forumLayout">
-
                 <div className="forumTopics1">
                     <Container>
                         <ForumTopicList />
@@ -38,9 +30,6 @@ function Forum2(props) {
                             <ForumTopicComments />
                         </Container>
                     </div>
-
-
-
                 </div>
 
                 <div className="forumPosting3">
@@ -48,9 +37,7 @@ function Forum2(props) {
                         <ForumComment />
                     </Container>
                 </div>
-
             </section>
-
             <br />
             <br />
             <br />
@@ -58,7 +45,6 @@ function Forum2(props) {
             <br />
             <br />
         </div>
-
     )
 
 };
