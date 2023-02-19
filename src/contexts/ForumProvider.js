@@ -98,6 +98,44 @@ export const ForumProvider = (props) => {
         })
     }
 
+    function deleteForumTopic(forumId) {
+        let token = localStorage.getItem('myUserToken');
+        let myHeaders = { Authorization: 'Bearer ' + token };
+
+        return axios.delete(baseUrl + forumId, { headers: myHeaders }).then(response => {
+            refreshForums();
+            setSelectedForum(null);
+            setSelectedForumComments([]);
+            return new Promise(resolve => resolve(response.data))
+        })
+    }
+
+    function deleteForumComment(forumId, forumCommentId) {
+        let token = localStorage.getItem('myUserToken');
+        let myHeaders = { Authorization: 'Bearer ' + token };
+
+        return axios.delete(baseUrl + forumId + "/" + forumCommentId, { headers: myHeaders }).then(response => {
+            return axios.get(baseUrl + forumId).then(response => {
+                setSelectedForumComments([...response.data.comments]);
+            })
+        })
+    }
+
+    function addForumComment(forumId, comment) {
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myUserToken')}`
+        };
+
+        return axios.post(baseUrl + forumId, { comment: comment }, { headers: myHeaders })
+            .then(response => {
+                return axios.get(baseUrl + forumId).then(response => {
+                    setSelectedForumComments([...response.data.comments]);
+                })
+            }
+            )
+    }
+
+
     return (
         <ForumContext.Provider
             value={{
@@ -107,6 +145,7 @@ export const ForumProvider = (props) => {
                 addForumTopic,
                 editForum,
                 editForumComment,
+                deleteForumComment,
                 filterForum,
                 deleteForumTopic,
                 selectedForum,
@@ -115,7 +154,8 @@ export const ForumProvider = (props) => {
                 heading,
                 body,
                 setHeading,
-                setBody
+                setBody,
+                addForumComment
             }}>
             {props.children}
         </ForumContext.Provider>

@@ -6,7 +6,7 @@ import '../styles/Forum2.css'
 
 function ForumTopicComments(props) {
 
-    let { selectedForumComments, editForumComment, selectedForum } = useContext(ForumContext);
+    let { selectedForumComments, editForumComment, selectedForum, deleteForumComment } = useContext(ForumContext);
     let [currentCommentId, setCurrentCommentId] = useState(null);
     let [currentComment, setCurrentComment] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -23,16 +23,19 @@ function ForumTopicComments(props) {
             editForumComment(selectedForum.forumId, commentId, comment);
             handleClose();
         }
+        const handleDelete = (forumId, forumCommentId) => {
+            deleteForumComment(forumId, forumCommentId);
+        }
 
         const displayButtons = (comment) => {
             if (comment.userId == localStorage.getItem('userId')) {
                 return (<div>
-                <Button variant="primary" onClick={handleEdit}>
+                <Button variant="primary" onClick={() => handleEdit(comment)}>
                     Edit
                 </Button>
-                {/*<Button variant="danger" onClick={() => handleDelete(selectedForum.forumId)}>
+                <Button variant="danger" onClick={() => handleDelete(comment.forumId, comment.forumCommentId)}>
                     Delete
-                </Button>*/}
+                </Button>
             </div>)
             }
         }
