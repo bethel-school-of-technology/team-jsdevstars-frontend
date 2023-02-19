@@ -38,15 +38,12 @@ function Navigation() {
 
         } else {
             return (
-
                 <div className="header-links" >
                     <Link className="nav-link text-white" to="/login">Login</Link>
                     <Link className="nav-link text-white" to="/signup">Signup</Link>
                 </div >
             )
         }
-
-
     }
 
 
@@ -58,7 +55,6 @@ function Navigation() {
                 <img style={{ width: '5%', left: '-10%' }} src='../logo.png' alt='logo for dads site'></img>
                 <br />
                 <hr />
-
             </div>
             <Navbar className="justify-content-center">
                 <Nav className="pageLinks">
