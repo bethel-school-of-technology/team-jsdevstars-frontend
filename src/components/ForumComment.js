@@ -20,7 +20,7 @@ function ForumComment(props) {
 
 
     const handleSubmit = () => {
-        if (selectedForum) {
+        if (selectedForum && localStorage.getItem('myUserToken')) {
             addForumComment(selectedForum.forumId, comment)
         }
     }
