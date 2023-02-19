@@ -30,3 +30,24 @@ Link {
   justify-content:space-around;
   margin-left: -20px;
 }
+
+ .h1-title {
+  position: fixed;
+  transition: all 0.5s;
+  width: 100%;
+  color: #FFF;
+}
+
+.h1-title.scrolled {
+  opacity: 0.1;
+  color: #FFF;
+}
+
+.h1-title {
+  position: fixed;
+  top: 10;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  color: white;
+}

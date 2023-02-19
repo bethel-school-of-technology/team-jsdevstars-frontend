@@ -39,7 +39,7 @@ function About() {
             <header className="about-team-member-name">Brent Cowan</header>
             <div className="about-team-member-position">Creative Software Developer</div>
             <div className="about-team-member-bio">
-                Brent is part of our ux/design department. He is unique to us in that he works remotely while on the mission field in Brazil 🇧🇷.
+                Brent is part of our ux/design department. He is unique to us in that he works remotely while on the mission field in Brazil.
                 He is a proud Father of four incredible children.
             </div>
             <img src="/brent.jpg" alt="brent.jpg" />
