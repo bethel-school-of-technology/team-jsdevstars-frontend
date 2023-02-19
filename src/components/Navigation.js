@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom';
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav, Form } from 'react-bootstrap';
 import Stack from 'react-bootstrap/Stack';
 import '../styles/Navigation.css';
 import Footer from './Footer';
@@ -29,13 +29,6 @@ function Navigation() {
         }
     }
 
-    let navigate = useNavigate();
-    function handleSearch(event) {
-        if (event.target.value === '') return;
-        event.preventDefault();
-        navigate(`/${event.target.value}/search`)
-    }
-
     function signInOrOut() {
         let token = localStorage.getItem('myUserToken');
         function signOut() {
@@ -53,6 +46,7 @@ function Navigation() {
         } else {
             return (
                 <div className="header-links">
+                    <br />
                     <Link className="nav-link text-white" to="/login">Login</Link>
                     <Link className="nav-link text-white" to="/signup">Signup</Link>
                 </div>
@@ -64,8 +58,7 @@ function Navigation() {
         <>
             <div>{signInOrOut()}</div>
             <div className="title">
-                <h1 className="h1-title">For Dads</h1>
-                <img className="img-title" style={{ width: '3%', left: '59%', top: '7.5%' }} src="../logo.png" alt="logo for dads site"></img>
+                <h1 className="h1-title"><img className="img-title" style={{ width: '3%' }} src="../logo.png" alt="logo for dads site"></img>For Dads</h1>
                 <br />
                 <hr />
             </div>
