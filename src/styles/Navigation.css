@@ -34,20 +34,3 @@ Link {
   margin: 0 auto;
   padding: 10px;
 }
-
-.h1-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  opacity: 0.5;
-  transition: opacity 0.5s ease-out;
-}
-
-@media screen and (min-width: 768px) {
-  .h1-title {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
