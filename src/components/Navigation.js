@@ -39,7 +39,7 @@ function Navigation() {
         } else {
             return (
 
-                <div div className="header-links" >
+                <div className="header-links" >
                     <Link className="nav-link text-white" to="/login">Login</Link>
                     <Link className="nav-link text-white" to="/signup">Signup</Link>
                 </div >
