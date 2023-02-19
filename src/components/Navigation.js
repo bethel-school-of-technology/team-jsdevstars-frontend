@@ -32,7 +32,6 @@ function Navigation() {
             return (
                 <div className="header-links">
                     <p>Welcome, {user}!</p>
-                    <p> </p>
                     <Link onClick={signOut} className="nav-link text-white">Log out</Link>
                 </div>
             )
