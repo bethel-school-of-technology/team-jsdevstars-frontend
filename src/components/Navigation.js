@@ -32,8 +32,10 @@ function Navigation() {
     function signInOrOut() {
         let token = localStorage.getItem('myUserToken');
         function signOut() {
-            localStorage.removeItem('user');
-            localStorage.removeItem('myUserToken');
+            localStorage.removeItem('user')
+            localStorage.removeItem('myUserToken')
+            localStorage.removeItem('userId')
+            window.location.reload()
         }
         if (token) {
             let user = localStorage.getItem('user');

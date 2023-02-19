@@ -24,17 +24,26 @@ function ForumTopicComments(props) {
             handleClose();
         }
 
+        const displayButtons = (comment) => {
+            if (comment.userId == localStorage.getItem('userId')) {
+                return (<div>
+                <Button variant="primary" onClick={handleEdit}>
+                    Edit
+                </Button>
+                {/*<Button variant="danger" onClick={() => handleDelete(selectedForum.forumId)}>
+                    Delete
+                </Button>*/}
+            </div>)
+            }
+        }
+
         if (selectedForumComments === null) return
         return selectedForumComments.map((comment, index) =>
             <>
                 <ListGroup key={comment.forumCommentId}>
 
                     <div class="d-inline-flex p-2" className="commentDiv"> {comment.comment}</div>
-                    <div className="commentEditButton">
-                        <Button variant="primary" onClick={() => handleEdit(comment)}>
-                            Edit
-                        </Button>
-                    </div>
+                    {displayButtons(comment)}
 
                     <p> </p>
                 </ListGroup>

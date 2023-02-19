@@ -42,6 +42,8 @@ export const UserProvider = (props) => {
           ('myUserToken', response.data.token);
         localStorage.setItem
           ('user', response.data.user.firstName);
+        localStorage.setItem
+          ('userId', response.data.user.userId)
         return new Promise(resolve =>
           resolve(response.data))
       })
