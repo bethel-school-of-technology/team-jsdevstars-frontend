@@ -99,11 +99,13 @@ function Faq() {
 
         </Accordion.Body>
       </Accordion.Item>
+
       <Accordion.Item eventKey="12">
         <Accordion.Header>Are there any age restrictions for joining For Dads, or can fathers of any age participate in the community? </Accordion.Header>
         <Accordion.Body>
 
         </Accordion.Body>
+        </Accordion.Item>
       <Accordion.Item eventKey="13">
         <Accordion.Header> How does For Dads ensure the safety and privacy of its members, particularly when it comes to sharing personal information or experiences?a</Accordion.Header>
 <Accordion.Body>
