@@ -12,7 +12,7 @@ function About() {
                     <header className="about-team-member-name">Brett Murray</header>
                     <div className="about-team-member-position">Skilled Fullstack Developer</div>
                     <div className="about-team-member-bio">
-                        Brett is one our lead designers. He is a world apart in character and location. Literally he lives in Australia!He is a topnotch developer and a real staple in our company.
+                        Brett is one our lead designers. He is a world apart in character and location. Literally he lives in Australia! He is a topnotch developer and a real staple in our company.
                     </div>
                     <img src="/Brett.jpg" alt="Brett.jpg" />
                 </div>
@@ -31,7 +31,7 @@ function About() {
                 <div className="about-team-member-position">Awesome Software Developer</div>
                 <div className="about-team-member-bio">
                     Felipe is the man behind For Dads . It was his passion to see a healthy space where men and Dads could come together.
-                    A platform to empower men to have a community of sharing wisdom and growing together. He is not only the CEO but a proud DAD!
+                    A platform to empower men to have a community of sharing wisdom and growing together. He is not only the CEO but a proud DAD of two beautiful children!
 
                 </div>
                 <img style={{ width: '25%' }} src="/Felipe.jpg" alt="Felipe.jpg" />
@@ -39,7 +39,7 @@ function About() {
             <header className="about-team-member-name">Brent Cowan</header>
             <div className="about-team-member-position">Creative Software Developer</div>
             <div className="about-team-member-bio">
-                Brent is part of our ux/design department. He is unique to us in that he works remotely while on the mission field in Brazil 🇧🇷.
+                Brent is part of our ux/design department. He is unique to us in that he works remotely while on the mission field in Brazil.
                 He is a proud Father of four incredible children.
             </div>
             <img src="/brent.jpg" alt="brent.jpg" />

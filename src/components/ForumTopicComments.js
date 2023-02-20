@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { ListGroup, Button, Form, Modal } from 'react-bootstrap';
 import ForumContext from '../contexts/ForumContext';
-// import ForumCommentContext from '../contexts/ForumCommentContext';
 import '../styles/Forum2.css'
 
 
 function ForumTopicComments(props) {
 
-    let { selectedForumComments, editForumComment, selectedForum } = useContext(ForumContext);
+    let { selectedForumComments, editForumComment, selectedForum, deleteForumComment } = useContext(ForumContext);
     let [currentCommentId, setCurrentCommentId] = useState(null);
     let [currentComment, setCurrentComment] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -24,6 +23,22 @@ function ForumTopicComments(props) {
             editForumComment(selectedForum.forumId, commentId, comment);
             handleClose();
         }
+        const handleDelete = (forumId, forumCommentId) => {
+            deleteForumComment(forumId, forumCommentId);
+        }
+
+        const displayButtons = (comment) => {
+            if (comment.userId == localStorage.getItem('userId')) {
+                return (<div>
+                <Button variant="primary" onClick={() => handleEdit(comment)}>
+                    Edit
+                </Button>
+                <Button variant="danger" onClick={() => handleDelete(comment.forumId, comment.forumCommentId)}>
+                    Delete
+                </Button>
+            </div>)
+            }
+        }
 
         if (selectedForumComments === null) return
         return selectedForumComments.map((comment, index) =>
@@ -31,11 +46,7 @@ function ForumTopicComments(props) {
                 <ListGroup key={comment.forumCommentId}>
 
                     <div class="d-inline-flex p-2" className="commentDiv"> {comment.comment}</div>
-                    <div className="commentEditButton">
-                        <Button variant="primary" onClick={() => handleEdit(comment)}>
-                            Edit
-                        </Button>
-                    </div>
+                    {displayButtons(comment)}
 
                     <p> </p>
                 </ListGroup>
