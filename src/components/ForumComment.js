@@ -4,49 +4,25 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
-import ForumCommentContext from '../contexts/ForumCommentContext'
 import ForumContext from '../contexts/ForumContext'
 import '../styles/Forum2.css'
 
 function ForumComment(props) {
 
-    let { forumComments, refreshComments, getForumComment, addTopicComment,
-        editTopicComment, deleteTopicComment } = useContext(ForumCommentContext)
+    let [ comment, setComment ] = useState("");
+    let { selectedForum, addForumComment } = useContext(ForumContext);
 
-    let { forumTopics, getForumTopic } = useContext(ForumContext)
+    // function handleChange(event) {
+    //     setComment(preValue => {
+    //         return { ...preValue, [event.target.name]: event.target.value }
+    //     })
+    // }
 
-    let params = useParams()
-    let [Comment, setComment] = useState([])
 
-    let navigate = useNavigate()
-    let { id, comment, commentDatetime, likes } = forumComments
-    let { forumId } = forumTopics
-
-    useEffect(() => {
-        if (id === undefined) return
-        async function fetch() {
-            await refreshComments(forumId).then(Comment => setComment(Comment))
+    const handleSubmit = () => {
+        if (selectedForum && localStorage.getItem('myUserToken')) {
+            addForumComment(selectedForum.forumId, comment)
         }
-        fetch()
-    }, [id])
-
-    function handleChange(event) {
-        setComment(preValue => {
-            return { ...preValue, [event.target.name]: event.target.value }
-        })
-    }
-
-    function addOrUpdate() {
-        if (id === undefined) {
-            return addTopicComment(Comment)
-        } else {
-            return editTopicComment(Comment)
-        }
-    }
-
-    const handleSubmit = event => {
-        event.preventDefault()
-        addOrUpdate().then(Comment => navigate(`/forum`))
     }
 
     return (
@@ -54,13 +30,11 @@ function ForumComment(props) {
             <div>
                 <h5>Speak up</h5>
             </div>
-            <Form className='mb-3' onSubmit={handleSubmit}>
                 <div class="form-group" className='comment-window'>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" value={comment} rows="4"></textarea>
+                <textarea class="form-control" id="comment" value={comment} rows="4" onChange={e => setComment(e.target.value)}></textarea>
                     <p> </p>
                 </div>
-                <Button type='submit' onSubmit={handleSubmit}>Comment</Button>
-            </Form>
+                <Button onClick={handleSubmit}>Comment</Button>
         </>
     )
 }
