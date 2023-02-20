@@ -37,18 +37,6 @@ function ForumTopicComments(props) {
                         </Button>
                     </div>
 
-
-                    {/* <div>
-                            <button onClick={() => setLike((prevLike) => !prevLike)}>
-                                {like ? '🍺' : "Like"}
-                            </button>
-                            <button onClick={() => handleReply()}><span role='img' aria-labelledby='reply'>📬</span></button>
-
-                            <button onClick={() => handleEdit()}><span role='img' aria-labelledby='edit'>🖋</span></button>
-
-                            <button onClick={() => handleDeleteTopic()}><span role='img' aria-labelledby='delete'>🗑</span></button>
-                        </div> */}
-
                     <p> </p>
                 </ListGroup>
                 <div>
