@@ -90,9 +90,24 @@ section {
 .commentDiv {
     display: flex;
     justify-content: flex-start;
+    background-color:rgb(97, 114, 131);
+    margin: 2px;
+    border-radius: .4em;
 }
 
 .topic-container {
     overflow-y: scroll;
     height: 300px;
+}
+
+.commentbubbles {
+    position: relative;
+	background: #21565b;
+	border-radius: .4em;
+	border: 20px solid transparent;
+	border-top-color: #0a7a84;
+	border-bottom: 0;
+	border-left: 10;
+	margin-left: -10px;
+	margin-bottom: -20px;
 }

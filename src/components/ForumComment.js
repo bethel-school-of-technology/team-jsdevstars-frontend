@@ -9,7 +9,7 @@ import '../styles/Forum2.css'
 
 function ForumComment(props) {
 
-    let [ comment, setComment ] = useState("");
+    let [comment, setComment] = useState("");
     let { selectedForum, addForumComment } = useContext(ForumContext);
 
     // function handleChange(event) {
@@ -30,11 +30,11 @@ function ForumComment(props) {
             <div>
                 <h5>Speak up</h5>
             </div>
-                <div class="form-group" className='comment-window'>
+            <div class="form-group" className='comment-window'>
                 <textarea class="form-control" id="comment" value={comment} rows="4" onChange={e => setComment(e.target.value)}></textarea>
-                    <p> </p>
-                </div>
-                <Button onClick={handleSubmit}>Comment</Button>
+                <p> </p>
+            </div>
+            <Button onClick={handleSubmit}>Comment</Button>
         </>
     )
 }
