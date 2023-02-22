@@ -41,7 +41,7 @@ function Navigation() {
             let user = localStorage.getItem('user');
             return (
                 <div className="header-links">
-                    <p>Welcome, {user}!</p>
+                    <p>Welcome {user}</p>
                     <Link onClick={signOut} className="nav-link text-white">Log out</Link>
                 </div>
             )
@@ -59,7 +59,7 @@ function Navigation() {
         <>
             <div>{signInOrOut()}</div>
             <div className="title">
-                <h1 className="h1-title"><img className="img-title" style={{ width: '3%' }} src="../logo.png" alt="logo for dads site"></img>For Dads</h1>
+                <h1 className="h1-title"><img className="img-title" style={{ width: '3%' }} src="../logo.png" alt="logo for dads site"></img>   For Dads.</h1>
                 <br />
                 <hr />
             </div>

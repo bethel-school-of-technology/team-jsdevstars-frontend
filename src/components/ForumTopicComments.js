@@ -29,26 +29,31 @@ function ForumTopicComments(props) {
 
         const displayButtons = (comment) => {
             if (comment.userId == localStorage.getItem('userId')) {
-                return (<div>
-                <Button variant="primary" onClick={() => handleEdit(comment)}>
-                    Edit
-                </Button>
-                <Button variant="danger" onClick={() => handleDelete(comment.forumId, comment.forumCommentId)}>
-                    Delete
-                </Button>
-            </div>)
+                return (
+                <div>
+                    <Button variant="primary" onClick={() => handleEdit(comment)}>
+                        Edit
+                    </Button>
+                    <Button variant="danger" onClick={() => handleDelete(comment.forumId, comment.forumCommentId)}>
+                        Delete
+                    </Button>
+                </div>
+                )
             }
         }
 
         if (selectedForumComments === null) return
         return selectedForumComments.map((comment, index) =>
             <>
-                <ListGroup key={comment.forumCommentId}>
+                <ListGroup key={comment.forumCommentId} className="commentbubbles">
 
-                    <div class="d-inline-flex p-2" className="commentDiv"> {comment.comment}</div>
+                    <div class="d-inline-flex p-2" className="commentDiv"> 
+                    {comment.comment}
+                    </div>
                     {displayButtons(comment)}
 
                     <p> </p>
+            
                 </ListGroup>
                 <div>
                     {currentComment &&
