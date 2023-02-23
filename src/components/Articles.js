@@ -69,23 +69,27 @@ function Articles() {
 
         <div className='main--container'>
           <Container className='main--container'>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="people chatting" />
-            <h3 className='main--container'>Heading for first image</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi dolorem atque pariatur earum voluptates dolores soluta reprehenderit, molestiae, dignissimos inventore tenetur quas magni, porro nesciunt velit similique maiores sint aspernatur tempora iure nisi odio. Impedit omnis dolorum natus quasi! Ea voluptate voluptas labore voluptatibus dolorum magnam quidem explicabo culpa?</p>
+            <a  target="blank" href="https://psychcentral.com/blog/black-fatherhood"><img src="https://th.bing.com/th/id/OIF.mHi891IYDdMmw8uNaGP4FA?pid=ImgDet&rs=1" alt="Black Dad"/> </a>
+            <h3 className='main--container'>Black Fatherhood: Leaning into Quality Time and Mindful Legacy</h3>
+            <p>Four Black dads discuss what fatherhood means to them and the legacy they’re leaving for their children.</p>
           </Container>
         </div>
         <div className='main--container'>
           <Container className='main--container'>
-            <img src="https://plus.unsplash.com/premium_photo-1663134237332-1aac08064783?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fHRlYW0lMjB3b3JraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="people running" />
-            <h3 className='main--container'>Heading for second image</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi dolorem atque pariatur earum voluptates dolores soluta reprehenderit, molestiae, dignissimos inventore tenetur quas magni, porro nesciunt velit similique maiores sint aspernatur tempora iure nisi odio. Impedit omnis dolorum natus quasi! Ea voluptate voluptas labore voluptatibus dolorum magnam quidem explicabo culpa?</p>
+            <a target="blank" href="https://www.allprodad.com/category/parenting/daughters/"> < img src="https://wallpaperaccess.com/full/2671265.jpg" alt="Daddy Daughter"/></a>
+            <h3 className='main--container'>Dads and daughters</h3>
+            <p>One of my favorite things to do with my daughter is to go for a drive or a quick run to the store.
+               She loves to talk, and I love listening to her mind wonder about the things of this world. I want to be intentional with our time and conversations because there are things she needs to know—things every girl dad should teach his daughter.
+               Here are 5 things to talk about with your daughter before she turns 10.</p>
           </Container>
         </div>
+
         <div className='main--container'>
           <Container className='main--container'>
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGVhbSUyMHdvcmtpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="adults chatting" />
-            <h3 className='main--container'>Heading for third image</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi dolorem atque pariatur earum voluptates dolores soluta reprehenderit, molestiae, dignissimos inventore tenetur quas magni, porro nesciunt velit similique maiores sint aspernatur tempora iure nisi odio. Impedit omnis dolorum natus quasi! Ea voluptate voluptas labore voluptatibus dolorum magnam quidem explicabo culpa?</p>
+            <a target="blank" href="https://www.credit.com/blog/7-things-you-can-do-now-to-solidify-your-childs-financial-future-172047/"><img src="https://th.bing.com/th/id/OIP.5G2Bcd6tH7rA-xwkOrH2xQHaE8?pid=ImgDet&rs=1" alt="adults chatting" /> </a>
+            <h3 className='main--container'>Family Financial Freedom</h3>
+            <p>If you have kids, or are considering having them, you’ve likely started thinking about what that will mean for your finances. But have you thought about how you can help your kids become prepared for their own financial future?
+               There are plenty of things parents can do now to help set their kids down the right path financially.</p>
           </Container>
         </div>
       </div>
